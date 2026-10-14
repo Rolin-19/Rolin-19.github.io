@@ -318,6 +318,15 @@ code {
   margin-bottom: 6px;
 }
 
+.keterangan-kontak {
+  margin: 26px 0 0;
+  padding-top: 18px;
+  border-top: 1px solid var(--krem-2);
+  max-width: 62ch;
+  font-size: .9rem;
+  color: var(--pudar);
+}
+
 /* ---------- kaki ---------- */
 
 .kaki {
