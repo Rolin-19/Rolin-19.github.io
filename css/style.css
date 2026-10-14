@@ -311,6 +311,11 @@ code {
   text-wrap: balance;
 }
 .tautan-lain { margin: 0; font-size: .95rem; }
+.tautan-lain a {
+  display: inline-block;
+  margin-right: 26px;
+  margin-bottom: 6px;
+}
 
 /* ---------- kaki ---------- */
 
