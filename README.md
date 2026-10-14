@@ -35,7 +35,7 @@ apa pun.
 ## Catatan tampilan
 
 Palet warna diambil dari foto taman nasional yang dipakai di halaman:
-hijau hutan `#1F3D2B`, krem `#F6F2E9`, dan bata `#B5561F`. Tampilannya dibuat
+hijau hutan `#1F3D2B`, krem `#F6F2E9`, dan bata `#A8501C`. Tampilannya dibuat
 seperti halaman cetak — judul memakai huruf serif, pemisah antar bagian memakai
 garis tipis alih-alih kotak dan bayangan. Tidak ada gradien warna.
 

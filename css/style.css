@@ -9,7 +9,8 @@
   --hutan-2: #2F5940;
   --krem:    #F6F2E9;
   --krem-2:  #E7DFCE;
-  --bata:    #B5561F;
+  --bata:    #A8501C;   /* digelapkan sedikit dari #B5561F: di atas krem
+                           kontrasnya 4,35:1, sedangkan teks kecil butuh 4,5:1 */
   --tinta:   #23201C;
   --pudar:   #6E675C;
   --serif:   Georgia, "Times New Roman", Times, serif;
