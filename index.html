@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rolin Stallin &mdash; Analisis Data</title>
+<meta name="description" content="Portofolio Rolin Stallin. Mengolah data dengan Python, pandas, dan SQL. Proyek: Biodiversity in National Parks.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<a class="lewati" href="#isi">Lewati ke isi</a>
+
+<header class="kop">
+  <div class="wadah">
+    <p class="label">Portofolio &middot; 2026</p>
+    <h1>Rolin<br>Stallin</h1>
+    <p class="pembuka">Saya mengolah data jadi temuan yang bisa dipahami orang lain &mdash; bukan cuma tabel dan grafik.</p>
+    <p class="tautan-kop">
+      <a href="#proyek">Proyek</a>
+      <a href="mailto:stallinrolin@gmail.com">Email</a>
+      <a href="https://github.com/Rolin-data">GitHub</a>
+    </p>
+  </div>
+</header>
+
+<div class="jalur-foto">
+  <figure><img src="assets/foto/yellowstone.jpg" alt="Kolam air panas berasap di Yellowstone" width="1280" height="853"></figure>
+  <figure><img src="assets/foto/yosemite.jpg" alt="Tebing batu di Yosemite" width="1280" height="853"></figure>
+  <figure><img src="assets/foto/bryce.jpg" alt="Batuan merah di Bryce Canyon" width="1280" height="853"></figure>
+</div>
+<p class="keterangan">Yellowstone, Yosemite, Bryce Canyon &mdash; empat taman nasional yang datanya saya olah. Foto: Wikimedia Commons.</p>
+
+<main id="isi">
+
+  <section class="bagian">
+    <div class="wadah">
+      <div class="judul-bagian"><span class="nomor">01</span><h2>Tentang</h2></div>
+      <div class="dua-kolom">
+        <div>
+          <p>Saya belajar analisis data dari nol. Mulai dari menulis <code>for</code> loop, lanjut ke pandas, lalu SQL untuk mengambil data dari basis data.</p>
+          <p>Bagian yang paling saya nikmati justru setelah data selesai dibersihkan &mdash; saat angkanya mulai bisa bercerita. Saya suka mencari tahu <em>kenapa</em> sebuah angka terlihat aneh, bukan sekadar melaporkan bahwa angkanya aneh.</p>
+          <p>Proyek terakhir saya mengolah data National Park Service tentang status konservasi 5.824 spesies. Dari situ saya belajar satu hal: temuan yang paling berguna sering bukan yang paling rumit.</p>
+        </div>
+        <dl class="fakta">
+          <dt>Sedang fokus pada</dt>
+          <dd>Analisis data &amp; statistik terapan</dd>
+          <dt>Bahasa &amp; alat</dt>
+          <dd>Python, pandas, NumPy, SQL, Jupyter</dd>
+          <dt>Visualisasi</dt>
+          <dd>matplotlib, seaborn</dd>
+          <dt>Statistik</dt>
+          <dd>scipy &mdash; uji chi-square, uji proporsi</dd>
+          <dt>Domisili</dt>
+          <dd>Indonesia</dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="bagian bagian-garis" id="proyek">
+    <div class="wadah">
+      <div class="judul-bagian"><span class="nomor">02</span><h2>Proyek</h2></div>
+
+      <article class="proyek">
+        <h3>Biodiversity in National Parks</h3>
+        <p class="meta-proyek">Python &middot; pandas &middot; scipy &middot; matplotlib &middot; Jupyter Notebook</p>
+
+        <p>National Park Service mencatat spesies apa saja yang hidup di taman nasional Amerika, dan berapa kali tiap spesies teramati. Datanya terbagi dua berkas: <code>species_info.csv</code> (5.824 spesies) dan <code>observations.csv</code> (23.296 baris).</p>
+        <p>Pertanyaan yang saya ajukan sederhana: <strong>spesies seperti apa yang biasanya masuk program konservasi?</strong> Apakah jenisnya berpengaruh, atau statusnya tersebar rata?</p>
+
+        <div class="angka">
+          <div><span class="besar">5.824</span><span class="kecil">spesies diperiksa</span></div>
+          <div><span class="besar">191</span><span class="kecil">berstatus dilindungi</span></div>
+          <div><span class="besar">3,3%</span><span class="kecil">dari seluruh spesies</span></div>
+        </div>
+
+        <p>Ternyata hanya <strong>3,3%</strong> spesies yang masuk program konservasi &mdash; sisanya belum tersentuh perhatian sama sekali. Ketika saya pisahkan per kategori, polanya langsung terlihat:</p>
+
+        <ul class="temuan">
+          <li><strong>Mamalia 17,0%</strong> dan <strong>burung 15,4%</strong> &mdash; paling sering dilindungi.</li>
+          <li><strong>Tumbuhan sekitar 1%</strong> &mdash; hampir tidak pernah, padahal jumlahnya paling banyak.</li>
+          <li>Uji chi-square memberi <code>chi2 = 628,58</code> dengan <code>p = 2,46 &times; 10<sup>&minus;117</sup></code>, jadi hubungan ini bukan kebetulan.</li>
+        </ul>
+
+        <p>Yang paling menarik buat saya justru bagian observasinya: <strong>Yellowstone tercatat 1.587.641 kali</strong>, jauh di atas Yosemite (949.452), Bryce (633.291), dan Great Smoky Mountains (474.863). Jumlah itu kemungkinan besar bercerita tentang banyaknya pengunjung, bukan tentang banyaknya spesies.</p>
+
+        <figure class="gambar">
+          <img src="assets/chart1.png" alt="Diagram batang proporsi spesies dilindungi per kategori" width="700" height="555">
+          <figcaption>Proporsi spesies dilindungi per kategori. Mamalia dan burung paling tinggi; tumbuhan nyaris nol.</figcaption>
+        </figure>
+
+        <figure class="gambar">
+          <img src="assets/chart2.png" alt="Diagram batang total observasi per taman nasional" width="935" height="469">
+          <figcaption>Total observasi per taman. Selisihnya lebar &mdash; pengaruh jumlah pengunjung, bukan kekayaan spesies.</figcaption>
+        </figure>
+
+        <p class="catatan">Catatan pribadi: awalnya saya mengira kategori spesies tidak akan berpengaruh sama sekali. Hasil uji chi-square membuat saya sadar bahwa dugaan awal saya salah.</p>
+
+        <p class="tautan-proyek">
+          <a href="https://github.com/Rolin-data/biodiversity-national-parks">Buka kode, notebook, dan slide presentasi &rarr;</a>
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section class="bagian bagian-garis" id="cara-kerja">
+    <div class="wadah">
+      <div class="judul-bagian"><span class="nomor">03</span><h2>Cara saya bekerja</h2></div>
+      <ol class="langkah">
+        <li><strong>Pahami pertanyaannya dulu.</strong> Saya tulis dulu apa yang mau dijawab, baru menyentuh datanya.</li>
+        <li><strong>Periksa kualitas data.</strong> Berapa baris, ada yang kosong tidak, ada yang mustahil tidak.</li>
+        <li><strong>Cari pola, lalu uji.</strong> Angka deskriptif dulu, habis itu baru uji statistik supaya tidak salah simpul.</li>
+        <li><strong>Buat agar bisa dibaca.</strong> Grafik diberi keterangan, temuan ditulis dengan bahasa biasa, batasan analisis saya tulis apa adanya.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="bagian bagian-garis" id="kontak">
+    <div class="wadah">
+      <div class="judul-bagian"><span class="nomor">04</span><h2>Kontak</h2></div>
+      <p class="ajakan">Saya sedang mencari kesempatan pertama sebagai data analyst. Kalau ada proyek, magang, atau sekadar ingin bertukar pikiran, silakan hubungi saya.</p>
+      <p class="kontak-besar">
+        <a href="mailto:stallinrolin@gmail.com">stallinrolin@gmail.com</a>
+      </p>
+      <p class="tautan-lain">
+        <a href="https://github.com/Rolin-data">github.com/Rolin-data</a>
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="kaki">
+  <div class="wadah">
+    <p>Situs ini saya tulis sendiri dengan HTML dan CSS, tanpa kerangka kerja. Foto taman nasional dari Wikimedia Commons.</p>
+    <p class="tahun">Rolin Stallin &middot; 2026</p>
+  </div>
+</footer>
+
+</body>
+</html>
