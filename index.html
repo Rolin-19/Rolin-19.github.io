@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portofolio Rolin Stallin — sehari-hari kerja di bioskop, di sela itu bikin alat kecil: katalog rekomendasi film, catatan kuliner, dan analisis data. Semua kodenya terbuka dan ada demo onlinenya.">
+    <title>Rolin Stallin — Portofolio</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%2345a0ef'/%3E%3Ctext x='50' y='74' font-size='58' font-family='Arial' font-weight='bold' fill='%230d0d0d' text-anchor='middle'%3ERS%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+
+<!-- Navigasi -->
+<nav class="animasi-nav">
+    <div class="logo">
+        <p>Rolin Stallin</p>
+    </div>
+    <div class="teks-nav">
+        <a href="#home" class="aktif">Beranda</a>
+        <a href="#project">Project</a>
+        <a href="#kontak">Kontak</a>
+    </div>
+</nav>
+
+<!-- Beranda -->
+<section id="home">
+    <div class="content">
+        <div class="foto animasi-foto">
+            <!-- Punya foto sendiri? Ganti baris di bawah dengan:
+                 <img src="assets/foto.jpg" alt="Foto profil Rolin Stallin"> -->
+            <div class="foto-awal" aria-hidden="true">RS</div>
+        </div>
+        <div class="judul animasi-text">
+            <h1>Halo! Saya <span class="aksen">Rolin Stallin</span></h1>
+        </div>
+        <div class="sub">
+            <p class="animasi-text">
+                Sehari-hari saya kerja di bioskop — layanan pelanggan, operasional,
+                urusan penonton. Di sela itu saya bikin alat kecil yang kepakai sendiri dulu:
+                katalog rekomendasi film, catatan kuliner berbasis terminal, analisis data
+                pakai Jupyter. Bahasanya <span class="aksen">Python</span> dan
+                <span class="aksen">JavaScript</span>. Yang penting bisa dipakai,
+                bukan yang paling rumit.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Project -->
+<section id="project" class="proyek">
+    <div class="judul judul-seksi animasi-text">
+        <h2>Project Saya</h2>
+    </div>
+    <div class="isi-proyek animasi-text">
+
+        <article class="kartu">
+            <div class="kartu-atas">
+                <span class="urutan">01</span>
+                <h3>Rekomendasi Film</h3>
+            </div>
+            <p>
+                Katalog 36 film dalam 6 genre. Jalan lewat terminal Python, tampil juga
+                sebagai katalog web, dan 65 unit test mengunci aturan datanya.
+            </p>
+            <ul class="teknologi">
+                <li>Python</li>
+                <li>HTML</li>
+                <li>Tailwind</li>
+                <li>JSON</li>
+            </ul>
+            <div class="tautan">
+                <a href="https://rolin-data.github.io/Project-Protofolio-Kecil/" target="_blank" rel="noopener">Demo</a>
+                <a href="https://github.com/Rolin-data/Project-Protofolio-Kecil" target="_blank" rel="noopener">Kode</a>
+            </div>
+        </article>
+
+        <article class="kartu">
+            <div class="kartu-atas">
+                <span class="urutan">02</span>
+                <h3>Rekomendasi Kuliner Indonesia</h3>
+            </div>
+            <p>
+                Catatan kuliner berbasis terminal. Data tidak ditanam di dalam kode,
+                tapi disimpan di file <code>data_kuliner.json</code> — jadi bisa ditambah,
+                diubah harganya, atau dihapus langsung dari program.
+            </p>
+            <ul class="teknologi">
+                <li>Python</li>
+                <li>HTML</li>
+                <li>JSON</li>
+            </ul>
+            <div class="tautan">
+                <a href="https://rolin-data.github.io/Rekomendasi-Kuliner-Di-Indonesia/" target="_blank" rel="noopener">Demo</a>
+                <a href="https://github.com/Rolin-data/Rekomendasi-Kuliner-Di-Indonesia" target="_blank" rel="noopener">Kode</a>
+            </div>
+        </article>
+
+        <article class="kartu">
+            <div class="kartu-atas">
+                <span class="urutan">03</span>
+                <h3>Biodiversity in National Parks</h3>
+            </div>
+            <p>
+                Analisis data National Park Service soal status konservasi spesies di empat
+                taman nasional — dari memuat dan membersihkan data, memvisualisasikan,
+                sampai menguji hipotesis.
+            </p>
+            <ul class="teknologi">
+                <li>Jupyter</li>
+                <li>HTML</li>
+                <li>CSV</li>
+            </ul>
+            <div class="tautan">
+                <a href="https://github.com/makiootol-bit/biodiversity-national-parks" target="_blank" rel="noopener">Kode</a>
+            </div>
+        </article>
+
+    </div>
+</section>
+
+<!-- Kontak -->
+<section id="kontak" class="kontak">
+    <div class="content">
+        <div class="judul animasi-text">
+            <h2>Hubungi Saya</h2>
+        </div>
+        <div class="sub">
+            <p class="animasi-text">
+                Mau tanya-tanya soal project, atau mau kerja bareng? Silakan lewat
+                LinkedIn atau GitHub.
+            </p>
+        </div>
+        <div class="baris-kontak">
+            <a class="kartu-kontak" href="https://linkedin.com/in/rolinstallinsitorus" target="_blank" rel="noopener">linkedin.com/in/rolinstallinsitorus</a>
+            <a class="kartu-kontak" href="https://github.com/Rolin-data" target="_blank" rel="noopener">github.com/Rolin-data</a>
+        </div>
+    </div>
+</section>
+
+<!-- Media Sosial — cuma akun yang benar-benar ada -->
+<div class="media">
+    <a class="icon animasi-icon" href="https://linkedin.com/in/rolinstallinsitorus" target="_blank" rel="noopener" aria-label="Profil LinkedIn Rolin Stallin">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+    </a>
+    <a class="icon animasi-icon-2" href="https://github.com/Rolin-data" target="_blank" rel="noopener" aria-label="Profil GitHub Rolin Stallin">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+    </a>
+</div>
+
+</body>
+</html>
