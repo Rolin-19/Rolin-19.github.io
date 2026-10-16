@@ -588,9 +588,6 @@ strong{ font-weight: 600; color: var(--navy); }
     border-bottom: 0;
     border-right: 1px solid var(--garis);
 }
-    border-bottom: 0;
-    border-right: 1px solid var(--garis);
-}
 .unggulan .kartu-isi{
     padding: 32px;
     display: flex;
