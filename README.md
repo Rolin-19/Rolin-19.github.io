@@ -1,9 +1,10 @@
 # Portofolio — Rolin Stallin Sitorus
 
-Situs portofolio berbahasa Indonesia: satu halaman beranda berisi profil, riwayat
-kerja, keahlian, proyek, dan kontak, ditambah empat halaman studi kasus untuk tiap
-proyek. Ditulis dengan HTML, CSS, dan sedikit JavaScript, tanpa framework dan tanpa
-proses build, jadi bisa langsung di-host di GitHub Pages.
+Situs portofolio dua bahasa: satu halaman beranda berisi profil, riwayat kerja,
+keahlian, proyek, dan kontak, ditambah empat halaman studi kasus untuk tiap proyek.
+Versi Indonesia ada di akar folder, versi Inggris di `en/`, dan tombol ID/EN di menu
+mengalihkan antar versi. Ditulis dengan HTML, CSS, dan sedikit JavaScript, tanpa
+framework dan tanpa proses build, jadi bisa langsung di-host di GitHub Pages.
 
 ## Isi Halaman
 
@@ -21,6 +22,10 @@ proses build, jadi bisa langsung di-host di GitHub Pages.
 **Studi kasus** (`proyek/`): VISOP, Biodiversity in National Parks, Rekomendasi
 Film, dan Rekomendasi Kuliner Indonesia. Tiap halaman menjelaskan pertanyaan atau
 tujuan, data yang dipakai, cara pengerjaan, hasilnya, dan batasannya.
+
+Versi Inggrisnya ada di `en/` dengan nama berkas yang sama (`en/index.html`,
+`en/visop.html`, `en/biodiversity.html`, dan seterusnya). Isinya terjemahan dari
+versi Indonesia, dengan angka, gambar, dan tautan yang sama.
 
 ## Tautan yang Dipasang
 
@@ -65,16 +70,27 @@ Animasi hanya berupa perubahan warna dan angkat kotak saat disorot, dan seluruhn
 dihentikan bila pengguna mengaktifkan `prefers-reduced-motion`.
 
 Sudah diuji: 100 untuk aksesibilitas, praktik terbaik, dan SEO di Lighthouse untuk
-kelima halaman; tidak ada gulir horizontal dari lebar 305 px sampai 1440 px.
+kelima halaman versi Indonesia. Tidak ada gulir horizontal dari lebar 305 px sampai
+1440 px; versi Inggris memakai struktur dan gaya yang sama, jadi perilakunya sama.
 
 Font Inter dimuat dari Google Fonts lewat `<link>` dengan `preconnect`, bukan
 `@import`, supaya tidak menghambat render.
 
-## Berkas Lama
+## Dua Bahasa
 
-`en.html` dan `styles.css` adalah versi sebelumnya yang bergaya editorial "kertas"
-dengan dua bahasa. Keduanya masih utuh tetapi tidak lagi ditautkan dari beranda.
-`en.html` memakai `styles.css`, bukan `gaya.css`.
+Tombol ID/EN duduk sebagai item terakhir di dalam menu, jadi ikut muncul di menu
+ponsel. Pasangannya:
+
+| Halaman | Versi Indonesia | Versi Inggris |
+|---|---|---|
+| Beranda | `index.html` | `en/index.html` |
+| VISOP | `proyek/visop.html` | `en/visop.html` |
+| Biodiversity | `proyek/biodiversity.html` | `en/biodiversity.html` |
+| Rekomendasi Film | `proyek/rekomendasi-film.html` | `en/rekomendasi-film.html` |
+| Rekomendasi Kuliner | `proyek/rekomendasi-kuliner.html` | `en/rekomendasi-kuliner.html` |
+
+Kedua versi memakai satu `gaya.css` yang sama. Tombol bahasa ikut tersembunyi saat
+halaman dicetak, jadi hasil PDF-nya tetap bersih.
 
 ## Menjalankan Lokal
 
@@ -89,8 +105,9 @@ lalu buka `http://127.0.0.1:8100`.
 ```
 .
 ├── index.html        # beranda Indonesia
-├── gaya.css          # seluruh gaya halaman baru
-├── proyek/           # empat halaman studi kasus
+├── gaya.css          # satu gaya untuk kedua bahasa
+├── proyek/           # empat halaman studi kasus Indonesia
+├── en/               # lima halaman versi Inggris
 ├── assets/
 │   ├── foto.jpg                  # foto profil, rasio 4:5
 │   ├── visop.jpg                 # tangkapan layar VISOP (halaman verifikasi ID)
@@ -99,8 +116,6 @@ lalu buka `http://127.0.0.1:8100`.
 │   ├── chart1.png                # grafik persentase spesies dilindungi per kategori
 │   ├── chart2.png                # grafik total observasi per taman
 │   └── favicon.ico
-├── en.html           # versi Inggris lama, tidak ditautkan
-├── styles.css        # gaya versi lama
 ├── .gitignore
 └── README.md
 ```
@@ -117,4 +132,7 @@ lalu buka `http://127.0.0.1:8100`.
   Ubah di situ, seluruh halaman ikut berubah.
 - **Tambah proyek** — salin satu blok `<a class="kartu-proyek">` di bagian `#proyek`
   `index.html`, lalu buat halaman studi kasus baru di `proyek/` dengan menyalin
-  halaman yang sudah ada.
+  halaman yang sudah ada. Setelah itu buat pasangannya di `en/` dan lengkapi
+  tautannya di tombol ID/EN kedua halaman.
+- **Teks** — setiap perubahan pada versi Indonesia sebaiknya diikuti di `en/` supaya
+  kedua versi tetap sepadan.

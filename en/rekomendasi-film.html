@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Movie Recommendation | Rolin Stallin Sitorus</title>
+<meta name="description" content="A movie recommendation program that runs in the terminal, built on from a Codecademy assignment. The data lives in separate JSON, the logic is locked down by 65 unit tests, then a web version was made.">
+<meta name="author" content="Rolin Stallin Sitorus">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Movie Recommendation">
+<meta property="og:description" content="From a Codecademy assignment to a complete program: separate JSON, 65 unit tests, search and sorting algorithms, plus a web version.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../gaya.css">
+<link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+<a class="lompat-isi" href="#main">Skip to content</a>
+
+<header class="kepala-situs">
+    <div class="wadah kepala-dalam">
+        <a class="merek" href="index.html">Rolin Stallin Sitorus</a>
+
+        <button class="tombol-menu" type="button" aria-label="Main menu"
+                aria-expanded="false" aria-controls="menu-utama">
+            <span></span><span></span><span></span>
+        </button>
+
+        <nav class="menu" id="menu-utama" aria-label="Main menu">
+            <a href="index.html#home">Home</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#experience">Experience</a>
+            <a href="index.html#projects">Projects</a>
+            <a href="index.html#contact">Contact</a>
+            <a class="bahasa" href="../proyek/rekomendasi-film.html" hreflang="id" lang="id">ID</a>
+        </nav>
+    </div>
+</header>
+
+<main id="main">
+
+<section class="hero-proyek">
+    <div class="wadah">
+        <p class="remah">
+            <a href="index.html#projects">Projects</a>
+            <span class="pemisah">/</span>
+            <span>Movie Recommendation</span>
+        </p>
+
+        <span class="label-kecil label-netral">Practice &middot; 2026</span>
+        <h1>Movie Recommendation</h1>
+        <p class="ringkas-proyek">
+            A movie recommendation program that runs in the terminal. Type one word such as
+            &ldquo;hantu&rdquo; or &ldquo;lucu&rdquo;, the program guesses the closest genre, then shows the list of movies in that genre.
+        </p>
+
+        <dl class="meta-proyek">
+            <div>
+                <dt>Role</dt>
+                <dd>Continued development</dd>
+            </div>
+            <div>
+                <dt>Period</dt>
+                <dd>2026</dd>
+            </div>
+            <div>
+                <dt>Context</dt>
+                <dd>Practice project</dd>
+            </div>
+            <div>
+                <dt>Tools</dt>
+                <dd>Python, JavaScript, Tailwind</dd>
+            </div>
+        </dl>
+
+        <p class="sumber-proyek">
+            <span class="label-sumber">Code</span>
+            <a class="tautan-kode" href="https://github.com/Rolin-data/Project-Protofolio-Kecil" target="_blank" rel="noopener">github.com/Rolin-data/Project-Protofolio-Kecil<span class="sr-only"> (opens in a new tab)</span></a>
+        </p>
+    </div>
+</section>
+
+<section class="isi-proyek">
+    <div class="wadah">
+
+        <div class="kotak-angka">
+            <div><b>36</b><span>movies in the data</span></div>
+            <div><b>6</b><span>genres, 6 movies each</span></div>
+            <div><b>65</b><span>unit tests</span></div>
+        </div>
+
+        <figure class="gambar-penuh">
+            <img src="../assets/rekomendasi-film.jpg" width="1120" height="700"
+                 alt="Screenshot of the web version of Movie Recommendation: Search, Genre, Catalog, and Marathon menus, plus a summary of the number of movies">
+            <figcaption>The web version running on GitHub Pages. Its logic was rewritten from the Python version.</figcaption>
+        </figure>
+
+        <h2>Project origin</h2>
+        <p>
+            The code started as a Codecademy assignment titled Recommendation Software, on the Movies topic. That assignment stopped at a program that already worked. I continued it to make it tidier: the data was moved into its own JSON file, the logic was tested with unit tests, and I built the web version.
+        </p>
+
+        <h2>Features</h2>
+
+        <h3>Search</h3>
+        <ul>
+            <li>Search by keyword. Type <code>hantu</code> and a horror genre suggestion appears along with its movie list, sorted by highest rating. If the keyword does not match, the program says so and suggests other words.</li>
+            <li>Search for a movie title by typing part of it. Behind the scenes, the program
+                uses binary search on the sorted list to stay fast; when there is
+                no match, the search falls back to going through items one by one (linear).</li>
+        </ul>
+
+        <h3>Recommendations and sorting</h3>
+        <ul>
+            <li>Marathon package. Enter a total duration limit, for example 240 minutes, then the program builds the combination of movies that comes closest to that limit.</li>
+            <li>See all the data with a choice of order: rating, year, duration, or title. There is a
+                summary of the number of movies and the average rating per genre.</li>
+        </ul>
+
+        <h3>Managing data</h3>
+        <ul>
+            <li>Add movies, change ratings, and delete. The changes are written straight to the
+                JSON file.</li>
+        </ul>
+
+        <h2>Data</h2>
+        <p>
+            All the data sits in one file, <code>data_film.json</code>, shared by the
+            terminal version and the web version. So nothing is written twice. It holds 36
+            movies across 6 genres, 6 movies each: aksi, drama, komedi, horor, animasi, and
+            dokumenter.
+        </p>
+        <p>
+            One thing worth explaining is the rating column. The numbers are my personal scores
+            on a scale of 0 to 10, not IMDb ratings. The duration column is also still an estimate in
+            minutes. Both can be changed from the data management view.
+        </p>
+
+        <h2>Algorithms</h2>
+
+        <div class="tabel-bungkus">
+            <table class="tabel-data">
+                <thead>
+                    <tr>
+                        <th>Part</th>
+                        <th>How it works</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Genre suggestion</td>
+                        <td>Scoring in layers: genre name, keyword dictionary, then movie titles
+                            that contain the word. The results are sorted from the highest score.</td>
+                    </tr>
+                    <tr>
+                        <td>Title search</td>
+                        <td>Binary search to find the start of the title, then scanned to the
+                            right as long as the prefix still matches.</td>
+                    </tr>
+                    <tr>
+                        <td>Keyword search</td>
+                        <td>Linear search, matching the word in the title, year, and notes.</td>
+                    </tr>
+                    <tr>
+                        <td>Marathon package</td>
+                        <td>Tries every combination of up to three movies, then takes the one whose total
+                            duration is closest to the limit. On a tie, the total rating
+                            wins.</td>
+                    </tr>
+                    <tr>
+                        <td>Similar recommendations</td>
+                        <td>One genre, the smallest rating difference, then the closest
+                            year is preferred.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2>Web version</h2>
+        <p>
+            The web version is a single HTML page with Tailwind and JavaScript, no backend.
+            It looks like a movie catalog: there is a search field, genre option cards, a table of
+            movies, genre filters, a choice of order, the marathon package, and similar movie details that
+            can be opened per row. The JavaScript logic was rewritten from the Python version so the
+            result is the same. The web version is only for viewing data, while data changes
+            are made through the terminal version.
+        </p>
+
+        <h2>Testing</h2>
+        <p>
+            There are 65 unit tests with <code>unittest</code>. They all test pure logic:
+            input reading, genre scoring, binary search, sorting, and marathon combinations.
+            One test class specifically reads the real <code>data_film.json</code> to
+            make sure the data is healthy, from the number of movies, the completeness of columns, valid
+            genres, unique titles, to the value ranges.
+        </p>
+        <p>
+            The test file is at
+            <a href="https://github.com/Rolin-data/Project-Protofolio-Kecil/blob/main/test_film.py" target="_blank" rel="noopener">test_film.py<span class="sr-only"> (opens in a new tab)</span></a>.
+        </p>
+
+        <div class="navigasi-proyek">
+            <a class="tombol tombol-garis" href="biodiversity.html">&larr; Biodiversity</a>
+            <a class="tombol tombol-utama" href="rekomendasi-kuliner.html">Next project: Indonesian Food Recommendation &rarr;</a>
+        </div>
+
+    </div>
+</section>
+
+</main>
+
+<footer class="kaki">
+    <div class="wadah kaki-dalam">
+        <span>&copy; 2026 Rolin Stallin Sitorus</span>
+        <nav class="kaki-tautan" aria-label="Footer links">
+            <a href="index.html#about">About</a>
+            <a href="index.html#experience">Experience</a>
+            <a href="index.html#projects">Projects</a>
+            <a href="index.html#contact">Contact</a>
+        </nav>
+    </div>
+</footer>
+
+<script>
+(function () {
+    var tombol = document.querySelector('.tombol-menu');
+    var menu = document.getElementById('menu-utama');
+    if (!tombol || !menu) return;
+
+    tombol.addEventListener('click', function () {
+        var terbuka = menu.classList.toggle('terbuka');
+        tombol.setAttribute('aria-expanded', terbuka ? 'true' : 'false');
+    });
+
+    menu.addEventListener('click', function (e) {
+        if (e.target.tagName === 'A') {
+            menu.classList.remove('terbuka');
+            tombol.setAttribute('aria-expanded', 'false');
+        }
+    });
+})();
+</script>
+
+</body>
+</html>

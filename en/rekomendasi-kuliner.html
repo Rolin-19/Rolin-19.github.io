@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Indonesian Food Recommendation | Rolin Stallin Sitorus</title>
+<meta name="description" content="An Indonesian food recommendation program with a terminal version and a web version. The data is stored in JSON, so it can be changed from inside the program.">
+<meta name="author" content="Rolin Stallin Sitorus">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Indonesian Food Recommendation">
+<meta property="og:description" content="Food notes with a terminal version and a web version, a follow-up to Codecademy exercises. Practice with data structures, algorithms, and unit testing.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../gaya.css">
+<link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+<a class="lompat-isi" href="#main">Skip to content</a>
+
+<header class="kepala-situs">
+    <div class="wadah kepala-dalam">
+        <a class="merek" href="index.html">Rolin Stallin Sitorus</a>
+
+        <button class="tombol-menu" type="button" aria-label="Main menu"
+                aria-expanded="false" aria-controls="menu-utama">
+            <span></span><span></span><span></span>
+        </button>
+
+        <nav class="menu" id="menu-utama" aria-label="Main menu">
+            <a href="index.html#home">Home</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#experience">Experience</a>
+            <a href="index.html#projects">Projects</a>
+            <a href="index.html#contact">Contact</a>
+            <a class="bahasa" href="../proyek/rekomendasi-kuliner.html" hreflang="id" lang="id">ID</a>
+        </nav>
+    </div>
+</header>
+
+<main id="main">
+
+<section class="hero-proyek">
+    <div class="wadah">
+        <p class="remah">
+            <a href="index.html#projects">Projects</a>
+            <span class="pemisah">/</span>
+            <span>Indonesian Food Recommendation</span>
+        </p>
+
+        <span class="label-kecil label-netral">Practice &middot; 2026</span>
+        <h1>Indonesian Food Recommendation</h1>
+        <p class="ringkas-proyek">
+            A practice program that searches for food by type and budget, available in two
+            versions: terminal and web. Name a type of food and the budget you have, and the
+            program finds what fits and sorts it from the cheapest.
+        </p>
+
+        <dl class="meta-proyek">
+            <div>
+                <dt>Role</dt>
+                <dd>Continued development</dd>
+            </div>
+            <div>
+                <dt>Period</dt>
+                <dd>2026</dd>
+            </div>
+            <div>
+                <dt>Context</dt>
+                <dd>Practice project</dd>
+            </div>
+            <div>
+                <dt>Tools</dt>
+                <dd>Python, JSON</dd>
+            </div>
+        </dl>
+
+        <p class="sumber-proyek">
+            <span class="label-sumber">Code</span>
+            <a class="tautan-kode" href="https://github.com/Rolin-data/Rekomendasi-Kuliner-Di-Indonesia" target="_blank" rel="noopener">github.com/Rolin-data/Rekomendasi-Kuliner-Di-Indonesia<span class="sr-only"> (opens in a new tab)</span></a>
+        </p>
+    </div>
+</section>
+
+<section class="isi-proyek">
+    <div class="wadah">
+
+        <div class="kotak-angka">
+            <div><b>35</b><span>food items in the initial data</span></div>
+            <div><b>3</b><span>categories: makanan, minuman, camilan</span></div>
+            <div><b>2</b><span>program versions: terminal and web</span></div>
+        </div>
+
+        <figure class="gambar-penuh">
+            <img src="../assets/rekomendasi-kuliner.jpg" width="1120" height="700"
+                 alt="Screenshot of the web version of the Indonesian Food Recommendation: type selector, budget field, and search button">
+            <figcaption>The web version shown on GitHub Pages. The data is read from the <code>data_kuliner.json</code> file.</figcaption>
+        </figure>
+
+        <h2>Where the project came from</h2>
+        <p>
+            The code started as an exercise on Codecademy, and then I developed it on my own.
+            At first the food data was written directly in the code. I moved it into a
+            <code>data_kuliner.json</code> file so that prices can be changed, added, or removed
+            from inside the program without touching the code.
+        </p>
+        <p>
+            The program is not a big application. It is a warung notebook for my own use, and
+            I deliberately wrote it that way so it does not sound bigger than it really is.
+        </p>
+
+        <h2>Two versions of the program</h2>
+        <p>
+            The program can be used in two ways. The terminal version runs through the
+            <code>kuliner.py</code> file; from there the data can be searched and also added,
+            changed, or removed. The web version is a single HTML page that reads
+            <code>data_kuliner.json</code> and presents it as a search and filter view. The web
+            version only displays data, while changes are still made through the terminal
+            version.
+        </p>
+
+        <h2>Features</h2>
+        <ul>
+            <li>Search by type and budget. Pick a type (makanan, minuman, or camilan), then enter the maximum
+                price. The remaining budget shows on every item.</li>
+            <li>A saver label for items priced at half the budget or less.</li>
+            <li>Search by name, region, or warung name. For example, type
+                <code>Jogja</code> or <code>Bu Tini</code>.</li>
+            <li>Value set: finds a combination of one food and one drink with a total as close as
+                possible to the budget without going over it. If there is money left, the
+                cheapest snack is added as well.</li>
+            <li>Similar recommendations from the item currently selected, preferring the same
+                region and sorted by the closest price.</li>
+            <li>Manage the data (terminal version): add a new item, change a price, or delete
+                one. Changes are saved straight to the JSON file.</li>
+        </ul>
+
+        <h2>Sample run</h2>
+        <p>
+            This is the actual output from the terminal version: choose <code>makanan</code>,
+            enter a budget of <code>30000</code>, and the program shows what fits, sorted from
+            the cheapest.
+        </p>
+        <pre class="contoh-terminal">Pilih (1-6): 1
+Jenis (makanan / minuman / camilan): makanan
+Budget sekali makan (contoh 20000): 30000
+
+Makanan yang muat Rp30.000:
+  1. Kerak Telor            Rp12.000  (DKI Jakarta)     sisa Rp18.000  (hemat)
+  2. Nasi Goreng Kampung    Rp15.000  (Nasional)        sisa Rp15.000  (hemat)
+  3. Tinutuan Manado        Rp15.000  (Sulawesi Utara)  sisa Rp15.000  (hemat)
+  4. Nasi Liwet Solo        Rp17.000  (Jawa Tengah)     sisa Rp13.000
+  5. Bakso Malang           Rp18.000  (Jawa Timur)      sisa Rp12.000
+  6. Gudeg Jogja            Rp20.000  (DI Yogyakarta)   sisa Rp10.000
+  ... (13 makanan yang muat)</pre>
+
+        <h2>Data</h2>
+        <p>
+            The initial data holds 35 items: 15 foods, 10 drinks, and 10 snacks. Each item stores
+            a name, category, price per portion, region of origin, place name, and a free note.
+            The place and note fields are deliberately left empty so they can be filled in from
+            the data management menu. That way the records are genuinely adjustable, for example
+            the price at a regular warung, not a rough guess.
+        </p>
+        <p>
+            On the prices, I did not make up the numbers. They follow two sources:
+            <a href="https://www.geokepo.id/id/panduan/how-much-food-costs-indonesia-2026-price-guide" target="_blank" rel="noopener">geokepo.id's 2026 guide to Indonesian food prices</a>
+            and
+            <a href="https://www.theindonesiaguide.com/food-guide/warung-guide-indonesia/" target="_blank" rel="noopener">the 2026 Warung Guide from The Indonesia Guide</a>.
+            From them I took the ranges for street snacks, street meals, warungs, nasi
+            goreng, coffee, and iced tea. Both are general guides, so the figures are estimates,
+            not a fixed benchmark at every warung. The links were accessed on 17 October 2026.
+        </p>
+
+        <h2>What this project practises</h2>
+        <ul>
+            <li>Data structures: storing and retrieving food data from a form that is easy to
+                change.</li>
+            <li>Search and sorting algorithms: filtering by budget, sorting from the cheapest,
+                and assembling value-set combinations.</li>
+            <li>Handling JSON files, including writing changes back to the original file.</li>
+            <li>Unit testing to make sure the logic does not break when data is added.</li>
+            <li>Git to record every code change.</li>
+        </ul>
+
+        <div class="navigasi-proyek">
+            <a class="tombol tombol-garis" href="rekomendasi-film.html">&larr; Rekomendasi Film</a>
+            <a class="tombol tombol-utama" href="visop.html">Back to VISOP &rarr;</a>
+        </div>
+
+    </div>
+</section>
+
+</main>
+
+<footer class="kaki">
+    <div class="wadah kaki-dalam">
+        <span>&copy; 2026 Rolin Stallin Sitorus</span>
+        <nav class="kaki-tautan" aria-label="Footer menu">
+            <a href="index.html#about">About</a>
+            <a href="index.html#experience">Experience</a>
+            <a href="index.html#projects">Projects</a>
+            <a href="index.html#contact">Contact</a>
+        </nav>
+    </div>
+</footer>
+
+<script>
+(function () {
+    var tombol = document.querySelector('.tombol-menu');
+    var menu = document.getElementById('menu-utama');
+    if (!tombol || !menu) return;
+
+    tombol.addEventListener('click', function () {
+        var terbuka = menu.classList.toggle('terbuka');
+        tombol.setAttribute('aria-expanded', terbuka ? 'true' : 'false');
+    });
+
+    menu.addEventListener('click', function (e) {
+        if (e.target.tagName === 'A') {
+            menu.classList.remove('terbuka');
+            tombol.setAttribute('aria-expanded', 'false');
+        }
+    });
+})();
+</script>
+
+</body>
+</html>
