@@ -1,33 +1,31 @@
 # Folder assets
 
-Tempat berkas gambar situs. Sekarang berisi `foto.jpg`, yaitu foto profil yang
-tampil di beranda.
+Tempat berkas gambar dan ikon situs.
 
-## Foto profil
+## Daftar berkas
 
-Berkasnya sudah terpasang sebagai **`foto.jpg`**:
+| Berkas | Isi | Dipakai di |
+|---|---|---|
+| `foto.jpg` | Foto profil, rasio tegak 4:5 | Beranda |
+| `visop.jpg` | Tangkapan layar VISOP, halaman verifikasi ID karyawan | Beranda + `proyek/visop.html` |
+| `rekomendasi-film.jpg` | Tangkapan layar versi web Rekomendasi Film | Beranda + `proyek/rekomendasi-film.html` |
+| `rekomendasi-kuliner.jpg` | Tangkapan layar versi web Rekomendasi Kuliner | Beranda + `proyek/rekomendasi-kuliner.html` |
+| `chart1.png` | Grafik persentase spesies dilindungi per kategori | Beranda + `proyek/biodiversity.html` |
+| `chart2.png` | Grafik total observasi per taman nasional | `proyek/biodiversity.html` |
+| `favicon.ico` | Ikon tab browser | Semua halaman |
 
-```
-assets/foto.jpg
-```
+## Mengganti gambar
 
-Sampai situ saja, tidak ada berkas lain yang perlu diubah. Saat halaman dibuka,
-foto itu otomatis menggantikan kotak inisial "RS" di beranda, di halaman
-Indonesia maupun Inggris. Kalau berkasnya dihapus, kotak "RS" muncul lagi.
+Semua gambar cukup **ditimpa** dengan berkas bernama sama; tidak ada HTML yang perlu
+diubah, karena tiap `<img>` sudah punya `width` dan `height` yang sesuai.
 
-Kalau mau menggantinya:
+**Foto profil** (`foto.jpg`):
 
-- **bentuk tegak 4:5** — misalnya 640 × 800 piksel. Kotak di halaman juga 4:5,
-  jadi seluruh foto tampil utuh tanpa dipotong,
+- bentuk tegak 4:5 — misalnya 640 × 800 piksel. Kotak di halaman juga 4:5, jadi
+  seluruh foto tampil utuh tanpa dipotong,
 - ukuran berkas di bawah 200 KB,
 - format JPG.
 
-Folder ini juga berguna kalau nanti mau menambah gambar lain, misalnya tangkapan
-layar project.
-
-## Catatan
-
-Selama `foto.jpg` belum ada, browser akan mencatat satu pesan
-`404 (File not found)` untuk berkas ini di panel Console. Itu wajar: halaman
-memang mengecek dulu apakah fotonya sudah ada. Pesan itu hilang sendiri begitu
-`foto.jpg` diunggah.
+**Tangkapan layar proyek** — pakai rasio mendatar sekitar 16:10 (misalnya
+1120 × 700 piksel). Di kartu beranda gambar dipotong mengikuti kotak
+(`object-fit: cover`), sementara di halaman studi kasus tampil utuh.

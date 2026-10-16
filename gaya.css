@@ -121,7 +121,6 @@ strong{ font-weight: 600; color: var(--navy); }
 }
 
 .seksi{ padding: 96px 0; }
-.seksi-rapat{ padding: 72px 0; }
 
 .seksi + .seksi{ border-top: 1px solid var(--garis); }
 
@@ -181,16 +180,6 @@ strong{ font-weight: 600; color: var(--navy); }
 .tombol-garis:hover{ border-color: var(--navy); color: var(--navy); }
 
 .tombol-baris{ display: flex; flex-wrap: wrap; gap: 12px; }
-
-.tautan-panah{
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 15px;
-    font-weight: 600;
-}
-.tautan-panah .panah{ transition: transform .16s ease; }
-.tautan-panah:hover .panah{ transform: translateX(3px); }
 
 /* ============================================================
    Kepala situs dan menu
@@ -459,26 +448,6 @@ strong{ font-weight: 600; color: var(--navy); }
     width: 100%; height: 100%;
     object-fit: cover;
 }
-/* Panel pengganti selama tangkapan layar belum ada.
-   Sengaja dibuat netral, bukan tiruan tampilan aplikasi. */
-.panel-netral{
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background:
-        linear-gradient(to right, rgba(37, 99, 235, .07) 1px, transparent 1px) 0 0 / 34px 34px,
-        linear-gradient(to bottom, rgba(37, 99, 235, .07) 1px, transparent 1px) 0 0 / 34px 34px,
-        var(--biru-muda);
-}
-.panel-netral b{
-    font-size: 30px;
-    letter-spacing: .06em;
-    color: rgba(37, 99, 235, .55);
-    font-weight: 700;
-}
-
 .kartu-isi{ padding: 22px 24px 24px; }
 .kartu-isi h3{ font-size: 18px; margin-bottom: 8px; }
 .kartu-isi p{ font-size: 15px; margin-bottom: 14px; }
@@ -993,7 +962,6 @@ strong{ font-weight: 600; color: var(--navy); }
     .wadah{ width: 100%; }
 
     .seksi{ padding: 16pt 0; }
-    .seksi-rapat{ padding: 12pt 0; }
     .hero{ padding: 6pt 0 0; }
     .hero h1{ font-size: 26pt; }
     .hero-tagline{ font-size: 13pt; }

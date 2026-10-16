@@ -22,22 +22,27 @@ proses build, jadi bisa langsung di-host di GitHub Pages.
 Film, dan Rekomendasi Kuliner Indonesia. Tiap halaman menjelaskan pertanyaan atau
 tujuan, data yang dipakai, cara pengerjaan, hasilnya, dan batasannya.
 
-## Yang Sengaja Tidak Ditampilkan
+## Tautan yang Dipasang
 
-Tautan demo tidak dipasang di halaman ini. Yang dipasang hanya tautan Kode ke repositori
-GitHub, ada di kartu tiap proyek di beranda dan di bagian atas halaman studi kasus.
+Tidak ada tautan demo. Yang dipasang hanya tautan Kode ke repositori GitHub (di kartu
+tiap proyek di beranda dan di bagian atas halaman studi kasus), ditambah satu tautan
+aplikasi untuk VISOP.
 
-Tautan kode tiap proyek:
-
-| Proyek | Repositori |
+| Proyek | Tautan |
 |---|---|
-| Biodiversity in National Parks | `github.com/makiootol-bit/biodiversity-national-parks` |
-| Rekomendasi Film | `github.com/Rolin-data/Project-Protofolio-Kecil` |
-| Rekomendasi Kuliner Indonesia | `github.com/Rolin-data/Rekomendasi-Kuliner-Di-Indonesia` |
+| Biodiversity in National Parks | Kode — `github.com/makiootol-bit/biodiversity-national-parks` |
+| Rekomendasi Film | Kode — `github.com/Rolin-data/Project-Protofolio-Kecil` |
+| Rekomendasi Kuliner Indonesia | Kode — `github.com/Rolin-data/Rekomendasi-Kuliner-Di-Indonesia` |
+| VISOP | Aplikasi — `cinema-xxi-vsop-commis-mixologist.ai.studio` |
 
-Uraian VISOP juga masih terbatas. Aplikasinya dipakai internal perusahaan, jadi kode dan
-tangkapan layarnya tidak ditampilkan. Halamannya hanya memuat yang sudah pasti:
-peran, periode, alat (Google Apps Script), dan statusnya di kompetisi.
+Dua akun GitHub dipakai karena sejarah pengerjaannya: `makiootol-bit` untuk
+Biodiversity in National Parks, `Rolin-data` untuk proyek lainnya. Keterangan ini
+juga tertulis di `proyek/biodiversity.html`.
+
+Kode VISOP tidak dipublikasikan karena aplikasinya dipakai internal perusahaan.
+Halamannya hanya memuat yang sudah pasti: peran, periode, alat (Google Apps Script,
+Google Sheets), satu tangkapan layar halaman verifikasi ID, dan statusnya di
+kompetisi. Bagian dalam aplikasi tidak ditampilkan karena memerlukan ID karyawan.
 
 ## Tampilan
 
@@ -67,9 +72,9 @@ Font Inter dimuat dari Google Fonts lewat `<link>` dengan `preconnect`, bukan
 
 ## Berkas Lama
 
-`en.html` dan `styles.css` adalah versi sebelumnya yang sudah bergaya editorial
-"kertas" dengan dua bahasa. Keduanya masih utuh tetapi tidak lagi ditautkan dari
-beranda. `en.html` memakai `styles.css`, bukan `gaya.css`.
+`en.html` dan `styles.css` adalah versi sebelumnya yang bergaya editorial "kertas"
+dengan dua bahasa. Keduanya masih utuh tetapi tidak lagi ditautkan dari beranda.
+`en.html` memakai `styles.css`, bukan `gaya.css`.
 
 ## Menjalankan Lokal
 
@@ -87,9 +92,12 @@ lalu buka `http://127.0.0.1:8100`.
 ├── gaya.css          # seluruh gaya halaman baru
 ├── proyek/           # empat halaman studi kasus
 ├── assets/
-│   ├── foto.jpg      # foto profil, rasio 4:5
-│   ├── chart1.png    # grafik proporsi spesies dilindungi
-│   ├── chart2.png    # grafik total observasi per taman
+│   ├── foto.jpg                  # foto profil, rasio 4:5
+│   ├── visop.jpg                 # tangkapan layar VISOP (halaman verifikasi ID)
+│   ├── rekomendasi-film.jpg      # tangkapan layar versi web Rekomendasi Film
+│   ├── rekomendasi-kuliner.jpg   # tangkapan layar versi web Rekomendasi Kuliner
+│   ├── chart1.png                # grafik persentase spesies dilindungi per kategori
+│   ├── chart2.png                # grafik total observasi per taman
 │   └── favicon.ico
 ├── en.html           # versi Inggris lama, tidak ditautkan
 ├── styles.css        # gaya versi lama
@@ -101,11 +109,9 @@ lalu buka `http://127.0.0.1:8100`.
 
 - **Foto profil** — ganti `assets/foto.jpg`, rasio tegak 4:5 seperti 640 × 800
   piksel. Tidak ada HTML yang perlu diubah.
-- **Tangkapan layar proyek** — kartu VISOP, Rekomendasi Film, dan Rekomendasi
-  Kuliner masih memakai kotak polos bergaris dengan singkatan nama proyek di dalam
-  `.kartu-gambar`. Kotak itu sengaja dibuat netral, bukan tiruan tampilan aplikasi.
-  Untuk menggantinya dengan tangkapan layar asli, hapus `.panel-netral` lalu
-  masukkan `<img src="../assets/…">` yang sama seperti di kartu Biodiversity.
+- **Tangkapan layar proyek** — keempat kartu di beranda sudah memakai gambar asli di
+  dalam `.kartu-gambar`. Untuk memperbarui, cukup timpa berkas gambarnya di
+  `assets/`; tidak ada HTML yang perlu diubah.
 - **Warna dan font** — semuanya variabel di bagian atas `gaya.css` (`--dasar`,
   `--navy`, `--biru`, `--slate`, `--garis`, `--lebar`, `--radius`, `--font`).
   Ubah di situ, seluruh halaman ikut berubah.
