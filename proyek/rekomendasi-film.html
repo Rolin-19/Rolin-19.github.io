@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rekomendasi Film | Rolin Stallin Sitorus</title>
+<meta name="description" content="Program rekomendasi film berjalan di terminal, lanjutan dari tugas Codecademy. Datanya dipisah ke JSON, logikanya dikunci dengan 65 unit test, lalu dibuat versi webnya.">
+<meta name="author" content="Rolin Stallin Sitorus">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Rekomendasi Film">
+<meta property="og:description" content="Dari tugas Codecademy menjadi program lengkap: JSON terpisah, 65 unit test, algoritma pencarian dan pengurutan, plus versi web.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../gaya.css">
+<link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+<a class="lompat-isi" href="#utama">Langsung ke isi</a>
+
+<header class="kepala-situs">
+    <div class="wadah kepala-dalam">
+        <a class="merek" href="../index.html">Rolin Stallin Sitorus</a>
+
+        <button class="tombol-menu" type="button" aria-label="Menu utama"
+                aria-expanded="false" aria-controls="menu-utama">
+            <span></span><span></span><span></span>
+        </button>
+
+        <nav class="menu" id="menu-utama" aria-label="Menu utama">
+            <a href="../index.html#beranda">Beranda</a>
+            <a href="../index.html#tentang">Tentang</a>
+            <a href="../index.html#pengalaman">Pengalaman</a>
+            <a href="../index.html#proyek">Proyek</a>
+            <a href="../index.html#kontak">Kontak</a>
+        </nav>
+    </div>
+</header>
+
+<main id="utama">
+
+<section class="hero-proyek">
+    <div class="wadah">
+        <p class="remah">
+            <a href="../index.html#proyek">Proyek</a>
+            <span class="pemisah">/</span>
+            <span>Rekomendasi Film</span>
+        </p>
+
+        <span class="label-kecil label-netral">Latihan &middot; 2026</span>
+        <h1>Rekomendasi Film</h1>
+        <p class="ringkas-proyek">
+            Program rekomendasi film yang berjalan di terminal. Ketik satu kata seperti
+            &ldquo;hantu&rdquo; atau &ldquo;lucu&rdquo;, programnya menebak genre yang paling cocok, lalu menampilkan daftar film di genre itu.
+        </p>
+
+        <dl class="meta-proyek">
+            <div>
+                <dt>Peran</dt>
+                <dd>Pengembangan lanjutan</dd>
+            </div>
+            <div>
+                <dt>Periode</dt>
+                <dd>2026</dd>
+            </div>
+            <div>
+                <dt>Konteks</dt>
+                <dd>Proyek latihan</dd>
+            </div>
+            <div>
+                <dt>Alat</dt>
+                <dd>Python, JavaScript, Tailwind</dd>
+            </div>
+        </dl>
+
+        <p class="sumber-proyek">
+            <span class="label-sumber">Kode</span>
+            <a class="tautan-kode" href="https://github.com/Rolin-data/Project-Protofolio-Kecil" target="_blank" rel="noopener">github.com/Rolin-data/Project-Protofolio-Kecil<span class="sr-only"> (buka di tab baru)</span></a>
+        </p>
+    </div>
+</section>
+
+<section class="isi-proyek">
+    <div class="wadah">
+
+        <div class="kotak-angka">
+            <div><b>36</b><span>film dalam data</span></div>
+            <div><b>6</b><span>genre, masing-masing 6 film</span></div>
+            <div><b>65</b><span>unit test</span></div>
+        </div>
+
+        <figure class="gambar-penuh">
+            <img src="../assets/rekomendasi-film.jpg" width="1120" height="700"
+                 alt="Tangkapan layar versi web Rekomendasi Film: menu Cari, Genre, Katalog, dan Marathon, serta ringkasan jumlah film">
+            <figcaption>Versi web yang tampil di GitHub Pages. Logikanya ditulis ulang dari versi Python.</figcaption>
+        </figure>
+
+        <h2>Asal proyek</h2>
+        <p>
+            Kode awalnya dari tugas Codecademy berjudul Recommendation Software, topik Movies. Tugas itu berhenti di program yang sudah jalan. Saya lanjutkan supaya lebih rapi: datanya dipindahkan ke berkas JSON sendiri, logikanya diuji dengan unit test, dan saya buatkan versi webnya.
+        </p>
+
+        <h2>Fitur</h2>
+
+        <h3>Pencarian</h3>
+        <ul>
+            <li>Cari dari kata kunci. Ketik <code>hantu</code>, muncul saran genre horor beserta daftar filmnya, diurutkan dari rating tertinggi. Kalau kata kuncinya tidak cocok, programnya memberi tahu dan menyarankan kata lain.</li>
+            <li>Cari judul film dengan mengetik sebagian judulnya. Di balik layar, programnya
+                memakai pencarian biner pada daftar yang sudah diurutkan supaya cepat; kalau
+                tidak ketemu, pencariannya mundur ke penelusuran satu per satu (linier).</li>
+        </ul>
+
+        <h3>Rekomendasi dan pengurutan</h3>
+        <ul>
+            <li>Paket marathon. Isi batas total durasi, misalnya 240 menit, lalu programnya menyusun kombinasi film yang paling mendekati batas itu.</li>
+            <li>Lihat semua data dengan pilihan urutan: rating, tahun, durasi, atau judul. Ada
+                ringkasan jumlah film dan rating rata-rata per genre.</li>
+        </ul>
+
+        <h3>Kelola data</h3>
+        <ul>
+            <li>Menambah film, mengubah rating, dan menghapus. Perubahannya langsung ditulis ke
+                berkas JSON.</li>
+        </ul>
+
+        <h2>Data</h2>
+        <p>
+            Semua data ada di satu berkas, <code>data_film.json</code>, dan dipakai bersama oleh
+            versi terminal dan versi web. Jadi tidak ada data yang tertulis dua kali. Isinya 36
+            film dengan 6 genre, masing-masing 6 film: aksi, drama, komedi, horor, animasi, dan
+            dokumenter.
+        </p>
+        <p>
+            Satu hal yang perlu dijelaskan soal kolom rating. Angkanya penilaian pribadi saya
+            dengan skala 0 sampai 10, bukan angka IMDb. Kolom durasi juga masih perkiraan dalam
+            satuan menit. Keduanya bisa diubah dari menu kelola data.
+        </p>
+
+        <h2>Algoritma yang dipakai</h2>
+
+        <div class="tabel-bungkus">
+            <table class="tabel-data">
+                <thead>
+                    <tr>
+                        <th>Bagian</th>
+                        <th>Cara kerjanya</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Saran genre</td>
+                        <td>Skor bertingkat: nama genre, kamus kata kunci, lalu judul film yang
+                            memuat kata tersebut. Hasilnya diurutkan dari skor tertinggi.</td>
+                    </tr>
+                    <tr>
+                        <td>Cari judul</td>
+                        <td>Pencarian biner untuk menemukan batas awal judul, lalu ditelusuri ke
+                            kanan selama awalannya masih sama.</td>
+                    </tr>
+                    <tr>
+                        <td>Cari kata kunci</td>
+                        <td>Pencarian linier, mencocokkan kata di judul, tahun, dan catatan.</td>
+                    </tr>
+                    <tr>
+                        <td>Paket marathon</td>
+                        <td>Mencoba semua kombinasi maksimal tiga film, lalu mengambil yang total
+                            durasinya paling dekat dengan batas. Kalau seri, total rating yang
+                            menang.</td>
+                    </tr>
+                    <tr>
+                        <td>Rekomendasi serupa</td>
+                        <td>Satu genre, selisih rating terkecil, lalu diutamakan yang tahunnya
+                            berdekatan.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2>Versi web</h2>
+        <p>
+            Versi webnya berupa satu halaman HTML dengan Tailwind dan JavaScript tanpa backend.
+            Tampilannya seperti katalog film: ada kolom pencarian, kartu pilihan genre, tabel
+            daftar film, filter genre, pilihan urutan, paket marathon, dan detail film mirip yang
+            bisa dibuka per baris. Logika di JavaScript ditulis ulang dari versi Python supaya
+            hasilnya sama. Versi webnya hanya untuk melihat data, sedangkan perubahan data
+            dilakukan lewat versi terminal.
+        </p>
+
+        <h2>Pengujian</h2>
+        <p>
+            Ada 65 unit test dengan <code>unittest</code>. Semuanya menguji logika murni:
+            pembacaan input, pemberian skor genre, pencarian biner, pengurutan, dan kombinasi marathon.
+            Satu kelas test khusus membaca <code>data_film.json</code> yang sebenarnya untuk
+            memastikan datanya sehat, mulai dari jumlah film, kelengkapan kolom, genre yang
+            valid, judul yang unik, sampai rentang nilainya.
+        </p>
+        <p>
+            Berkas pengujiannya ada di
+            <a href="https://github.com/Rolin-data/Project-Protofolio-Kecil/blob/main/test_film.py" target="_blank" rel="noopener">test_film.py<span class="sr-only"> (buka di tab baru)</span></a>.
+        </p>
+
+        <div class="navigasi-proyek">
+            <a class="tombol tombol-garis" href="biodiversity.html">&larr; Biodiversity</a>
+            <a class="tombol tombol-utama" href="rekomendasi-kuliner.html">Proyek berikutnya: Rekomendasi Kuliner &rarr;</a>
+        </div>
+
+    </div>
+</section>
+
+</main>
+
+<footer class="kaki">
+    <div class="wadah kaki-dalam">
+        <span>&copy; 2026 Rolin Stallin Sitorus</span>
+        <nav class="kaki-tautan" aria-label="Tautan kaki halaman">
+            <a href="../index.html#tentang">Tentang</a>
+            <a href="../index.html#pengalaman">Pengalaman</a>
+            <a href="../index.html#proyek">Proyek</a>
+            <a href="../index.html#kontak">Kontak</a>
+        </nav>
+    </div>
+</footer>
+
+<script>
+(function () {
+    var tombol = document.querySelector('.tombol-menu');
+    var menu = document.getElementById('menu-utama');
+    if (!tombol || !menu) return;
+
+    tombol.addEventListener('click', function () {
+        var terbuka = menu.classList.toggle('terbuka');
+        tombol.setAttribute('aria-expanded', terbuka ? 'true' : 'false');
+    });
+
+    menu.addEventListener('click', function (e) {
+        if (e.target.tagName === 'A') {
+            menu.classList.remove('terbuka');
+            tombol.setAttribute('aria-expanded', 'false');
+        }
+    });
+})();
+</script>
+
+</body>
+</html>

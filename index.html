@@ -1,151 +1,513 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portofolio Rolin Stallin — sehari-hari kerja di bioskop, di sela itu bikin alat kecil: katalog rekomendasi film, catatan kuliner, dan analisis data. Semua kodenya terbuka dan ada demo onlinenya.">
-    <title>Rolin Stallin — Portofolio</title>
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%2345a0ef'/%3E%3Ctext x='50' y='74' font-size='58' font-family='Arial' font-weight='bold' fill='%230d0d0d' text-anchor='middle'%3ERS%3C/text%3E%3C/svg%3E">
-    <link rel="stylesheet" href="./styles.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rolin Stallin Sitorus | Portofolio</title>
+<meta name="description" content="Portofolio Rolin Stallin Sitorus: hampir lima tahun bekerja di operasional dan layanan pelanggan, sekarang mengerjakan analisis data dengan Python dan SQL.">
+<meta name="author" content="Rolin Stallin Sitorus">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Rolin Stallin Sitorus | Portofolio">
+<meta property="og:description" content="Riwayat kerja operasional, keahlian analisis data, dan empat proyek latihan yang bisa diperiksa.">
+<meta property="og:locale" content="id_ID">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="gaya.css">
+<link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Rolin Stallin Sitorus",
+  "jobTitle": "Junior Data Analyst",
+  "address": { "@type": "PostalAddress", "addressLocality": "Yogyakarta", "addressCountry": "ID" },
+  "email": "mailto:stallinrolin@gmail.com",
+  "sameAs": [
+    "https://linkedin.com/in/rolinstallinsitorus",
+    "https://github.com/Rolin-data",
+    "https://www.dicoding.com/users/rolin_stallin_sitorus"
+  ],
+  "knowsAbout": ["SQL", "Python", "pandas", "analisis data", "operasional ritel"]
+}
+</script>
 </head>
-<body>
+<body id="atas">
 
-<!-- Navigasi -->
-<nav class="animasi-nav">
-    <div class="logo">
-        <p>Rolin Stallin</p>
+<a class="lompat-isi" href="#utama">Langsung ke isi</a>
+
+<!-- ===================== KEPALA ===================== -->
+<header class="kepala-situs">
+    <div class="wadah kepala-dalam">
+        <a class="merek" href="#beranda">Rolin Stallin Sitorus</a>
+
+        <button class="tombol-menu" type="button" aria-label="Menu utama"
+                aria-expanded="false" aria-controls="menu-utama">
+            <span></span><span></span><span></span>
+        </button>
+
+        <nav class="menu" id="menu-utama" aria-label="Menu utama">
+            <a href="#beranda">Beranda</a>
+            <a href="#tentang">Tentang</a>
+            <a href="#pengalaman">Pengalaman</a>
+            <a href="#proyek">Proyek</a>
+            <a href="#kontak">Kontak</a>
+        </nav>
     </div>
-    <div class="teks-nav">
-        <a href="#home" class="aktif">Beranda</a>
-        <a href="#project">Project</a>
-        <a href="#kontak">Kontak</a>
-    </div>
-</nav>
+</header>
 
-<!-- Beranda -->
-<section id="home">
-    <div class="content">
-        <div class="foto animasi-foto">
-            <!-- Punya foto sendiri? Ganti baris di bawah dengan:
-                 <img src="assets/foto.jpg" alt="Foto profil Rolin Stallin"> -->
-            <div class="foto-awal" aria-hidden="true">RS</div>
-        </div>
-        <div class="judul animasi-text">
-            <h1>Halo! Saya <span class="aksen">Rolin Stallin</span></h1>
-        </div>
-        <div class="sub">
-            <p class="animasi-text">
-                Sehari-hari saya kerja di bioskop — layanan pelanggan, operasional,
-                urusan penonton. Di sela itu saya bikin alat kecil yang kepakai sendiri dulu:
-                katalog rekomendasi film, catatan kuliner berbasis terminal, analisis data
-                pakai Jupyter. Bahasanya <span class="aksen">Python</span> dan
-                <span class="aksen">JavaScript</span>. Yang penting bisa dipakai,
-                bukan yang paling rumit.
-            </p>
-        </div>
-    </div>
-</section>
+<main id="utama">
 
-<!-- Project -->
-<section id="project" class="proyek">
-    <div class="judul judul-seksi animasi-text">
-        <h2>Project Saya</h2>
-    </div>
-    <div class="isi-proyek animasi-text">
-
-        <article class="kartu">
-            <div class="kartu-atas">
-                <span class="urutan">01</span>
-                <h3>Rekomendasi Film</h3>
+<!-- ===================== HERO ===================== -->
+<section class="hero" id="beranda">
+    <div class="wadah">
+        <div class="hero-isi">
+            <div>
+                <p class="sapaan">Operasional &middot; Analisis Data &middot; Proyek Digital</p>
+                <h1>Rolin Stallin Sitorus</h1>
+                <p class="hero-tagline">
+                    Hampir lima tahun saya bekerja di operasional lapangan dan layanan pelanggan,
+                    termasuk menyusun laporan penjualan harian dan mengelola stok. Sekarang saya
+                    mengembangkan kemampuan analisis data dengan Python dan SQL.
+                </p>
+                <p class="hero-catatan">Yogyakarta, Indonesia &middot; Fokus: operasional, pelaporan, dan analisis data</p>
+                <div class="tombol-baris">
+                    <a class="tombol tombol-utama" href="#proyek">Lihat proyek</a>
+                    <a class="tombol tombol-garis" href="#pengalaman">Lihat pengalaman</a>
+                </div>
             </div>
-            <p>
-                Katalog 36 film dalam 6 genre. Jalan lewat terminal Python, tampil juga
-                sebagai katalog web, dan 65 unit test mengunci aturan datanya.
-            </p>
-            <ul class="teknologi">
-                <li>Python</li>
-                <li>HTML</li>
-                <li>Tailwind</li>
-                <li>JSON</li>
-            </ul>
-            <div class="tautan">
-                <a href="https://rolin-data.github.io/Project-Protofolio-Kecil/" target="_blank" rel="noopener">Demo</a>
-                <a href="https://github.com/Rolin-data/Project-Protofolio-Kecil" target="_blank" rel="noopener">Kode</a>
-            </div>
-        </article>
-
-        <article class="kartu">
-            <div class="kartu-atas">
-                <span class="urutan">02</span>
-                <h3>Rekomendasi Kuliner Indonesia</h3>
-            </div>
-            <p>
-                Catatan kuliner berbasis terminal. Data tidak ditanam di dalam kode,
-                tapi disimpan di file <code>data_kuliner.json</code> — jadi bisa ditambah,
-                diubah harganya, atau dihapus langsung dari program.
-            </p>
-            <ul class="teknologi">
-                <li>Python</li>
-                <li>HTML</li>
-                <li>JSON</li>
-            </ul>
-            <div class="tautan">
-                <a href="https://rolin-data.github.io/Rekomendasi-Kuliner-Di-Indonesia/" target="_blank" rel="noopener">Demo</a>
-                <a href="https://github.com/Rolin-data/Rekomendasi-Kuliner-Di-Indonesia" target="_blank" rel="noopener">Kode</a>
-            </div>
-        </article>
-
-        <article class="kartu">
-            <div class="kartu-atas">
-                <span class="urutan">03</span>
-                <h3>Biodiversity in National Parks</h3>
-            </div>
-            <p>
-                Analisis data National Park Service soal status konservasi spesies di empat
-                taman nasional — dari memuat dan membersihkan data, memvisualisasikan,
-                sampai menguji hipotesis.
-            </p>
-            <ul class="teknologi">
-                <li>Jupyter</li>
-                <li>HTML</li>
-                <li>CSV</li>
-            </ul>
-            <div class="tautan">
-                <a href="https://github.com/makiootol-bit/biodiversity-national-parks" target="_blank" rel="noopener">Kode</a>
-            </div>
-        </article>
-
-    </div>
-</section>
-
-<!-- Kontak -->
-<section id="kontak" class="kontak">
-    <div class="content">
-        <div class="judul animasi-text">
-            <h2>Hubungi Saya</h2>
-        </div>
-        <div class="sub">
-            <p class="animasi-text">
-                Mau tanya-tanya soal project, atau mau kerja bareng? Silakan lewat
-                LinkedIn atau GitHub.
-            </p>
-        </div>
-        <div class="baris-kontak">
-            <a class="kartu-kontak" href="https://linkedin.com/in/rolinstallinsitorus" target="_blank" rel="noopener">linkedin.com/in/rolinstallinsitorus</a>
-            <a class="kartu-kontak" href="https://github.com/Rolin-data" target="_blank" rel="noopener">github.com/Rolin-data</a>
         </div>
     </div>
 </section>
 
-<!-- Media Sosial — cuma akun yang benar-benar ada -->
-<div class="media">
-    <a class="icon animasi-icon" href="https://linkedin.com/in/rolinstallinsitorus" target="_blank" rel="noopener" aria-label="Profil LinkedIn Rolin Stallin">
-        <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-    </a>
-    <a class="icon animasi-icon-2" href="https://github.com/Rolin-data" target="_blank" rel="noopener" aria-label="Profil GitHub Rolin Stallin">
-        <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-    </a>
-</div>
+<!-- ===================== TENTANG ===================== -->
+<section class="seksi" id="tentang">
+    <div class="wadah">
+        <p class="label-seksi"><span class="nomor">01</span> Tentang</p>
+
+        <div class="tentang-isi">
+            <div>
+                <img class="foto-profil" src="assets/foto.jpg"
+                     alt="Foto Rolin Stallin Sitorus" width="640" height="800">
+                <p class="foto-ket">Yogyakarta, Indonesia.</p>
+            </div>
+
+            <div class="tentang-teks">
+                <p>
+                    Saya mulai bekerja tahun 2021, saat masih menempuh D1 Ground Handling di
+                    Sekolah Tinggi Teknologi Kedirgantaraan. Dari situ saya terbiasa dengan aturan ketat soal waktu dan keselamatan. Saya magang di layanan penumpang PT Gapura Angkasa, lalu menjadi train attendant di PT Reska Multi Usaha.
+                </p>
+                <p>
+                    Di ritel saya berhadapan langsung dengan angka. Sebagai Assistant Chief of
+                    Store di Lawson Indonesia, saya menyusun jadwal shift untuk tujuh kru dan
+                    menulis laporan penjualan harian. Laporan itu dipakai untuk menentukan produk
+                    mana yang perlu ditambah stoknya. Kebiasaan mencatat itu saya bawa ke Miniso dan Cinema XXI.
+                </p>
+                <p>
+                    Sekarang saya mengarahkan fokus ke analisis data. Saya
+                    menyelesaikan kursus Python dan SQL, lalu mengerjakan proyek latihan: analisis
+                    data konservasi empat taman nasional, program rekomendasi film, dan pencari
+                    rekomendasi kuliner. Semuanya saya dokumentasikan supaya bisa diperiksa.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== PENGALAMAN ===================== -->
+<section class="seksi" id="pengalaman">
+    <div class="wadah">
+        <p class="label-seksi"><span class="nomor">02</span> Pengalaman kerja</p>
+        <h2 class="judul-seksi">Riwayat kerja</h2>
+        <p class="ket-seksi">
+            Pengalaman profesional di bidang operasional dan layanan pelanggan, dijalani sambil
+            melanjutkan belajar analisis data.
+        </p>
+
+        <div class="linimasa">
+
+            <article class="linimasa-butir">
+                <div class="tempat-kepala">
+                    <h3>Cinema XXI</h3>
+                    <span class="periode">Okt 2024 &ndash; sekarang</span>
+                </div>
+
+                <div class="posisi">
+                    <div class="posisi-kepala">
+                        <span class="nama-posisi">Junior Commis</span>
+                        <span class="periode-posisi">Mei 2025 &ndash; sekarang</span>
+                    </div>
+                    <ul>
+                        <li>Menyiapkan makanan dan minuman sesuai pesanan dan standar penyajian,
+                            menjaga kebersihan area kerja dan peralatan, serta mematuhi aturan
+                            higiene dan keamanan pangan.</li>
+                    </ul>
+                </div>
+
+                <div class="posisi">
+                    <div class="posisi-kepala">
+                        <span class="nama-posisi">Frontliner / Waiters Premiere</span>
+                        <span class="periode-posisi">Okt 2024 &ndash; Apr 2025</span>
+                    </div>
+                    <ul>
+                        <li>Menyambut tamu, menjelaskan dan menawarkan menu makanan dan minuman,
+                            lalu mengantar pesanannya ke meja tamu.</li>
+                    </ul>
+                </div>
+            </article>
+
+            <article class="linimasa-butir">
+                <div class="tempat-kepala">
+                    <h3>Miniso</h3>
+                    <span class="periode">Agu 2024 &ndash; Okt 2024</span>
+                </div>
+                <div class="posisi">
+                    <div class="posisi-kepala">
+                        <span class="nama-posisi">Junior Store Crew</span>
+                        <span class="periode-posisi">kontrak seasonal</span>
+                    </div>
+                    <ul>
+                        <li>Mengikuti stock opname berkala, menata produk di rak, dan mengusulkan pemesanan barang.</li>
+                    </ul>
+                </div>
+            </article>
+
+            <article class="linimasa-butir">
+                <div class="tempat-kepala">
+                    <h3>Lawson Indonesia</h3>
+                    <span class="periode">Jan 2023 &ndash; Mei 2024</span>
+                </div>
+
+                <div class="posisi">
+                    <div class="posisi-kepala">
+                        <span class="nama-posisi">Assistant Chief of Store</span>
+                        <span class="periode-posisi">Jun 2023 &ndash; Mei 2024</span>
+                    </div>
+                    <ul>
+                        <li>Mengoordinasikan gerai sesuai SOP dan menyusun jadwal shift untuk tujuh kru.</li>
+                        <li>Menyusun laporan penjualan harian, lalu memakainya untuk menentukan
+                            produk mana yang perlu ditambah stoknya.</li>
+                        <li>Memberi pelatihan dan evaluasi rutin kepada kru.</li>
+                    </ul>
+                </div>
+
+                <div class="posisi">
+                    <div class="posisi-kepala">
+                        <span class="nama-posisi">Crew Store</span>
+                        <span class="periode-posisi">Jan 2023 &ndash; Mei 2023</span>
+                    </div>
+                    <ul>
+                        <li>Mengelola stok, melakukan rotasi stok, dan memeriksa tanggal kedaluwarsa.</li>
+                    </ul>
+                </div>
+            </article>
+
+            <article class="linimasa-butir">
+                <div class="tempat-kepala">
+                    <h3>PT Reska Multi Usaha</h3>
+                    <span class="periode">Feb 2022 &ndash; Okt 2022</span>
+                </div>
+                <div class="posisi">
+                    <div class="posisi-kepala">
+                        <span class="nama-posisi">Train Attendant</span>
+                    </div>
+                    <ul>
+                        <li>Melayani penumpang selama perjalanan, termasuk penjualan makanan dan
+                            minuman di kereta.</li>
+                    </ul>
+                </div>
+            </article>
+
+            <article class="linimasa-butir">
+                <div class="tempat-kepala">
+                    <h3>PT Gapura Angkasa</h3>
+                    <span class="periode">Agu 2021 &ndash; Okt 2021</span>
+                </div>
+                <div class="posisi">
+                    <div class="posisi-kepala">
+                        <span class="nama-posisi">Magang, layanan penumpang</span>
+                    </div>
+                    <ul>
+                        <li>Menjawab pertanyaan penumpang bandara serta membantu proses check-in
+                            dan boarding.</li>
+                    </ul>
+                </div>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<!-- ===================== PROYEK ===================== -->
+<section class="seksi" id="proyek">
+    <div class="wadah">
+        <p class="label-seksi"><span class="nomor">03</span> Proyek pilihan</p>
+        <h2 class="judul-seksi">Yang saya kerjakan</h2>
+        <p class="ket-seksi">
+            Empat proyek, satu di antaranya dari tempat kerja dan tiga dari latihan mandiri.
+            Tiap proyek punya halaman penjelasan berisi cara pengerjaan dan hasilnya.
+        </p>
+
+        <article class="kartu-proyek unggulan">
+            <div class="kartu-gambar">
+                <img src="assets/visop.jpg" width="1120" height="700"
+                     alt="Tangkapan layar aplikasi VISOP: halaman verifikasi ID karyawan sebelum mulai shift">
+            </div>
+            <div class="kartu-isi">
+                <span class="label-kecil">Semifinalis XXI Innovation Day 2026</span>
+                <h3><a href="proyek/visop.html">VISOP, website belajar SOP karyawan</a></h3>
+                <p>
+                    Website untuk mempelajari SOP (prosedur kerja) karyawan. Ide, desain, sampai pembangunannya saya kerjakan sendiri. Proyek ini masuk semifinal XXI Innovation Day 2026 dan dinilai langsung oleh Dewan Juri dan Executive Management Cinema XXI.
+                </p>
+                <div class="kartu-kaki">
+                    <a class="kartu-ajakan" href="proyek/visop.html">Baca studi kasus <span class="panah">&rarr;</span></a>
+                    <a class="kartu-kode" href="https://cinema-xxi-vsop-commis-mixologist.ai.studio/" target="_blank" rel="noopener">Lihat aplikasi<span class="sr-only"> (buka di tab baru)</span></a>
+                </div>
+            </div>
+        </article>
+
+        <div class="daftar-proyek">
+
+            <article class="kartu-proyek">
+                <div class="kartu-gambar">
+                    <img src="assets/chart1.png" width="800" height="500"
+                         alt="Grafik batang persentase spesies dilindungi per kategori konservasi">
+                </div>
+                <div class="kartu-isi">
+                    <span class="label-kecil label-netral">Latihan &middot; 2026</span>
+                    <h3><a href="proyek/biodiversity.html">Biodiversity in National Parks</a></h3>
+                    <p>
+                        Analisis status konservasi spesies di empat taman nasional Amerika. Dari
+                        5.541 spesies unik, 179 tercatat berstatus konservasi selain No Intervention.
+                    </p>
+                    <ul class="alat">
+                        <li>Python</li><li>pandas</li><li>Jupyter Notebook</li>
+                    </ul>
+                    <div class="kartu-kaki">
+                        <a class="kartu-ajakan" href="proyek/biodiversity.html">Studi kasus <span class="panah">&rarr;</span></a>
+                        <a class="kartu-kode" href="https://github.com/makiootol-bit/biodiversity-national-parks"
+                           target="_blank" rel="noopener">Kode<span class="sr-only"> di GitHub, buka di tab baru</span></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="kartu-proyek">
+                <div class="kartu-gambar">
+                    <img src="assets/rekomendasi-film.jpg" width="1120" height="700"
+                         alt="Tangkapan layar versi web Rekomendasi Film: menu Cari, Genre, Katalog, dan Marathon, serta ringkasan jumlah film">
+                </div>
+                <div class="kartu-isi">
+                    <span class="label-kecil label-netral">Latihan &middot; 2026</span>
+                    <h3><a href="proyek/rekomendasi-film.html">Rekomendasi Film</a></h3>
+                    <p>
+                        Program rekomendasi film, lanjutan dari tugas Codecademy. Datanya saya
+                        pindahkan ke berkas JSON, logikanya dikunci dengan 65 unit test, lalu saya
+                        buatkan versi webnya.
+                    </p>
+                    <ul class="alat">
+                        <li>Python</li><li>Tailwind CSS</li><li>JSON</li>
+                    </ul>
+                    <div class="kartu-kaki">
+                        <a class="kartu-ajakan" href="proyek/rekomendasi-film.html">Studi kasus <span class="panah">&rarr;</span></a>
+                        <a class="kartu-kode" href="https://github.com/Rolin-data/Project-Protofolio-Kecil" target="_blank" rel="noopener">Kode<span class="sr-only"> di GitHub, buka di tab baru</span></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="kartu-proyek">
+                <div class="kartu-gambar">
+                    <img src="assets/rekomendasi-kuliner.jpg" width="1120" height="700"
+                         alt="Tangkapan layar versi web Rekomendasi Kuliner: pilihan jenis, isian anggaran sekali makan, dan tombol cari">
+                </div>
+                <div class="kartu-isi">
+                    <span class="label-kecil label-netral">Latihan &middot; 2026</span>
+                    <h3><a href="proyek/rekomendasi-kuliner.html">Rekomendasi Kuliner Indonesia</a></h3>
+                    <p>
+                        Program pencari rekomendasi kuliner dengan versi terminal dan versi web. Proyek ini menjadi latihan struktur data, algoritma pencarian dan pengurutan, serta pengujian unit.
+                    </p>
+                    <ul class="alat">
+                        <li>Python</li><li>HTML</li><li>JSON</li>
+                    </ul>
+                    <div class="kartu-kaki">
+                        <a class="kartu-ajakan" href="proyek/rekomendasi-kuliner.html">Studi kasus <span class="panah">&rarr;</span></a>
+                        <a class="kartu-kode" href="https://github.com/Rolin-data/Rekomendasi-Kuliner-Di-Indonesia" target="_blank" rel="noopener">Kode<span class="sr-only"> (buka di tab baru)</span></a>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<!-- ===================== KEAHLIAN & PENDIDIKAN ===================== -->
+<section class="seksi" id="keahlian">
+    <div class="wadah">
+        <p class="label-seksi"><span class="nomor">04</span> Keahlian &amp; pendidikan</p>
+        <h2 class="judul-seksi">Bekal yang saya bawa</h2>
+        <p class="ket-seksi">
+            Kemampuan ini berasal dari pengalaman operasional, pelaporan, dan belajar mandiri.
+            Tiap proyek saya dokumentasikan supaya proses dan hasilnya bisa diperiksa.
+        </p>
+
+        <div class="kisi-dua">
+
+            <div class="blok">
+                <h3>Keahlian</h3>
+                <ul class="daftar-keahlian">
+                    <li>
+                        <span class="kunci">Analisis data</span>
+                        <span>SQL, Python, pandas, Jupyter Notebook, statistik dasar</span>
+                    </li>
+                    <li>
+                        <span class="kunci">Excel &amp; pelaporan</span>
+                        <span>Jadwal shift, catat stok, dan baca data di Excel; laporan penjualan harian</span>
+                    </li>
+                    <li>
+                        <span class="kunci">Operasional &amp; tim</span>
+                        <span>Penjadwalan shift, manajemen stok, pelayanan pelanggan</span>
+                    </li>
+                    <li>
+                        <span class="kunci">Web</span>
+                        <span>HTML, CSS, JavaScript, Tailwind CSS</span>
+                    </li>
+                    <li>
+                        <span class="kunci">Alat</span>
+                        <span>Git, GitHub</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <div class="blok">
+                    <h3>Pendidikan</h3>
+                    <ul class="daftar-polos">
+                        <li>
+                            <span>
+                                <span class="nama">D1 Ground Handling</span>
+                                <span class="ket">Sekolah Tinggi Teknologi Kedirgantaraan, IPK 3,25 dari 4,00</span>
+                            </span>
+                            <span class="tahun">2020 &ndash; 2021</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="blok">
+                    <h3>Sertifikat</h3>
+                    <ul class="daftar-polos">
+                        <li>
+                            <span>
+                                <span class="nama">Memulai Pemrograman dengan Python</span>
+                                <span class="ket">Dicoding, 60 jam</span>
+                            </span>
+                            <span class="tahun">2026</span>
+                        </li>
+                        <li>
+                            <span>
+                                <span class="nama">Analyze Data with SQL Skill Path</span>
+                                <span class="ket">Codecademy</span>
+                            </span>
+                            <span class="tahun">2026</span>
+                        </li>
+                        <li>
+                            <span>
+                                <span class="nama">Learn SQL</span>
+                                <span class="ket">Codecademy</span>
+                            </span>
+                            <span class="tahun">2026</span>
+                        </li>
+                    </ul>
+                    <p class="foto-ket">
+                        Tiga sertifikat di atas yang paling dekat dengan pekerjaan data. Dua lagi,
+                        <strong>Learn Python 3</strong> dan
+                        <strong>Learn What to Learn</strong>, tersimpan di profil.
+                        Bukti:
+                        <a href="https://www.dicoding.com/certificates/72ZDMVYDJZYW" target="_blank" rel="noopener">Dicoding</a>
+                        &middot;
+                        <a href="https://www.codecademy.com/profiles/rolinStallin2184713540" target="_blank" rel="noopener">profil Codecademy</a>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ===================== KONTAK ===================== -->
+<section class="seksi" id="kontak">
+    <div class="wadah">
+        <p class="label-seksi"><span class="nomor">05</span> Kontak</p>
+
+        <div class="kontak-isi">
+            <div>
+                <h2 class="judul-seksi">Hubungi saya</h2>
+                <p>
+                    Untuk pertanyaan soal proyek, riwayat kerja, atau hal lain, kirim email saja.
+                    Saya juga aktif di LinkedIn dan GitHub.
+                </p>
+                <p class="tombol-baris">
+                    <a class="tombol tombol-utama" href="mailto:stallinrolin@gmail.com">Kirim email</a>
+                </p>
+            </div>
+
+            <ul class="daftar-kontak">
+                <li>
+                    <span class="nama-kontak">Email</span>
+                    <a href="mailto:stallinrolin@gmail.com">stallinrolin@gmail.com</a>
+                </li>
+                <li>
+                    <span class="nama-kontak">LinkedIn</span>
+                    <a href="https://linkedin.com/in/rolinstallinsitorus" target="_blank" rel="noopener">linkedin.com/in/rolinstallinsitorus</a>
+                </li>
+                <li>
+                    <span class="nama-kontak">GitHub</span>
+                    <a href="https://github.com/Rolin-data" target="_blank" rel="noopener">github.com/Rolin-data</a>
+                </li>
+                <li>
+                    <span class="nama-kontak">Lokasi</span>
+                    <span>Yogyakarta, Indonesia</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<!-- ===================== KAKI ===================== -->
+<footer class="kaki">
+    <div class="wadah kaki-dalam">
+        <span>&copy; 2026 Rolin Stallin Sitorus</span>
+        <nav class="kaki-tautan" aria-label="Tautan kaki halaman">
+            <a href="#tentang">Tentang</a>
+            <a href="#pengalaman">Pengalaman</a>
+            <a href="#proyek">Proyek</a>
+            <a href="#kontak">Kontak</a>
+            <a href="#atas">Kembali ke atas</a>
+        </nav>
+    </div>
+</footer>
+
+<script>
+(function () {
+    var tombol = document.querySelector('.tombol-menu');
+    var menu = document.getElementById('menu-utama');
+    if (!tombol || !menu) return;
+
+    tombol.addEventListener('click', function () {
+        var terbuka = menu.classList.toggle('terbuka');
+        tombol.setAttribute('aria-expanded', terbuka ? 'true' : 'false');
+    });
+
+    menu.addEventListener('click', function (e) {
+        if (e.target.tagName === 'A') {
+            menu.classList.remove('terbuka');
+            tombol.setAttribute('aria-expanded', 'false');
+        }
+    });
+})();
+</script>
 
 </body>
 </html>

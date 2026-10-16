@@ -1,4 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dancing+Script:wght@400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+/* =========================================================
+   Portofolio Rolin Stallin Sitorus
+   Gaya editorial "kertas": latar terang, judul serif,
+   garis rambut 1px, tanpa gradasi, tanpa bayangan, tanpa animasi.
+   Font: Newsreader + Public Sans (Google Fonts, lisensi SIL OFL 1.1)
+   ========================================================= */
+
+:root{
+    --kertas: #fbfaf7;        /* latar putih tulang */
+    --kertas-tua: #f5f2ec;    /* latar kotak kecil */
+    --tinta: #17171b;         /* judul */
+    --tinta-lembut: #33333a;  /* isi tulisan */
+    --redup: #62626c;         /* keterangan sekunder */
+    --garis: #e2ddd3;         /* garis rambut */
+    --aksen: #1a4a6b;         /* biru tinta, dipakai hemat */
+    --serif: "Newsreader", Georgia, "Times New Roman", serif;
+    --sans: "Public Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --lebar: 760px;
+}
 
 *{
     padding: 0;
@@ -6,396 +24,567 @@
     box-sizing: border-box;
 }
 
+/* gulir halus, tapi hormati setelan sistem */
+@media (prefers-reduced-motion: no-preference){
+    html{
+        scroll-behavior: smooth;
+    }
+}
+
 body{
-    background-color: rgb(13, 13, 13);
-    color: rgb(220, 220, 228);
-    font-family: "Open Sans", sans-serif;
+    background-color: var(--kertas);
+    color: var(--tinta-lembut);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+a{
+    color: var(--aksen);
+}
+
+:focus-visible{
+    outline: 2px solid var(--aksen);
+    outline-offset: 3px;
+}
+
+strong{
+    color: var(--tinta);
+    font-weight: 600;
+}
+
+section{
+    scroll-margin-top: 96px;
+}
+
+/* ---- Kerangka lebar ---- */
+main > section,
+.nav-dalam,
+.kaki{
+    width: min(100% - 2.75rem, var(--lebar));
+    margin-inline: auto;
+}
+
+main > section{
+    padding: 3.25rem 0;
 }
 
 /* ---- Navigasi ---- */
-nav{
+.nav{
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: var(--kertas);
+    border-bottom: 1px solid var(--garis);
+}
+
+.nav-dalam{
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    align-items: center;
-    color: white;
-    margin: 10px;
-    padding: 20px;
-}
-
-nav a{
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    margin: 10px;
-    font-family: sans-serif;
-    font-size: 1rem;
-}
-
-nav .aktif{
-    border-bottom: rgb(58, 123, 189) 2px solid;
-}
-
-nav .logo{
-    font-weight: bold;
-    font-size: 1.5rem;
-    display: flex;
-    align-items: center;
-    transition: all 0.5s ease;
-}
-
-nav .logo p{
-    color: white;
-}
-
-nav a:hover{
-    border-bottom: rgb(58, 123, 189) 2px solid;
-}
-
-/* position:relative supaya glow ::before terkunci di dalam section */
-section{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    text-align: center;
-    position: relative;
-}
-
-.content{
-    width: 50%;
-    margin-top: 3rem;
-}
-
-section .foto img{
-    border-radius: 50%;
-}
-
-/* glow biru di belakang foto, cuma untuk beranda */
-#home::before{
-    position: absolute;
-    background-color: rgb(28, 104, 170);
-    border-radius: 50% 50%;
-    width: 250px;
-    height: 250px;
-    top: 20%;
-    right: 40%;
-    content: '';
-    z-index: -1;
-    filter: blur(40px);
-    animation: bg 2s ease forwards;
-}
-
-/* ---- Profil ---- */
-.judul{
-    margin: 10px 0;
-    font-size: 1.5em;
-}
-
-.sub p{
-    font-size: 15px;
-    line-height: 1.7;
-    color: rgb(190, 190, 200);
-}
-
-.aksen {
-    color: rgb(69, 160, 239);
-    font-weight: bold;
-}
-
-/* avatar inisial — ganti dengan <img> kalau sudah ada foto */
-.foto-awal{
-    width: 150px;
-    height: 150px;
-    margin: 0 auto;
-    border-radius: 50%;
-    background: linear-gradient(135deg, rgb(58, 123, 189), rgb(69, 160, 239));
-    color: white;
-    font-size: 3rem;
-    font-weight: bold;
-    letter-spacing: 2px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* ---- Daftar project ---- */
-.proyek{
-    padding-bottom: 2rem;
-}
-
-.isi-proyek{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 20px;
-    width: 88%;
-    max-width: 1000px;
-    margin-top: 2.5rem;
-    text-align: left;
+    padding: 15px 0;
 }
 
-.kartu{
-    background-color: rgb(21, 21, 26);
-    border: 1px solid rgb(44, 44, 52);
-    border-radius: 14px;
-    padding: 22px;
+.nav-nama{
+    font-family: var(--serif);
+    font-size: 1.02rem;
+    font-weight: 600;
+    color: var(--tinta);
+    text-decoration: none;
+}
+
+.nav-tautan{
     display: flex;
-    flex-direction: column;
-    gap: 14px;
-    text-align: left;
-    transition: transform 0.25s ease, border-color 0.25s ease;
+    flex-wrap: wrap;
+    gap: 4px 18px;
 }
 
-.kartu:hover{
-    transform: translateY(-4px);
-    border-color: rgb(58, 123, 189);
-}
-
-.kartu-atas{
-    display: flex;
-    align-items: baseline;
-    gap: 10px;
-}
-
-.urutan{
-    color: rgb(69, 160, 239);
-    font-family: "Roboto Condensed", sans-serif;
+.nav-tautan a{
     font-size: 0.85rem;
-    font-weight: bold;
-    letter-spacing: 1px;
+    color: var(--redup);
+    text-decoration: none;
 }
 
-.kartu h3{
-    color: white;
-    font-size: 1.05rem;
-    line-height: 1.35;
+.nav-tautan a:hover{
+    color: var(--tinta);
 }
 
-.kartu p{
-    font-size: 14px;
-    line-height: 1.65;
-    color: rgb(185, 185, 195);
+.nav-tautan a.aktif{
+    color: var(--aksen);
+    font-weight: 600;
 }
 
-.kartu code{
-    background-color: rgb(30, 30, 38);
-    color: rgb(69, 160, 239);
-    padding: 1px 6px;
-    border-radius: 4px;
-    font-size: 0.85em;
+/* ---- Sakelar bahasa ---- */
+.bahasa{
+    display: inline-flex;
+    align-items: center;
+    padding-left: 16px;
+    border-left: 1px solid var(--garis);
+    font-size: 0.85rem;
 }
 
-.teknologi{
+.bahasa-kini{
+    font-weight: 600;
+    color: var(--tinta);
+}
+
+.bahasa-pisah{
+    margin: 0 5px;
+    color: var(--redup);
+}
+
+/* ---- Beranda ---- */
+.pembuka{
+    padding-top: 4rem;
+}
+
+.bingkai{
+    max-width: 62ch;
+}
+
+/* Kotak foto: inisial "RS" jadi lapisan dasar, foto asli menumpuk di atasnya.
+   Kalau berkas assets/foto.jpg belum ada, gambar dihapus oleh skrip kecil
+   di halaman dan inisial tetap terlihat. Tidak perlu mengubah HTML.
+   Ukuran 180x225 = rasio 4:5, sama dengan rasio berkas fotonya, jadi
+   object-fit: cover memuat seluruh foto tanpa memotong bagian mana pun. */
+.foto{
+    position: relative;
+    width: 180px;
+    height: 225px;
+    margin-bottom: 30px;
+}
+
+.foto-awal{
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--kertas-tua);
+    border: 1px solid var(--garis);
+    font-family: var(--serif);
+    font-size: 2.6rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--aksen);
+}
+
+.foto-asli{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    background-color: var(--kertas-tua);
+    border: 1px solid var(--garis);
+}
+
+.sapaan{
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--redup);
+}
+
+h1{
+    font-family: var(--serif);
+    font-size: clamp(2.15rem, 6vw, 3.15rem);
+    font-weight: 500;
+    line-height: 1.06;
+    letter-spacing: -0.02em;
+    color: var(--tinta);
+    margin-top: 6px;
+}
+
+.ringkas{
+    margin-top: 18px;
+}
+
+.info-singkat{
     list-style: none;
     display: flex;
     flex-wrap: wrap;
-    gap: 6px;
-    margin-top: auto;
+    gap: 0;
+    margin-top: 28px;
+    padding-top: 15px;
+    border-top: 1px solid var(--garis);
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--redup);
 }
 
-.teknologi li{
-    background-color: rgb(28, 38, 52);
-    color: rgb(120, 180, 240);
-    font-size: 12px;
-    padding: 3px 10px;
-    border-radius: 999px;
+.info-singkat li:not(:last-child)::after{
+    content: "\00b7";
+    margin: 0 12px;
 }
 
-.tautan{
+/* ---- Judul seksi ---- */
+.judul-seksi{
     display: flex;
-    gap: 18px;
-    border-top: 1px solid rgb(44, 44, 52);
-    padding-top: 14px;
+    align-items: baseline;
+    gap: 14px;
+    padding-bottom: 11px;
+    border-bottom: 1px solid var(--garis);
+    margin-bottom: 28px;
+    font-family: var(--serif);
+    font-size: clamp(1.4rem, 3.4vw, 1.85rem);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: var(--tinta);
 }
 
-.tautan a{
-    color: rgb(69, 160, 239);
-    font-size: 14px;
-    font-weight: bold;
+.nomor{
+    flex: none;
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    color: var(--aksen);
+}
+
+.isi-teks{
+    max-width: 64ch;
+}
+
+.isi-teks p + p{
+    margin-top: 16px;
+}
+
+.sub-judul{
+    margin: 34px 0 4px;
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--redup);
+}
+
+.judul-seksi + .sub-judul{
+    margin-top: 0;
+}
+
+/* ---- Riwayat kerja, pendidikan, pencapaian ---- */
+.daftar-kerja{
+    border-bottom: 1px solid var(--garis);
+}
+
+.catatan-kerja{
+    display: grid;
+    grid-template-columns: 150px minmax(0, 1fr);
+    column-gap: 30px;
+    padding: 18px 0;
+    border-top: 1px solid var(--garis);
+}
+
+.catatan-kerja .periode{
+    grid-column: 1;
+    grid-row: 1;
+    padding-top: 3px;
+    font-size: 0.78rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--redup);
+}
+
+.catatan-kerja h4{
+    grid-column: 2;
+    font-family: var(--serif);
+    font-size: 1.08rem;
+    font-weight: 600;
+    line-height: 1.35;
+    color: var(--tinta);
+}
+
+.catatan-kerja .tugas{
+    grid-column: 2;
+    margin-top: 6px;
+    font-size: 0.95rem;
+}
+
+.catatan-kerja .tugas + .tugas{
+    margin-top: 8px;
+}
+
+.perusahaan{
+    font-weight: 500;
+    color: var(--redup);
+}
+
+.pemisah{
+    margin: 0 2px;
+    color: var(--redup);
+}
+
+/* Satu perusahaan bisa punya lebih dari satu jabatan */
+.jabatan{
+    grid-column: 2;
+}
+
+.jabatan-baris{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    column-gap: 12px;
+    font-size: 0.95rem;
+    color: var(--tinta);
+}
+
+.tugas + .jabatan-baris{
+    margin-top: 16px;
+}
+
+.periode-kecil{
+    font-size: 0.78rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--redup);
+}
+
+/* ---- Skills ---- */
+.isi-skills{
+    border-bottom: 1px solid var(--garis);
+}
+
+.grup-skill{
+    display: grid;
+    grid-template-columns: 150px minmax(0, 1fr);
+    column-gap: 30px;
+    padding: 18px 0;
+    border-top: 1px solid var(--garis);
+}
+
+.grup-skill > h3{
+    grid-column: 1;
+    grid-row: 1;
+    padding-top: 2px;
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--tinta);
+}
+
+.grup-skill > *:not(h3){
+    grid-column: 2;
+}
+
+.daftar-alat{
+    font-size: 0.95rem;
+}
+
+.daftar-sertifikat{
+    list-style: none;
+    display: grid;
+    gap: 12px;
+}
+
+.daftar-sertifikat li{
+    display: grid;
+    gap: 3px;
+}
+
+.daftar-sertifikat li > *{
+    justify-self: start;
+}
+
+.daftar-sertifikat a,
+.nama-sertifikat{
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--aksen);
     text-decoration: none;
+    border-bottom: 1px solid rgba(26, 74, 107, 0.32);
 }
 
-.tautan a:hover{
-    text-decoration: underline;
+.daftar-sertifikat a:hover{
+    border-bottom-color: var(--aksen);
 }
 
-.tautan a:focus-visible{
-    outline: 2px solid rgb(69, 160, 239);
-    outline-offset: 3px;
+.daftar-sertifikat li > span:last-child{
+    font-size: 0.85rem;
+    color: var(--redup);
+}
+
+/* ---- Latihan ---- */
+.daftar-karya{
+    border-bottom: 1px solid var(--garis);
+}
+
+.catatan-karya{
+    padding: 22px 0;
+    border-top: 1px solid var(--garis);
+}
+
+.label-karya{
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--aksen);
+}
+
+.catatan-karya h3{
+    margin: 8px 0 10px;
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--tinta);
+}
+
+.catatan-karya p{
+    max-width: 64ch;
+    font-size: 0.95rem;
+}
+
+.alat{
+    margin-top: 12px;
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--redup);
 }
 
 /* ---- Kontak ---- */
-.kontak{
-    padding-bottom: 1rem;
-}
-
-.baris-kontak{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 14px;
+.daftar-kontak{
+    list-style: none;
     margin-top: 24px;
+    border-bottom: 1px solid var(--garis);
 }
 
-.kartu-kontak{
-    display: inline-block;
-    padding: 12px 26px;
-    border: 1px solid rgb(58, 123, 189);
-    border-radius: 8px;
-    color: rgb(69, 160, 239);
-    font-weight: bold;
-    font-size: 15px;
+.daftar-kontak li{
+    display: grid;
+    grid-template-columns: 150px minmax(0, 1fr);
+    column-gap: 30px;
+    align-items: baseline;
+    padding: 14px 0;
+    border-top: 1px solid var(--garis);
+}
+
+.label-kontak{
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--redup);
+}
+
+.daftar-kontak a{
+    justify-self: start;
+    font-size: 0.95rem;
     text-decoration: none;
-    transition: all 0.3s ease;
+    border-bottom: 1px solid rgba(26, 74, 107, 0.32);
 }
 
-.kartu-kontak:hover{
-    background-color: rgb(58, 123, 189);
-    color: white;
+.daftar-kontak a:hover{
+    border-bottom-color: var(--aksen);
 }
 
-.kartu-kontak:focus-visible{
-    outline: 2px solid rgb(69, 160, 239);
-    outline-offset: 3px;
+/* ---- Kaki halaman ---- */
+.kaki{
+    padding: 30px 0 44px;
 }
 
-/* ---- Media sosial ---- */
-.media{
+.kaki-ikon{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    padding-bottom: 30px;
+    gap: 14px;
+    margin-bottom: 14px;
 }
 
-/* color:inherit & text-decoration:none wajib, karena .icon sekarang <a> */
-.media .icon{
-    margin-top: 20px;
-    cursor: pointer;
-    margin-right: 10px;
-    color: inherit;
-    text-decoration: none;
+.icon{
+    display: inline-flex;
+    color: var(--redup);
 }
 
-.media .icon svg:hover {
-    color: rgb(69, 160, 239);
+.icon:hover{
+    color: var(--aksen);
 }
 
-.media .icon:focus-visible{
-    outline: 2px solid rgb(69, 160, 239);
-    outline-offset: 3px;
-    border-radius: 4px;
+.kaki-nama{
+    font-family: var(--serif);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--tinta);
 }
 
-/* ---- Animasi masuk ---- */
-.animasi-nav{
-    animation: nav var(--durasi, 1s) ease-in 1 forwards;
+.kaki-kecil{
+    font-size: 0.82rem;
+    color: var(--redup);
 }
 
-@keyframes nav {
-    0%{
-        opacity: 0;
-    }
-    80%{
-        opacity: 1;
-        filter: blur(10px);
-    }
-    100%{
-        opacity: 1;
-    }
-}
-
-.animasi-foto{
-    animation: foto var(--durasiAnimasi, 1s) ease forwards;
-}
-
-@keyframes foto {
-    0%{
-        opacity: 0;
-        transform: scale(0);
-    }
-    100%{
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-@keyframes bg {
-    0%{
-        opacity: 0;
-    }
-    100%{
-        opacity: 1;
-    }
-}
-
-.animasi-text{
-    animation: teks var(--durasiTeksAnimasi, 3s) ease forwards;
-}
-
-@keyframes teks {
-    0%{
-        transform: translateY(-20%);
-        opacity: 0;
-    }
-    100%{
-        transform: translateX(0);
-    }
-}
-
-@keyframes icons {
-    0%{
-        transform: scale(0);
-        opacity: 0;
-    }
-    100%{
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-
-.animasi-icon{
-    animation: icons var(--durasiIcon, 1s) ease forwards;
-}
-
-.animasi-icon-2{
-    animation: icons var(--durasiIcon, 2s) ease forwards;
-}
-
-.animasi-icon-3{
-    animation: icons var(--durasiIcon, 3s) ease forwards;
-}
-
-.animasi-icon-4{
-    animation: icons var(--durasiIcon, 5s) ease forwards;
-}
-
-@media screen and (max-width: 768px) {
-    .judul{
-        font-size: 15px;
-        font-weight: bold;
+/* ---- Layar sempit ---- */
+@media (max-width: 760px){
+    main > section,
+    .nav-dalam,
+    .kaki{
+        width: min(100% - 2.25rem, var(--lebar));
     }
 
-    .sub p{
-        font-size: 14px;
+    .nav-dalam{
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 7px;
+        padding: 12px 0;
     }
 
-    .content{
-        width: 74%;
+    .nav-tautan{
+        gap: 4px 14px;
     }
 
-    .isi-proyek{
-        width: 92%;
+    .nav-tautan a{
+        font-size: 0.78rem;
+    }
+
+    .bahasa{
+        font-size: 0.78rem;
+        padding-left: 0;
+        border-left: 0;
+    }
+
+    /* Foto tetap 4:5, cuma diperkecil supaya tidak mendominasi layar ponsel */
+    .foto{
+        width: 152px;
+        height: 190px;
+        margin-bottom: 24px;
+    }
+
+    .foto-awal{
+        font-size: 2.2rem;
+    }
+
+    .catatan-kerja,
+    .grup-skill,
+    .daftar-kontak li{
         grid-template-columns: 1fr;
+        row-gap: 4px;
     }
 
-    #home::before{
-        top: 20%;
-        right: 20%;
+    .catatan-kerja .periode{
+        grid-row: auto;
+        padding-top: 0;
     }
 
-    .media{
-        margin: 20px;
+    .catatan-kerja h4,
+    .catatan-kerja .tugas,
+    .catatan-kerja .jabatan,
+    .grup-skill > *:not(h3),
+    .daftar-kontak li > *{
+        grid-column: 1;
+    }
+
+    .catatan-kerja h4{
+        margin-top: 2px;
+    }
+
+    h1{
+        letter-spacing: -0.015em;
     }
 }

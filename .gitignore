@@ -1,0 +1,36 @@
+# Hanya kode yang boleh masuk ke repo ini.
+# Daftar di bawah adalah pengaman supaya berkas pribadi tidak ikut ter-commit.
+
+# --- Dokumen pribadi (CV, ijazah, sertifikat, dsb.) ---
+*.pdf
+*.doc
+*.docx
+*.xls
+*.xlsx
+*.ppt
+*.pptx
+CV_*
+cv_*
+
+# --- Kredensial & konfigurasi lokal ---
+.env
+.env.*
+*.key
+*.pem
+secrets.json
+
+# --- Folder pribadi ---
+pribadi/
+private/
+assets/private/
+
+# --- Berkas sementara / alat bantu ---
+_uji*.html
+*.tmp
+*.log
+*.bak
+
+# --- Sampah sistem operasi ---
+Thumbs.db
+desktop.ini
+.DS_Store

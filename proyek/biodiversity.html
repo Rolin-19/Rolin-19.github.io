@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Biodiversity in National Parks | Rolin Stallin Sitorus</title>
+<meta name="description" content="Analisis status konservasi spesies di empat taman nasional Amerika. Dari 5.541 spesies unik, 179 tercatat berstatus konservasi selain No Intervention.">
+<meta name="author" content="Rolin Stallin Sitorus">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Biodiversity in National Parks">
+<meta property="og:description" content="Analisis data National Park Service dengan Python dan pandas. Hasilnya: 179 dari 5.541 spesies unik tercatat berstatus konservasi selain No Intervention.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../gaya.css">
+<link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+<a class="lompat-isi" href="#utama">Langsung ke isi</a>
+
+<header class="kepala-situs">
+    <div class="wadah kepala-dalam">
+        <a class="merek" href="../index.html">Rolin Stallin Sitorus</a>
+
+        <button class="tombol-menu" type="button" aria-label="Menu utama"
+                aria-expanded="false" aria-controls="menu-utama">
+            <span></span><span></span><span></span>
+        </button>
+
+        <nav class="menu" id="menu-utama" aria-label="Menu utama">
+            <a href="../index.html#beranda">Beranda</a>
+            <a href="../index.html#tentang">Tentang</a>
+            <a href="../index.html#pengalaman">Pengalaman</a>
+            <a href="../index.html#proyek">Proyek</a>
+            <a href="../index.html#kontak">Kontak</a>
+        </nav>
+    </div>
+</header>
+
+<main id="utama">
+
+<section class="hero-proyek">
+    <div class="wadah">
+        <p class="remah">
+            <a href="../index.html#proyek">Proyek</a>
+            <span class="pemisah">/</span>
+            <span>Biodiversity in National Parks</span>
+        </p>
+
+        <span class="label-kecil label-netral">Latihan analisis data &middot; 2026</span>
+        <h1>Biodiversity in National Parks</h1>
+        <p class="ringkas-proyek">
+            Analisis data National Park Service tentang status konservasi spesies di empat taman
+            nasional Amerika. Dari 5.541 spesies unik, 179 tercatat berstatus konservasi selain
+            No Intervention.
+        </p>
+
+        <dl class="meta-proyek">
+            <div>
+                <dt>Peran</dt>
+                <dd>Analisis dan penulisan</dd>
+            </div>
+            <div>
+                <dt>Periode</dt>
+                <dd>2026</dd>
+            </div>
+            <div>
+                <dt>Konteks</dt>
+                <dd>Proyek latihan</dd>
+            </div>
+            <div>
+                <dt>Alat</dt>
+                <dd>Python, pandas, Jupyter</dd>
+            </div>
+        </dl>
+
+        <p class="sumber-proyek">
+            <span class="label-sumber">Kode</span>
+            <a class="tautan-kode" href="https://github.com/makiootol-bit/biodiversity-national-parks" target="_blank" rel="noopener">github.com/makiootol-bit/biodiversity-national-parks<span class="sr-only"> (buka di tab baru)</span></a>
+        </p>
+
+        <p class="foto-ket">
+            Proyek ini ada di akun GitHub kedua saya, <strong>makiootol-bit</strong>. Tiga proyek lain ada di <strong>Rolin-data</strong>.
+        </p>
+    </div>
+</section>
+
+<section class="isi-proyek">
+    <div class="wadah">
+
+        <div class="kotak-angka">
+            <div><b>5.824</b><span>baris data mentah</span></div>
+            <div><b>5.541</b><span>spesies unik</span></div>
+            <div><b>179</b><span>spesies dilindungi (3,23%)</span></div>
+        </div>
+
+        <h2>Pertanyaan yang ingin dijawab</h2>
+        <p>
+            Ada dua pertanyaan. Pertama, kategori spesies apa yang jumlah spesies terlindunginya
+            paling banyak. Kedua, kategori apa yang proporsinya paling tinggi dibanding jumlah
+            spesies di kategorinya sendiri. Keduanya saya jawab terpisah karena hasilnya tidak
+            sama. Pertanyaan inilah yang menentukan langkah berikutnya, mulai dari cara
+            membersihkan data sampai uji apa yang layak dipakai.
+        </p>
+        <p>
+            Satu istilah perlu saya batasi lebih dulu. Yang saya sebut terlindungi di sini adalah
+            baris yang kolom <code>conservation_status</code>-nya bukan
+            <code>No Intervention</code>. Isinya Species of Concern, Endangered, Threatened, dan
+            In Recovery. Ini kategori pada data National Park Service, bukan status perlindungan
+            hukum.
+        </p>
+
+        <h2>Data yang dipakai</h2>
+        <p>
+            Datanya dari National Park Service dan dipakai sebagai bahan latihan. Ada dua berkas
+            yang saling melengkapi.
+        </p>
+
+        <div class="tabel-bungkus">
+            <table class="tabel-data">
+                <thead>
+                    <tr>
+                        <th>Berkas</th>
+                        <th class="angka">Baris</th>
+                        <th>Isi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>species_info.csv</code></td>
+                        <td class="angka">5.824</td>
+                        <td>Kategori, nama ilmiah, nama umum, status konservasi</td>
+                    </tr>
+                    <tr>
+                        <td><code>observations.csv</code></td>
+                        <td class="angka">23.296</td>
+                        <td>Jumlah kemunculan spesies di empat taman selama tujuh hari</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p>
+            Empat taman yang tercatat: Yellowstone, Yosemite, Bryce, dan Great Smoky Mountains.
+        </p>
+        <p>
+            Satu hal yang perlu dibereskan lebih dulu. Berkas <code>species_info.csv</code> berisi
+            5.824 baris, tetapi nama ilmiah uniknya hanya 5.541. Jadi ada 283 baris berlebih dari
+            274 nama ilmiah yang muncul lebih dari sekali. Aturan yang saya pakai untuk memilih
+            baris: kalau satu nama ilmiah punya lebih dari satu status, saya pertahankan baris
+            yang statusnya bukan <code>No Intervention</code>. Kalau semuanya
+            <code>No Intervention</code>, saya ambil baris pertama. Urutan barisnya saya jaga
+            supaya hasilnya sama setiap kali programnya dijalankan. Karena pertanyaannya soal
+            spesies, analisisnya memakai versi yang sudah dibersihkan.
+        </p>
+
+        <h2>Cara saya mengerjakan</h2>
+        <ol>
+            <li>Memuat kedua CSV, lalu memeriksa struktur datanya dengan <code>shape</code>,
+                <code>info</code>, dan <code>describe</code>.</li>
+            <li>Mengisi kolom <code>conservation_status</code> yang kosong menjadi
+                <code>No Intervention</code>.</li>
+            <li>Membuang baris berlebih supaya satu nama ilmiah diwakili satu baris.</li>
+            <li>Menghitung proporsi spesies dilindungi untuk tiap kategori.</li>
+            <li>Menguji hubungan kategori dengan status konservasi memakai uji permutasi.</li>
+            <li>Membandingkan total observasi antar taman nasional.</li>
+        </ol>
+
+        <h2>Hasil</h2>
+        <p>
+            Dari 5.541 spesies, 179 di antaranya berstatus dilindungi. Itu 3,23% saja. Sisanya
+            masuk kategori tanpa intervensi khusus.
+        </p>
+
+        <div class="tabel-bungkus">
+            <table class="tabel-data">
+                <thead>
+                    <tr>
+                        <th>Status konservasi</th>
+                        <th class="angka">Jumlah spesies</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>No Intervention</td><td class="angka">5.362</td></tr>
+                    <tr><td>Species of Concern</td><td class="angka">151</td></tr>
+                    <tr><td>Endangered</td><td class="angka">15</td></tr>
+                    <tr><td>Threatened</td><td class="angka">10</td></tr>
+                    <tr><td>In Recovery</td><td class="angka">3</td></tr>
+                    <tr class="jumlah"><td>Total</td><td class="angka">5.541</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <figure class="gambar-penuh">
+            <img src="../assets/chart1.png" width="800" height="500"
+                 alt="Grafik batang persentase spesies dilindungi untuk setiap kategori spesies">
+            <figcaption>
+                Proporsi spesies dilindungi per kategori. Mamalia dan burung paling tinggi,
+                tumbuhan paling rendah.
+            </figcaption>
+        </figure>
+
+        <div class="tabel-bungkus">
+            <table class="tabel-data">
+                <thead>
+                    <tr>
+                        <th>Kategori</th>
+                        <th class="angka">Total</th>
+                        <th class="angka">Dilindungi</th>
+                        <th class="angka">Proporsi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Mammal</td><td class="angka">176</td><td class="angka">30</td><td class="angka">17,0%</td></tr>
+                    <tr><td>Bird</td><td class="angka">488</td><td class="angka">75</td><td class="angka">15,4%</td></tr>
+                    <tr><td>Amphibian</td><td class="angka">79</td><td class="angka">7</td><td class="angka">8,9%</td></tr>
+                    <tr><td>Fish</td><td class="angka">125</td><td class="angka">11</td><td class="angka">8,8%</td></tr>
+                    <tr><td>Reptile</td><td class="angka">78</td><td class="angka">5</td><td class="angka">6,4%</td></tr>
+                    <tr><td>Nonvascular Plant</td><td class="angka">333</td><td class="angka">5</td><td class="angka">1,5%</td></tr>
+                    <tr><td>Vascular Plant</td><td class="angka">4.262</td><td class="angka">46</td><td class="angka">1,1%</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p>
+            Hasilnya berbeda tergantung cara membacanya. Kalau dihitung dari jumlah, burung yang
+            paling banyak: 75 spesies. Kalau dihitung dari proporsi terhadap jumlah spesies di
+            kategorinya, mamalia yang paling tinggi: 30 dari 176 spesies, atau 17,0%.
+        </p>
+
+        <h2>Uji hipotesis</h2>
+        <p>
+            Langkah berikutnya menguji apakah kategori spesies berhubungan dengan status
+            konservasinya. Uji chi-square adalah pilihan pertama, tetapi hasilnya menunjukkan
+            masalah: 23 dari 35 sel punya nilai harapan di bawah 5. Aturan umumnya minimal 80%
+            sel harus bernilai 5 atau lebih, jadi uji ini tidak layak dipakai di sini.
+        </p>
+        <p>
+            Saya ganti dengan permutation test sebanyak 10.000 kali. Uji ini tidak menuntut
+            syarat nilai harapan tadi.
+        </p>
+
+        <div class="kotak-angka">
+            <div><b>591,15</b><span>nilai chi&sup2;</span></div>
+            <div><b>23 dari 35</b><span>sel dengan nilai harapan di bawah 5</span></div>
+            <div><b>&lt; 0,0001</b><span>nilai p hasil uji permutasi</span></div>
+        </div>
+
+        <p>
+            Nilai p jauh di bawah 0,05. Kalau kategori spesies sebenarnya tidak berhubungan dengan
+            status konservasinya, peluang munculnya pola seperti ini sangat kecil. Jadi pada data
+            yang saya pakai, kategori spesies dan status konservasinya memang berhubungan. Yang
+            perlu dicatat: uji ini menunjukkan adanya hubungan, bukan sebab-akibat.
+        </p>
+
+        <h2>Observasi per taman</h2>
+
+        <figure class="gambar-penuh">
+            <img src="../assets/chart2.png" width="800" height="500"
+                 alt="Grafik batang total observasi untuk setiap taman nasional">
+            <figcaption>Total observasi selama tujuh hari pengamatan di tiap taman.</figcaption>
+        </figure>
+
+        <div class="tabel-bungkus">
+            <table class="tabel-data">
+                <thead>
+                    <tr>
+                        <th>Taman nasional</th>
+                        <th class="angka">Total observasi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Yellowstone</td><td class="angka">1.443.562</td></tr>
+                    <tr><td>Yosemite</td><td class="angka">863.332</td></tr>
+                    <tr><td>Bryce</td><td class="angka">576.025</td></tr>
+                    <tr><td>Great Smoky Mountains</td><td class="angka">431.820</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2>Batasan</h2>
+        <div class="catatan-jujur">
+            <p>
+                Data ini hanya mencakup empat taman dan tujuh hari pengamatan, jadi hasilnya
+                menggambarkan keempat taman itu saja, bukan seluruh Amerika Serikat. Angka
+                observasi juga mencatat berapa kali spesies muncul, bukan berapa banyak
+                individunya. Kedua hal ini perlu diingat sebelum menarik kesimpulan yang lebih
+                luas.
+            </p>
+        </div>
+
+        <div class="navigasi-proyek">
+            <a class="tombol tombol-garis" href="../index.html#proyek">&larr; Semua proyek</a>
+            <a class="tombol tombol-utama" href="rekomendasi-film.html">Proyek berikutnya: Rekomendasi Film &rarr;</a>
+        </div>
+
+    </div>
+</section>
+
+</main>
+
+<footer class="kaki">
+    <div class="wadah kaki-dalam">
+        <span>&copy; 2026 Rolin Stallin Sitorus</span>
+        <nav class="kaki-tautan" aria-label="Tautan kaki halaman">
+            <a href="../index.html#tentang">Tentang</a>
+            <a href="../index.html#pengalaman">Pengalaman</a>
+            <a href="../index.html#proyek">Proyek</a>
+            <a href="../index.html#kontak">Kontak</a>
+        </nav>
+    </div>
+</footer>
+
+<script>
+(function () {
+    var tombol = document.querySelector('.tombol-menu');
+    var menu = document.getElementById('menu-utama');
+    if (!tombol || !menu) return;
+
+    tombol.addEventListener('click', function () {
+        var terbuka = menu.classList.toggle('terbuka');
+        tombol.setAttribute('aria-expanded', terbuka ? 'true' : 'false');
+    });
+
+    menu.addEventListener('click', function (e) {
+        if (e.target.tagName === 'A') {
+            menu.classList.remove('terbuka');
+            tombol.setAttribute('aria-expanded', 'false');
+        }
+    });
+})();
+</script>
+
+</body>
+</html>
