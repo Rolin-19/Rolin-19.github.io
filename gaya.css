@@ -906,6 +906,7 @@ strong{ font-weight: 600; color: var(--navy); }
 .tabel-data td{ color: var(--abu-isi); }
 .tabel-data tbody tr:last-child td{ border-bottom: 0; }
 .tabel-data .angka{ text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.tabel-data th.judul-panjang{ white-space: normal; }
 .tabel-data tr.jumlah td{ font-weight: 600; color: var(--navy); background: var(--dasar); }
 
 /* Tabel dirapatkan agar muat di layar ponsel */

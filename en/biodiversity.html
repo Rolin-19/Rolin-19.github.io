@@ -94,7 +94,7 @@
         <div class="kotak-angka">
             <div><b>5,824</b><span>raw data rows</span></div>
             <div><b>5,541</b><span>unique species</span></div>
-            <div><b>179</b><span>protected species (3.23%)</span></div>
+            <div><b>179</b><span>species recorded with a conservation status other than No Intervention (3.23%)</span></div>
         </div>
 
         <h2>Questions to answer</h2>
@@ -164,14 +164,14 @@
             <li>Filling the empty <code>conservation_status</code> column with
                 <code>No Intervention</code>.</li>
             <li>Dropping the extra rows so one scientific name is represented by one row.</li>
-            <li>Calculating the proportion of protected species for each category.</li>
+            <li>Calculating the proportion of species recorded with a conservation status other than <code>No Intervention</code> for each category.</li>
             <li>Testing whether species category relates to conservation status with a permutation test.</li>
             <li>Comparing total observations across the national parks.</li>
         </ol>
 
         <h2>Results</h2>
         <p>
-            Of the 5,541 species, 179 are protected. That is only 3.23%. The rest
+            Of the 5,541 species, 179 are protected. That is 3.23%. The rest
             fall into the no special intervention category.
         </p>
 
@@ -196,9 +196,9 @@
 
         <figure class="gambar-penuh">
             <img src="../assets/chart1.png" width="800" height="500"
-                 alt="Bar chart of the share of protected species in each species category">
+                 alt="Bar chart of the share of species recorded with a conservation status other than No Intervention in each species category">
             <figcaption>
-                Share of protected species per category. Mammals and birds rank highest,
+                Share of species recorded with a conservation status other than No Intervention per category. Mammals and birds rank highest,
                 plants lowest.
             </figcaption>
         </figure>
@@ -209,7 +209,7 @@
                     <tr>
                         <th>Category</th>
                         <th class="angka">Total</th>
-                        <th class="angka">Protected</th>
+                        <th class="angka judul-panjang">Recorded with a status other than No Intervention</th>
                         <th class="angka">Proportion</th>
                     </tr>
                 </thead>
