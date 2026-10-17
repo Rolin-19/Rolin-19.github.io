@@ -69,9 +69,14 @@ Tombol menu di bawah lebar 860 px memakai JavaScript kecil dengan `aria-expanded
 Animasi hanya berupa perubahan warna dan angkat kotak saat disorot, dan seluruhnya
 dihentikan bila pengguna mengaktifkan `prefers-reduced-motion`.
 
-Sudah diuji: 100 untuk aksesibilitas, praktik terbaik, dan SEO di Lighthouse untuk
-kelima halaman versi Indonesia. Tidak ada gulir horizontal dari lebar 305 px sampai
-1440 px; versi Inggris memakai struktur dan gaya yang sama, jadi perilakunya sama.
+Lighthouse (mode headless, 18 Oktober 2026): best-practices dan SEO 100 di kelima
+halaman versi Indonesia. Accessibility 100 di halaman VISOP, Biodiversity, dan Film;
+95 di beranda dan 96 di halaman Kuliner karena tautan di dalam paragraf hanya
+dibedakan warna, bukan garis bawah (audit `link-in-text-block`). Performance baru
+diukur di beranda: 96.
+
+Tidak ada gulir horizontal dari lebar 305 px sampai 1440 px; versi Inggris memakai
+struktur dan gaya yang sama, jadi perilakunya sama.
 
 Font Inter dimuat dari Google Fonts lewat `<link>` dengan `preconnect`, bukan
 `@import`, supaya tidak menghambat render.
