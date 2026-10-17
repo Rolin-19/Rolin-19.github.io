@@ -36,12 +36,12 @@ aplikasi untuk VISOP.
 | Proyek | Tautan |
 |---|---|
 | Biodiversity in National Parks | Kode — `github.com/makiootol-bit/biodiversity-national-parks` |
-| Rekomendasi Film | Kode — `github.com/Rolin-data/Project-Protofolio-Kecil` |
-| Rekomendasi Kuliner Indonesia | Kode — `github.com/Rolin-data/Rekomendasi-Kuliner-Di-Indonesia` |
+| Rekomendasi Film | Kode — `github.com/Rolin-19/Project-Protofolio-Kecil` |
+| Rekomendasi Kuliner Indonesia | Kode — `github.com/Rolin-19/Rekomendasi-Kuliner-Di-Indonesia` |
 | VISOP | Aplikasi — `cinema-xxi-vsop-commis-mixologist.ai.studio` |
 
 Dua akun GitHub dipakai karena sejarah pengerjaannya: `makiootol-bit` untuk
-Biodiversity in National Parks, `Rolin-data` untuk proyek lainnya. Keterangan ini
+Biodiversity in National Parks, `Rolin-19` untuk proyek lainnya. Keterangan ini
 juga tertulis di `proyek/biodiversity.html`.
 
 Kode VISOP tidak dipublikasikan karena aplikasinya dipakai internal perusahaan.
