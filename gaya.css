@@ -75,6 +75,11 @@ h1, h2, h3, h4{
 p{ margin: 0 0 1em; }
 p:last-child{ margin-bottom: 0; }
 
+/* Tautan yang berada di dalam paragraf diberi garis bawah supaya tidak hanya
+   dibedakan oleh warna (WCAG 1.4.1, audit Lighthouse "link-in-text-block").
+   Tautan bertombol tetap tanpa garis bawah. */
+p a:not(.tombol){ text-decoration: underline; text-underline-offset: 2px; }
+
 ul{ margin: 0; padding-left: 1.15em; }
 li{ margin-bottom: .3em; }
 li:last-child{ margin-bottom: 0; }
