@@ -228,6 +228,14 @@ Makanan yang muat Rp30.000:
             tombol.setAttribute('aria-expanded', 'false');
         }
     });
+
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && menu.classList.contains('terbuka')) {
+            menu.classList.remove('terbuka');
+            tombol.setAttribute('aria-expanded', 'false');
+            tombol.focus();
+        }
+    });
 })();
 </script>
 
