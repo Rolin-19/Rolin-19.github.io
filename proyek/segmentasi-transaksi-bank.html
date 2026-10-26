@@ -187,6 +187,32 @@
             <code>n_estimators=50</code>. Silhouette Score K-Means: <strong>0,4446</strong>.
         </p>
 
+        <h2>Visualisasi</h2>
+
+        <figure class="gambar-penuh">
+            <img src="https://github.com/Rolin-19/Bank-transaction-segmentation./raw/main/assets/elbow-method-kmeans.png"
+                 alt="Grafik KElbowVisualizer dengan metrik silhouette untuk k=2 sampai 10"
+                 width="697" height="506">
+            <figcaption>
+                Pemilihan jumlah cluster dengan KElbowVisualizer (metrik silhouette), bukan metode
+                elbow berbasis inertia/WCSS. Grafik ini mendokumentasikan alasan penggunaan
+                empat cluster.
+            </figcaption>
+        </figure>
+
+        <figure class="gambar-penuh">
+            <img src="https://github.com/Rolin-19/Bank-transaction-segmentation./raw/main/assets/pca-2d-clusters.png"
+                 alt="Proyeksi PCA 2D dari empat cluster transaksi bank"
+                 width="841" height="704">
+            <figcaption>
+                Proyeksi dua dimensi kelompok transaksi hasil K-Means. Titik-titik
+                menunjukkan observasi transaksi individual dalam ruang hasil transformasi.
+                Grafik ini memperlihatkan distribusi dan tingkat pemisahan, bukan bukti bahwa
+                cluster terpisah sempurna. Silhouette Score keseluruhan 0,4446 menunjukkan
+                pemisahan sedang.
+            </figcaption>
+        </figure>
+
         <h2>Keterbatasan</h2>
         <div class="catatan-jujur">
             <p>
