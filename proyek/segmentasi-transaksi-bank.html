@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Segmentasi Transaksi Bank dengan Machine Learning | Rolin Stallin Sitorus</title>
+<meta name="description" content="Proyek kursus Dicoding: clustering transaksi bank menjadi empat kelompok dengan K-Means, lalu klasifikasi dengan Decision Tree dan Random Forest.">
+<meta name="author" content="Rolin Stallin Sitorus">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Segmentasi Transaksi Bank dengan Machine Learning">
+<meta property="og:description" content="Proyek pembelajaran Dicoding. K-Means 4 kelompok, Silhouette Score 0,4446. Decision Tree 95,37%, Random Forest 100% terhadap label clustering.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../gaya.css">
+<link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+<a class="lompat-isi" href="#utama">Langsung ke isi</a>
+
+<header class="kepala-situs">
+    <div class="wadah kepala-dalam">
+        <a class="merek" href="../index.html">Rolin Stallin Sitorus</a>
+
+        <button class="tombol-menu" type="button" aria-label="Menu utama"
+                aria-expanded="false" aria-controls="menu-utama">
+            <span></span><span></span><span></span>
+        </button>
+
+        <nav class="menu" id="menu-utama" aria-label="Menu utama">
+            <a href="../index.html#beranda">Beranda</a>
+            <a href="../index.html#tentang">Tentang</a>
+            <a href="../index.html#pengalaman">Pengalaman</a>
+            <a href="../index.html#proyek">Proyek</a>
+            <a href="../index.html#kontak">Kontak</a>
+            <a class="bahasa" href="../en/segmentasi-transaksi-bank.html" hreflang="en" lang="en">EN</a>
+        </nav>
+    </div>
+</header>
+
+<main id="utama">
+
+<section class="hero-proyek">
+    <div class="wadah">
+        <p class="remah">
+            <a href="../index.html#proyek">Proyek</a>
+            <span class="pemisah">/</span>
+            <span>Segmentasi Transaksi Bank dengan Machine Learning</span>
+        </p>
+
+        <span class="label-kecil label-netral">Proyek kursus &middot; Dicoding &middot; 2026</span>
+        <h1>Segmentasi Transaksi Bank dengan Machine Learning</h1>
+        <p class="ringkas-proyek">
+            Clustering transaksi bank menjadi empat kelompok memakai K-Means, lalu model
+            klasifikasi (Decision Tree dan Random Forest) memprediksi label kelompok tersebut.
+            Proyek ini adalah tugas akhir kursus Belajar Machine Learning untuk Pemula (Dicoding).
+        </p>
+
+        <dl class="meta-proyek">
+            <div>
+                <dt>Peran</dt>
+                <dd>Pengerjaan dan dokumentasi</dd>
+            </div>
+            <div>
+                <dt>Periode</dt>
+                <dd>2026</dd>
+            </div>
+            <div>
+                <dt>Konteks</dt>
+                <dd>Proyek kursus Dicoding</dd>
+            </div>
+            <div>
+                <dt>Alat</dt>
+                <dd>Python, pandas, scikit-learn, Jupyter</dd>
+            </div>
+        </dl>
+
+        <p class="sumber-proyek">
+            <span class="label-sumber">Dokumentasi GitHub</span>
+            <a class="tautan-kode" href="https://github.com/Rolin-19/Bank-transaction-segmentation." target="_blank" rel="noopener">github.com/Rolin-19/Bank-transaction-segmentation<span class="sr-only"> (buka di tab baru)</span></a>
+        </p>
+
+        <p class="foto-ket">
+            Repositori publik berisi dokumentasi dan studi kasus. Notebook submission asli,
+            CSV, dan model disimpan lokal sampai hak publikasinya jelas.
+        </p>
+    </div>
+</section>
+
+<section class="isi-proyek">
+    <div class="wadah">
+
+        <div class="kotak-angka">
+            <div><b>2.537</b><span>baris data awal</span></div>
+            <div><b>1.945</b><span>baris setelah preprocessing</span></div>
+            <div><b>4</b><span>kelompok transaksi (K-Means)</span></div>
+            <div><b>0,4446</b><span>Silhouette Score</span></div>
+        </div>
+
+        <h2>Pertanyaan yang ingin dijawab</h2>
+        <p>
+            Bisakah transaksi bank dikelompokkan menjadi beberapa kelompok berdasarkan perilaku
+            transaksinya (jumlah, kanal, usia nasabah, saldo, dan sebagainya), lalu bisakah
+            kelompok itu diprediksi oleh model klasifikasi? Proyek ini menjawab dua hal itu:
+            pertama clustering, lalu klasifikasi.
+        </p>
+
+        <h2>Data yang dipakai</h2>
+        <p>
+            Data dari Google Sheets publik yang dirujuk materi kursus Dicoding. Satu baris adalah
+            satu transaksi, bukan satu nasabah. Satu nasabah (<code>AccountID</code>) bisa punya
+            banyak transaksi.
+        </p>
+
+        <div class="tabel-bungkus">
+            <table class="tabel-data">
+                <thead>
+                    <tr>
+                        <th>Fitur</th>
+                        <th>Isi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><code>TransactionAmount</code></td><td>Nilai transaksi</td></tr>
+                    <tr><td><code>TransactionType</code></td><td>Debit / Credit</td></tr>
+                    <tr><td><code>Location</code></td><td>Kota di Amerika Serikat</td></tr>
+                    <tr><td><code>Channel</code></td><td>Online, ATM, Branch</td></tr>
+                    <tr><td><code>CustomerAge</code></td><td>Usia pemilik akun</td></tr>
+                    <tr><td><code>CustomerOccupation</code></td><td>Dokter, Insinyur, Mahasiswa, Pensiunan</td></tr>
+                    <tr><td><code>TransactionDuration</code></td><td>Lama transaksi (detik)</td></tr>
+                    <tr><td><code>LoginAttempts</code></td><td>Jumlah percobaan login</td></tr>
+                    <tr><td><code>AccountBalance</code></td><td>Saldo setelah transaksi</td></tr>
+                    <tr><td><code>AgeGroup</code></td><td>Kelompok usia</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p>
+            Dataset awal berisi 2.537 baris. Setelah pembersihan (penanganan nilai kosong, encoding
+            kategorikal, standardisasi), tersisa 1.945 baris.
+        </p>
+
+        <h2>Cara saya mengerjakan</h2>
+        <ol>
+            <li>Memuat data, memeriksa struktur dengan <code>shape</code>, <code>info</code>, <code>describe</code>.</li>
+            <li>Menangani nilai kosong, encoding kategorikal, standardisasi fitur numerik.</li>
+            <li>K-Means: jumlah cluster ditentukan lewat Elbow Method berbasis Silhouette Score.</li>
+            <li>Visualisasi cluster dalam 2D dengan PCA.</li>
+            <li>Interpretasi 4 kelompok dari agregasi (mean/min/max) fitur numerik dan modus fitur
+                kategorikal pada data yang sudah di-inverse transform.</li>
+            <li>Klasifikasi: memuat data hasil clustering, one-hot encoding, split 80/20 stratified
+                (1.556 latih, 389 uji).</li>
+            <li>Decision Tree (<code>random_state=42</code>) dan Random Forest (<code>random_state=42</code>).</li>
+            <li>Tuning Random Forest dengan GridSearchCV (5-fold, scoring accuracy).</li>
+            <li>Evaluasi: accuracy, precision, recall, F1 (macro). Penyimpanan model dengan joblib.</li>
+        </ol>
+
+        <h2>Hasil</h2>
+
+        <div class="kotak-angka">
+            <div><b>95,37%</b><span>akurasi Decision Tree (uji)</span></div>
+            <div><b>100%</b><span>akurasi Random Forest (uji)</span></div>
+            <div><b>1,0</b><span>F1 macro Random Forest (uji)</span></div>
+        </div>
+
+        <div class="tabel-bungkus">
+            <table class="tabel-data">
+                <thead>
+                    <tr>
+                        <th>Model</th>
+                        <th class="angka">Accuracy (uji)</th>
+                        <th class="angka">F1 macro (uji)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Decision Tree</td><td class="angka">95,37%</td><td class="angka">0,9538</td></tr>
+                    <tr><td>Random Forest</td><td class="angka">100%</td><td class="angka">1,0000</td></tr>
+                    <tr><td>Random Forest (tuned)</td><td class="angka">100%</td><td class="angka">1,0000</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p>
+            Parameter terbaik Random Forest setelah tuning: <code>min_samples_split=5</code>,
+            <code>n_estimators=50</code>. Silhouette Score K-Means: <strong>0,4446</strong>.
+        </p>
+
+        <h2>Keterbatasan</h2>
+        <div class="catatan-jujur">
+            <p>
+                <strong>Akurasi 100% bukan kemampuan memprediksi dunia nyata.</strong> Target yang
+                diprediksi adalah <em>label hasil K-Means</em> (cluster ID), bukan label fraud yang
+                diverifikasi. Model klasifikasi hanya mempelajari pola segmentasi yang sudah dibuat
+                clustering. Ini tugas memprediksi label buatan, bukan mendeteksi penipuan.
+            </p>
+            <p>
+                Silhouette Score 0,4446 menunjukkan pemisahan cluster sedang, bukan sangat jelas.
+                Empat kelompok transaksi tumpang tindih pada beberapa fitur. Dataset kecil
+                (1.945 baris) dan berasal dari data kursus, belum tentu mewakili distribusi
+                transaksi bank nyata. Empat kelompok adalah kelompok transaksi, bukan segmen
+                nasabah unik. Akurasi 100% pada data uji kecil (389 baris) berpotensi overfitting;
+                belum diuji pada data baru.
+            </p>
+        </div>
+
+        <p class="foto-ket">
+            Proyek ini adalah tugas kursus Belajar Machine Learning untuk Pemula (Dicoding, 2026),
+            dikerjakan dengan bantuan AI dan diverifikasi secara manual. Repositori publik berisi
+            dokumentasi dan studi kasus saja; notebook submission asli, CSV, dan model disimpan
+            lokal sampai hak publikasinya jelas.
+        </p>
+
+        <div class="navigasi-proyek">
+            <a class="tombol tombol-garis" href="../index.html#proyek">&larr; Semua proyek</a>
+            <a class="tombol tombol-utama" href="visop.html">Proyek lain: VISOP &rarr;</a>
+        </div>
+
+    </div>
+</section>
+
+</main>
+
+<footer class="kaki">
+    <div class="wadah kaki-dalam">
+        <span>&copy; 2026 Rolin Stallin Sitorus</span>
+        <nav class="kaki-tautan" aria-label="Tautan kaki halaman">
+            <a href="../index.html#tentang">Tentang</a>
+            <a href="../index.html#pengalaman">Pengalaman</a>
+            <a href="../index.html#proyek">Proyek</a>
+            <a href="../index.html#kontak">Kontak</a>
+        </nav>
+    </div>
+</footer>
+
+<script>
+(function () {
+    var tombol = document.querySelector('.tombol-menu');
+    var menu = document.getElementById('menu-utama');
+    if (!tombol || !menu) return;
+
+    tombol.addEventListener('click', function () {
+        var terbuka = menu.classList.toggle('terbuka');
+        tombol.setAttribute('aria-expanded', terbuka ? 'true' : 'false');
+    });
+
+    menu.addEventListener('click', function (e) {
+        if (e.target.tagName === 'A') {
+            menu.classList.remove('terbuka');
+            tombol.setAttribute('aria-expanded', 'false');
+        }
+    });
+})();
+</script>
+
+</body>
+</html>

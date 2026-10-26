@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bank Transaction Segmentation with Machine Learning | Rolin Stallin Sitorus</title>
+<meta name="description" content="Dicoding course project: clustering bank transactions into four groups with K-Means, then classification with Decision Tree and Random Forest.">
+<meta name="author" content="Rolin Stallin Sitorus">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bank Transaction Segmentation with Machine Learning">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../gaya.css">
+<link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+<a class="lompat-isi" href="#main">Skip to content</a>
+
+<header class="kepala-situs">
+    <div class="wadah kepala-dalam">
+        <a class="merek" href="index.html">Rolin Stallin Sitorus</a>
+
+        <button class="tombol-menu" type="button" aria-label="Main menu"
+                aria-expanded="false" aria-controls="menu-utama">
+            <span></span><span></span><span></span>
+        </button>
+
+        <nav class="menu" id="menu-utama" aria-label="Main menu">
+            <a href="index.html#home">Home</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#experience">Experience</a>
+            <a href="index.html#projects">Projects</a>
+            <a href="index.html#contact">Contact</a>
+            <a class="bahasa" href="../proyek/segmentasi-transaksi-bank.html" hreflang="id" lang="id">ID</a>
+        </nav>
+    </div>
+</header>
+
+<main id="main">
+
+<section class="hero-proyek">
+    <div class="wadah">
+        <p class="remah">
+            <a href="index.html#projects">Projects</a>
+            <span class="pemisah">/</span>
+            <span>Bank Transaction Segmentation with Machine Learning</span>
+        </p>
+
+        <span class="label-kecil label-netral">Course project &middot; Dicoding &middot; 2026</span>
+        <h1>Bank Transaction Segmentation with Machine Learning</h1>
+        <p class="ringkas-proyek">
+            Clustering bank transactions into four groups with K-Means, then predicting the
+            group label with Decision Tree and Random Forest. Final project of the Dicoding
+            beginner machine learning course.
+        </p>
+
+        <dl class="meta-proyek">
+            <div>
+                <dt>Role</dt>
+                <dd>Implementation and documentation</dd>
+            </div>
+            <div>
+                <dt>Period</dt>
+                <dd>2026</dd>
+            </div>
+            <div>
+                <dt>Context</dt>
+                <dd>Dicoding course project</dd>
+            </div>
+            <div>
+                <dt>Tools</dt>
+                <dd>Python, pandas, scikit-learn, Jupyter</dd>
+            </div>
+        </dl>
+
+        <p class="sumber-proyek">
+            <span class="label-sumber">GitHub documentation</span>
+            <a class="tautan-kode" href="https://github.com/Rolin-19/Bank-transaction-segmentation." target="_blank" rel="noopener">github.com/Rolin-19/Bank-transaction-segmentation<span class="sr-only"> (opens in a new tab)</span></a>
+        </p>
+
+        <p class="foto-ket">
+            The public repository contains documentation and the case study only. The original
+            submission notebook, CSV files, and models are kept locally until publishing rights
+            are confirmed.
+        </p>
+    </div>
+</section>
+
+<section class="isi-proyek">
+    <div class="wadah">
+
+        <div class="kotak-angka">
+            <div><b>2,537</b><span>raw data rows</span></div>
+            <div><b>1,945</b><span>rows after preprocessing</span></div>
+            <div><b>4</b><span>transaction groups (K-Means)</span></div>
+            <div><b>0.4446</b><span>Silhouette Score</span></div>
+        </div>
+
+        <h2>Question</h2>
+        <p>
+            Can bank transactions be grouped into clusters based on transaction behaviour
+            (amount, channel, customer age, balance, and so on), and can those group labels be
+            predicted by a classification model? This project answers both: first clustering,
+            then classification.
+        </p>
+
+        <h2>Data</h2>
+        <p>
+            Data from a public Google Sheet referenced by the Dicoding course. One row is one
+            transaction, not one customer. A single customer (<code>AccountID</code>) can have
+            many transactions.
+        </p>
+
+        <div class="tabel-bungkus">
+            <table class="tabel-data">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Content</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><code>TransactionAmount</code></td><td>Transaction value</td></tr>
+                    <tr><td><code>TransactionType</code></td><td>Debit / Credit</td></tr>
+                    <tr><td><code>Location</code></td><td>City in the United States</td></tr>
+                    <tr><td><code>Channel</code></td><td>Online, ATM, Branch</td></tr>
+                    <tr><td><code>CustomerAge</code></td><td>Account holder age</td></tr>
+                    <tr><td><code>CustomerOccupation</code></td><td>Doctor, Engineer, Student, Retired</td></tr>
+                    <tr><td><code>TransactionDuration</code></td><td>Transaction length (seconds)</td></tr>
+                    <tr><td><code>LoginAttempts</code></td><td>Number of login attempts</td></tr>
+                    <tr><td><code>AccountBalance</code></td><td>Balance after transaction</td></tr>
+                    <tr><td><code>AgeGroup</code></td><td>Age group</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p>
+            The raw dataset has 2,537 rows. After cleaning (handling missing values, categorical
+            encoding, standardisation), 1,945 rows remain.
+        </p>
+
+        <h2>Method</h2>
+        <ol>
+            <li>Load the data, inspect structure with <code>shape</code>, <code>info</code>, <code>describe</code>.</li>
+            <li>Handle missing values, encode categorical features, standardise numeric features.</li>
+            <li>K-Means: number of clusters chosen by Elbow Method based on Silhouette Score.</li>
+            <li>Visualise clusters in 2D with PCA.</li>
+            <li>Interpret four groups from aggregate (mean/min/max) of numeric features and mode of
+                categorical features on inverse-transformed data.</li>
+            <li>Classification: load clustered data, one-hot encode, 80/20 stratified split
+                (1,556 train, 389 test).</li>
+            <li>Decision Tree (<code>random_state=42</code>) and Random Forest (<code>random_state=42</code>).</li>
+            <li>Tune Random Forest with GridSearchCV (5-fold, accuracy scoring).</li>
+            <li>Evaluate: accuracy, precision, recall, F1 (macro). Save models with joblib.</li>
+        </ol>
+
+        <h2>Results</h2>
+
+        <div class="kotak-angka">
+            <div><b>95.37%</b><span>Decision Tree accuracy (test)</span></div>
+            <div><b>100%</b><span>Random Forest accuracy (test)</span></div>
+            <div><b>1.0</b><span>Random Forest F1 macro (test)</span></div>
+        </div>
+
+        <div class="tabel-bungkus">
+            <table class="tabel-data">
+                <thead>
+                    <tr>
+                        <th>Model</th>
+                        <th class="angka">Accuracy (test)</th>
+                        <th class="angka">F1 macro (test)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Decision Tree</td><td class="angka">95.37%</td><td class="angka">0.9538</td></tr>
+                    <tr><td>Random Forest</td><td class="angka">100%</td><td class="angka">1.0000</td></tr>
+                    <tr><td>Random Forest (tuned)</td><td class="angka">100%</td><td class="angka">1.0000</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p>
+            Best Random Forest parameters after tuning: <code>min_samples_split=5</code>,
+            <code>n_estimators=50</code>. K-Means Silhouette Score: <strong>0.4446</strong>.
+        </p>
+
+        <h2>Limitations</h2>
+        <div class="catatan-jujur">
+            <p>
+                <strong>100% accuracy is not real-world prediction ability.</strong> The target being
+                predicted is the <em>K-Means cluster label</em> (cluster ID), not a verified fraud
+                label. The classification model only learns the segmentation pattern produced by
+                clustering. This is a task of predicting a synthetic label, not detecting fraud.
+            </p>
+            <p>
+                A Silhouette Score of 0.4446 indicates moderate cluster separation, not very clear.
+                The four transaction groups overlap on several features. The dataset is small
+                (1,945 rows) and comes from course data, which may not represent real bank
+                transaction distributions. The four groups are transaction groups, not unique
+                customer segments. 100% accuracy on a small test set (389 rows) risks overfitting;
+                it has not been tested on new data.
+            </p>
+        </div>
+
+        <p class="foto-ket">
+            This is the final project of the Dicoding beginner machine learning course (2026),
+            built with AI assistance and verified manually. The public repository contains
+            documentation and the case study only; the original submission notebook, CSV files,
+            and models are kept locally until publishing rights are confirmed.
+        </p>
+
+        <div class="navigasi-proyek">
+            <a class="tombol tombol-garis" href="index.html#projects">&larr; All projects</a>
+            <a class="tombol tombol-utama" href="visop.html">Other project: VISOP &rarr;</a>
+        </div>
+
+    </div>
+</section>
+
+</main>
+
+<footer class="kaki">
+    <div class="wadah kaki-dalam">
+        <span>&copy; 2026 Rolin Stallin Sitorus</span>
+        <nav class="kaki-tautan" aria-label="Footer links">
+            <a href="index.html#about">About</a>
+            <a href="index.html#experience">Experience</a>
+            <a href="index.html#projects">Projects</a>
+            <a href="index.html#contact">Contact</a>
+        </nav>
+    </div>
+</footer>
+
+<script>
+(function () {
+    var tombol = document.querySelector('.tombol-menu');
+    var menu = document.getElementById('menu-utama');
+    if (!tombol || !menu) return;
+
+    tombol.addEventListener('click', function () {
+        var terbuka = menu.classList.toggle('terbuka');
+        tombol.setAttribute('aria-expanded', terbuka ? 'true' : 'false');
+    });
+
+    menu.addEventListener('click', function (e) {
+        if (e.target.tagName === 'A') {
+            menu.classList.remove('terbuka');
+            tombol.setAttribute('aria-expanded', 'false');
+        }
+    });
+})();
+</script>
+
+</body>
+</html>
