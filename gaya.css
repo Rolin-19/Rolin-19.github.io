@@ -501,6 +501,12 @@ strong{ font-weight: 600; color: var(--navy); }
     width: 100%; height: 100%;
     object-fit: cover;
 }
+
+/* Grafik ML: tampilkan seluruh grafik tanpa pemotongan */
+.kartu-gambar img.kartu-gambar-chart{
+    object-fit: contain;
+    background: #f8fafc;
+}
 .kartu-isi{ padding: 22px 24px 24px; }
 .kartu-isi h3{ font-size: 18px; margin-bottom: 8px; }
 .kartu-isi p{ font-size: 15px; margin-bottom: 14px; }
