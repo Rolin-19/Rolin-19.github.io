@@ -1,7 +1,7 @@
 # Portofolio — Rolin Stallin Sitorus
 
 Situs portofolio dua bahasa: satu halaman beranda berisi profil, riwayat kerja,
-keahlian, proyek, dan kontak, ditambah empat halaman studi kasus untuk tiap proyek.
+keahlian, proyek, dan kontak, ditambah lima halaman studi kasus untuk tiap proyek.
 Versi Indonesia ada di akar folder, versi Inggris di `en/`, dan tombol ID/EN di menu
 mengalihkan antar versi. Ditulis dengan HTML, CSS, dan sedikit JavaScript, tanpa
 framework dan tanpa proses build, jadi bisa langsung di-host di GitHub Pages.
@@ -15,13 +15,14 @@ framework dan tanpa proses build, jadi bisa langsung di-host di GitHub Pages.
 | Beranda | Perkenalan singkat dan ringkasan posisi |
 | Tentang | Perjalanan kerja dan alasan berpindah ke analisis data |
 | Pengalaman | Lima perusahaan, tiap jabatan punya keterangannya sendiri |
-| Proyek | Empat proyek, masing-masing tertaut ke halaman studi kasusnya |
+| Proyek | Lima proyek, masing-masing tertaut ke halaman studi kasusnya |
 | Keahlian | Keahlian, pendidikan, dan sertifikat |
 | Kontak | Email, LinkedIn, GitHub, lokasi |
 
 **Studi kasus** (`proyek/`): VISOP, Biodiversity in National Parks, Rekomendasi
-Film, dan Rekomendasi Kuliner Indonesia. Tiap halaman menjelaskan pertanyaan atau
-tujuan, data yang dipakai, cara pengerjaan, hasilnya, dan batasannya.
+Film, Rekomendasi Kuliner Indonesia, dan Segmentasi Transaksi Bank dengan Machine
+Learning. Tiap halaman menjelaskan pertanyaan atau tujuan, data yang dipakai, cara
+pengerjaan, hasilnya, dan batasannya.
 
 Versi Inggrisnya ada di `en/` dengan nama berkas yang sama (`en/index.html`,
 `en/visop.html`, `en/biodiversity.html`, dan seterusnya). Isinya terjemahan dari
