@@ -811,7 +811,7 @@ strong{ font-weight: 600; color: var(--navy); }
 }
 .remah a{ color: var(--slate); }
 .remah a:hover{ color: var(--biru); }
-.remah .pemisah{ margin: 0 8px; color: var(--garis-tegas); }
+.remah .pemisah{ margin: 0 8px; color: #475569; }
 
 .hero-proyek h1{
     font-size: clamp(30px, 4vw, 44px);
