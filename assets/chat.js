@@ -1,6 +1,6 @@
 (function () {
   "use strict";
-  var ENDPOINT = (window.ROLIN_AI_ENDPOINT || "https://rolin-ai.stallinrolin.workers.dev/chat");
+  var ENDPOINT = (window.ROLIN_AI_ENDPOINT || "https://rolin-ai-v2.stallinrolin.workers.dev/chat");
   var history = [];
 
   function el(tag, cls, text) {
