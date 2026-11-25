@@ -18,7 +18,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="gaya.css?v=81c33e2">
+<link rel="stylesheet" href="gaya.css?v=ef622ba">
 <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
 
 <script type="application/ld+json">
@@ -527,6 +527,22 @@
     </div>
 </footer>
 
+<!-- Rolin AI widget (markup statis, perilaku di-attach oleh assets/chat.js) -->
+<div class="rolin-chat" style="position:fixed;right:20px;bottom:20px;z-index:9999;pointer-events:auto;">
+  <button class="rolin-chat-toggle" type="button" aria-label="Buka chat Rolin AI" aria-expanded="false">Rolin AI</button>
+  <div class="rolin-chat-panel" role="dialog" aria-label="Rolin AI">
+    <div class="rolin-chat-kepala">
+      <h3>Rolin AI</h3>
+      <button class="rolin-chat-tutup" type="button" aria-label="Tutup chat">×</button>
+    </div>
+    <div class="rolin-chat-pesan" aria-live="polite"></div>
+    <form class="rolin-chat-form">
+      <input class="rolin-chat-input" type="text" placeholder="Tanya tentang Rolin..." aria-label="Pertanyaan">
+      <button class="rolin-chat-kirim" type="submit">Kirim</button>
+    </form>
+  </div>
+</div>
+
 <script>
 (function () {
     var tombol = document.querySelector('.tombol-menu');
@@ -554,7 +570,7 @@
     });
 })();
 </script>
-<script src="assets/chat.js?v=81c33e2" defer></script>
+<script src="assets/chat.js?v=ef622ba" defer></script>
 
 </body>
 </html>

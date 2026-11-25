@@ -3,57 +3,68 @@
   var ENDPOINT = (window.ROLIN_AI_ENDPOINT || "https://rolin-ai-api.pages.dev/chat");
   var history = [];
 
-  function boot() {
-    if (document.querySelector(".rolin-chat")) return;
+  function el(tag, cls, text) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text != null) e.textContent = text;
+    return e;
+  }
 
-    function el(tag, cls, text) {
-      var e = document.createElement(tag);
-      if (cls) e.className = cls;
-      if (text != null) e.textContent = text;
-      return e;
+  function boot() {
+    var root = document.querySelector(".rolin-chat");
+    if (!root) {
+      root = el("div", "rolin-chat");
+      root.style.cssText = "position:fixed;right:20px;bottom:20px;z-index:9999;pointer-events:auto;";
+
+      var toggle = el("button", "rolin-chat-toggle", "Rolin AI");
+      toggle.type = "button";
+      toggle.setAttribute("aria-label", "Buka chat Rolin AI");
+      toggle.setAttribute("aria-expanded", "false");
+
+      var panel = el("div", "rolin-chat-panel");
+      panel.setAttribute("role", "dialog");
+      panel.setAttribute("aria-label", "Rolin AI");
+
+      var kepala = el("div", "rolin-chat-kepala");
+      var judul = el("h3", null, "Rolin AI");
+      var tutup = el("button", "rolin-chat-tutup", "×");
+      tutup.type = "button";
+      tutup.setAttribute("aria-label", "Tutup chat");
+      kepala.appendChild(judul);
+      kepala.appendChild(tutup);
+
+      var pesan = el("div", "rolin-chat-pesan");
+      pesan.setAttribute("aria-live", "polite");
+
+      var form = el("form", "rolin-chat-form");
+      var input = el("input", "rolin-chat-input");
+      input.type = "text";
+      input.placeholder = "Tanya tentang Rolin...";
+      input.setAttribute("aria-label", "Pertanyaan");
+      var kirim = el("button", "rolin-chat-kirim", "Kirim");
+      kirim.type = "submit";
+      form.appendChild(input);
+      form.appendChild(kirim);
+
+      panel.appendChild(kepala);
+      panel.appendChild(pesan);
+      panel.appendChild(form);
+      root.appendChild(toggle);
+      root.appendChild(panel);
+
+      var target = document.body || document.documentElement;
+      target.appendChild(root);
     }
 
-    var root = el("div", "rolin-chat");
-    root.style.cssText = "position:fixed;right:20px;bottom:20px;z-index:9999;";
+    var toggle = root.querySelector(".rolin-chat-toggle");
+    var panel = root.querySelector(".rolin-chat-panel");
+    var pesan = root.querySelector(".rolin-chat-pesan");
+    var form = root.querySelector(".rolin-chat-form");
+    var input = root.querySelector(".rolin-chat-input");
+    var kirim = root.querySelector(".rolin-chat-kirim");
+    var tutup = root.querySelector(".rolin-chat-tutup");
 
-    var toggle = el("button", "rolin-chat-toggle", "Rolin AI");
-    toggle.type = "button";
-    toggle.setAttribute("aria-label", "Buka chat Rolin AI");
-    toggle.setAttribute("aria-expanded", "false");
-
-    var panel = el("div", "rolin-chat-panel");
-    panel.setAttribute("role", "dialog");
-    panel.setAttribute("aria-label", "Rolin AI");
-
-    var kepala = el("div", "rolin-chat-kepala");
-    var judul = el("h3", null, "Rolin AI");
-    var tutup = el("button", "rolin-chat-tutup", "×");
-    tutup.type = "button";
-    tutup.setAttribute("aria-label", "Tutup chat");
-    kepala.appendChild(judul);
-    kepala.appendChild(tutup);
-
-    var pesan = el("div", "rolin-chat-pesan");
-    pesan.setAttribute("aria-live", "polite");
-
-    var form = el("form", "rolin-chat-form");
-    var input = el("input", "rolin-chat-input");
-    input.type = "text";
-    input.placeholder = "Tanya tentang Rolin...";
-    input.setAttribute("aria-label", "Pertanyaan");
-    var kirim = el("button", "rolin-chat-kirim", "Kirim");
-    kirim.type = "submit";
-    form.appendChild(input);
-    form.appendChild(kirim);
-
-    panel.appendChild(kepala);
-    panel.appendChild(pesan);
-    panel.appendChild(form);
-    root.appendChild(toggle);
-    root.appendChild(panel);
-
-    var target = document.body || document.documentElement;
-    target.appendChild(root);
+    if (!toggle || !panel || !pesan || !form || !input || !kirim) return;
 
     function balon(role, text) {
       var b = el("div", "rolin-chat-balon " + role, text);
@@ -65,10 +76,14 @@
     function buka() { panel.classList.add("terbuka"); toggle.setAttribute("aria-expanded", "true"); try { input.focus(); } catch (e) {} }
     function tutupPanel() { panel.classList.remove("terbuka"); toggle.setAttribute("aria-expanded", "false"); }
 
+    // Hindari double-binding
+    if (toggle.__bound) return;
+    toggle.__bound = true;
+
     toggle.addEventListener("click", function () {
       if (panel.classList.contains("terbuka")) tutupPanel(); else buka();
     });
-    tutup.addEventListener("click", tutupPanel);
+    if (tutup) tutup.addEventListener("click", tutupPanel);
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape" && panel.classList.contains("terbuka")) tutupPanel();
     });
