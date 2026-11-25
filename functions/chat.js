@@ -28,6 +28,28 @@ export async function onRequest(context) {
     });
   }
 
+  // Validasi payload kosong di edge agar tidak crash upstream lama.
+  if (request.method === "POST") {
+    try {
+      const clone = request.clone();
+      const body = await clone.json();
+      const msgs = Array.isArray(body && body.messages) ? body.messages : [];
+      const clean = msgs.filter((m) => m && (m.role === "user" || m.role === "assistant") && typeof m.content === "string");
+      if (clean.length === 0 || (clean[clean.length - 1] && clean[clean.length - 1].role !== "user")) {
+        return new Response(JSON.stringify({ error: "No user message" }), {
+          status: 400,
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": origin,
+            "Vary": "Origin",
+          },
+        });
+      }
+    } catch (e) {
+      // biarkan upstream yang menangani jika body bukan JSON
+    }
+  }
+
   const init = {
     method: request.method,
     headers: upstreamHeaders(request),
