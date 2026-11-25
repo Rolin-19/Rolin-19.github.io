@@ -80,14 +80,21 @@
     if (toggle.__bound) return;
     toggle.__bound = true;
 
-    toggle.addEventListener("click", function () {
-      // Class 'terbuka' sudah di-toggle oleh onclick inline (fallback tahan cache).
-      // Di sini hanya sinkronkan aria-expanded dan fokus.
+    // Sinkronkan ARIA & fokus berdasarkan state panel (tanpa menambah click
+    // listener pada tombol pemicu, agar tidak bentrok dengan onclick inline).
+    function syncState() {
       var terbuka = panel.classList.contains("terbuka");
       toggle.setAttribute("aria-expanded", terbuka ? "true" : "false");
+      panel.setAttribute("aria-hidden", terbuka ? "false" : "true");
       if (terbuka) { setTimeout(function () { try { input.focus(); } catch (e) {} }, 100); }
-    });
-    if (tutup) tutup.addEventListener("click", tutupPanel);
+    }
+    syncState();
+    if (window.MutationObserver) {
+      var obs = new MutationObserver(syncState);
+      obs.observe(panel, { attributes: true, attributeFilter: ["class"] });
+    }
+
+    if (tutup) tutup.addEventListener("click", function () { tutupPanel(); });
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape" && panel.classList.contains("terbuka")) tutupPanel();
     });

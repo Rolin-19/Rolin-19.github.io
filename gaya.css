@@ -1131,6 +1131,7 @@ strong{ font-weight: 600; color: var(--navy); }
 }
 .rolin-chat-form{
     display: flex; gap: 8px; padding: 10px 12px; border-top: 1px solid var(--garis);
+    flex-shrink: 0;
 }
 .rolin-chat-input{
     flex: 1 1 auto; min-height: 40px; padding: 8px 10px;
