@@ -27,6 +27,7 @@
   kepala.appendChild(tutup);
 
   var pesan = el("div", "rolin-chat-pesan");
+  pesan.setAttribute("aria-live", "polite");
   var form = el("form", "rolin-chat-form");
   var input = el("input", "rolin-chat-input");
   input.type = "text";
@@ -51,8 +52,8 @@
     return b;
   }
 
-  function buka() { panel.classList.add("terbuka"); input.focus(); }
-  function tutupPanel() { panel.classList.remove("terbuka"); }
+  function buka() { panel.classList.add("terbuka"); toggle.setAttribute("aria-expanded", "true"); input.focus(); }
+  function tutupPanel() { panel.classList.remove("terbuka"); toggle.setAttribute("aria-expanded", "false"); }
 
   toggle.addEventListener("click", function () {
     if (panel.classList.contains("terbuka")) tutupPanel(); else buka();

@@ -1,4 +1,4 @@
-/* ============================================================
+﻿/* ============================================================
    Portofolio Rolin Stallin Sitorus
    Arah desain: corporate yang rapi, dengan sentuhan teknologi.
    Tema terang (light-first), warna biru dipakai sebagai aksen saja.
@@ -1063,40 +1063,6 @@ strong{ font-weight: 600; color: var(--navy); }
     p, li, dd, dt{ orphans: 2; widows: 2; }
     #kontak{ break-inside: avoid; page-break-inside: avoid; }
 
-/* ============================================================
-   Chatbox Rolin AI
-   ============================================================ */
-.rolin-chat{ position: fixed; right: 20px; bottom: 20px; z-index: 90; font-family: var(--font); }
-.rolin-chat-toggle{
-    min-height: 44px; padding: 10px 16px; border-radius: 999px;
-    background: var(--biru); color: #fff; border: 0; cursor: pointer;
-    box-shadow: var(--bayang-angkat); font-weight: 600; font-size: 14px;
-}
-.rolin-chat-toggle:hover{ background: var(--biru-tua); }
-.rolin-chat-panel{
-    display: none; position: absolute; right: 0; bottom: 56px;
-    width: min(360px, calc(100vw - 40px)); height: 480px; max-height: 70vh;
-    background: var(--putih); border: 1px solid var(--garis); border-radius: var(--radius);
-    box-shadow: var(--bayang-angkat); flex-direction: column; overflow: hidden;
-}
-.rolin-chat-panel.terbuka{ display: flex; }
-.rolin-chat-kepala{
-    padding: 12px 14px; border-bottom: 1px solid var(--garis);
-    display: flex; align-items: center; justify-content: space-between;
-    background: var(--biru-muda);
-}
-.rolin-chat-kepala h3{ font-size: 15px; margin: 0; }
-.rolin-chat-tutup{ background: none; border: 0; cursor: pointer; font-size: 18px; color: var(--slate); }
-.rolin-chat-pesan{
-    flex: 1 1 auto; overflow-y: auto; padding: 12px 14px; display: flex; flex-direction: column; gap: 8px;
-}
-.rolin-chat-balon{ max-width: 85%; padding: 9px 12px; border-radius: 12px; font-size: 14px; line-height: 1.5; white-space: pre-wrap; }
-.rolin-chat-balon.user{ align-self: flex-end; background: var(--biru); color: #fff; }
-.rolin-chat-balon.bot{ align-self: flex-start; background: var(--dasar); color: var(--abu-isi); border: 1px solid var(--garis); }
-.rolin-chat-form{ display: flex; gap: 8px; padding: 10px 12px; border-top: 1px solid var(--garis); }
-.rolin-chat-input{ flex: 1 1 auto; min-height: 40px; padding: 8px 10px; border: 1px solid var(--garis-tegas); border-radius: var(--radius-kecil); font: inherit; font-size: 14px; }
-.rolin-chat-kirim{ min-height: 40px; padding: 8px 14px; border: 0; border-radius: var(--radius-kecil); background: var(--biru); color: #fff; cursor: pointer; font-weight: 600; }
-.rolin-chat-kirim:disabled{ opacity: .6; cursor: not-allowed; }
 
     /* Tabel jangan terpotong mendatar */
     .tabel-bungkus{ overflow: visible; }
@@ -1105,4 +1071,86 @@ strong{ font-weight: 600; color: var(--navy); }
     .contoh-terminal{ font-size: 8.5pt; padding: 12pt 14pt; }
 
     a{ color: var(--biru-tua); }
+}
+/* ============================================================
+   Chatbox Rolin AI
+   ============================================================ */
+.rolin-chat{
+    position: fixed; right: 20px; bottom: 20px; z-index: 90;
+    font-family: var(--font); color: var(--abu-isi);
+    contain: layout paint; max-width: calc(100vw - 40px);
+}
+.rolin-chat-toggle{
+    min-height: 44px; padding: 10px 16px; border-radius: 999px;
+    background: var(--biru); color: #fff; border: 0; cursor: pointer;
+    box-shadow: var(--bayang-angkat); font-weight: 600; font-size: 14px;
+    white-space: nowrap;
+}
+.rolin-chat-toggle:hover{ background: var(--biru-tua); }
+.rolin-chat-toggle:focus-visible{
+    outline: 2px solid var(--biru); outline-offset: 2px;
+}
+.rolin-chat-panel{
+    display: none; position: absolute; right: 0; bottom: 72px;
+    width: min(380px, calc(100vw - 40px));
+    height: min(520px, calc(100vh - 120px));
+    background: var(--putih); border: 1px solid var(--garis);
+    border-radius: var(--radius); box-shadow: var(--bayang-angkat);
+    flex-direction: column; overflow: hidden;
+}
+.rolin-chat-panel.terbuka{ display: flex; }
+.rolin-chat-kepala{
+    padding: 12px 14px; border-bottom: 1px solid var(--garis);
+    display: flex; align-items: center; justify-content: space-between;
+    background: var(--biru-muda);
+}
+.rolin-chat-kepala h3{
+    font-size: 15px; margin: 0; color: var(--navy); font-weight: 600;
+}
+.rolin-chat-tutup{
+    background: none; border: 0; cursor: pointer; font-size: 18px;
+    color: var(--slate); line-height: 1; padding: 0 4px;
+}
+.rolin-chat-tutup:hover{ color: var(--navy); }
+.rolin-chat-pesan{
+    flex: 1 1 auto; overflow-y: auto; padding: 12px 14px;
+    display: flex; flex-direction: column; gap: 8px;
+    overscroll-behavior: contain;
+}
+.rolin-chat-balon{
+    max-width: 85%; padding: 9px 12px; border-radius: 12px;
+    font-size: 14px; line-height: 1.5; white-space: pre-wrap;
+}
+.rolin-chat-balon.user{
+    align-self: flex-end; background: var(--biru); color: #fff;
+}
+.rolin-chat-balon.bot{
+    align-self: flex-start; background: var(--dasar); color: var(--abu-isi);
+    border: 1px solid var(--garis);
+}
+.rolin-chat-form{
+    display: flex; gap: 8px; padding: 10px 12px; border-top: 1px solid var(--garis);
+}
+.rolin-chat-input{
+    flex: 1 1 auto; min-height: 40px; padding: 8px 10px;
+    border: 1px solid var(--garis-tegas); border-radius: var(--radius-kecil);
+    font: inherit; font-size: 14px; color: var(--abu-isi);
+}
+.rolin-chat-input:focus{
+    outline: 0; border-color: var(--biru);
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, .18);
+}
+.rolin-chat-kirim{
+    min-height: 40px; padding: 8px 14px; border: 0;
+    border-radius: var(--radius-kecil); background: var(--biru);
+    color: #fff; cursor: pointer; font-weight: 600;
+}
+.rolin-chat-kirim:hover{ background: var(--biru-tua); }
+.rolin-chat-kirim:disabled{ opacity: .6; cursor: not-allowed; }
+@media (max-width: 480px){
+    .rolin-chat{ right: 12px; bottom: 12px; }
+    .rolin-chat-panel{
+        right: 0; bottom: 64px;
+        width: calc(100vw - 24px); height: min(460px, calc(100vh - 100px));
+    }
 }
