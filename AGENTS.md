@@ -13,6 +13,10 @@
 - Toggle buka/tutup panel chat ditangani oleh `onclick` inline di HTML; `input.focus()` (jeda 100ms) dan sinkronisasi ARIA HANYA di `assets/chat.js` (dilarang menggandakan `focus()` di HTML).
 - Gunakan satuan `dvh` pada kontainer chat mobile dan HTML entity `&times;` (bukan karakter mentah) untuk tombol tutup di `index.html` dan `en/index.html`.
 - Setiap kali mengubah file `.css`/`.js`, perbarui `?v=<short-hash>` secara konsisten di `index.html`, `en/index.html`, dan seluruh `proyek/*.html`.
+- UX mobile Rolin AI: `.rolin-chat-input` WAJIB `font-size: 16px` agar Chrome Android/iOS Safari tidak auto-zoom saat fokus.
+- `index.html` dan `en/index.html` WAJIB memakai `<meta name="viewport" content="width=device-width, initial-scale=1.0, interactive-widget=resizes-content">`.
+- `assets/chat.js` WAJIB menyinkronkan `.rolin-chat-panel` dengan `window.visualViewport` (`resize` dan `scroll`) pada layar `<= 768px`: hitung inset keyboard dari `innerHeight - (visualViewport.height + visualViewport.offsetTop)`, lalu set `bottom`/`maxHeight` inline agar input tetap di atas keyboard; reset inline style saat keyboard tutup atau panel ditutup.
+- Dilarang auto-focus paksa di perangkat `pointer: coarse` maupun layar `<= 768px`; `input.focus()` hanya untuk desktop. Tombol Kirim memakai listener `pointerdown`/`mousedown` dengan `preventDefault()` agar ketukan pertama tidak menurunkan keyboard.
 
 ## Keamanan & Verifikasi Wajib
 - Dilarang menuliskan API key/token (`GROQ_API_KEY`, `CLOUDFLARE_API_TOKEN`) di kode atau commit `.env`.

@@ -32,6 +32,13 @@
     return e;
   }
 
+  function isMobileLayout() { return window.innerWidth <= 768; }
+
+  function shouldAutoFocus() {
+    var coarse = window.matchMedia && window.matchMedia("(pointer: coarse)").matches;
+    return !coarse && !isMobileLayout();
+  }
+
   function boot() {
     var root = document.querySelector(".rolin-chat");
     if (!root) {
@@ -95,7 +102,35 @@
       return b;
     }
 
-    function tutupPanel() { panel.classList.remove("terbuka"); toggle.setAttribute("aria-expanded", "false"); }
+    function resetPanelLayout() {
+      panel.style.bottom = "";
+      panel.style.maxHeight = "";
+      panel.style.height = "";
+    }
+
+    function syncViewportLayout() {
+      var vv = window.visualViewport;
+      if (!panel.classList.contains("terbuka") || !isMobileLayout() || !vv) {
+        resetPanelLayout();
+        return;
+      }
+      var inset = Math.max(0, window.innerHeight - (vv.height + vv.offsetTop));
+      var keyboardOpen = vv.height < window.innerHeight - 120;
+      if (!keyboardOpen) {
+        resetPanelLayout();
+        return;
+      }
+      var available = Math.max(220, Math.min(vv.height - 24, window.innerHeight - inset - 24));
+      panel.style.bottom = (inset + 12) + "px";
+      panel.style.maxHeight = available + "px";
+      panel.style.height = available + "px";
+    }
+
+    function tutupPanel() {
+      panel.classList.remove("terbuka");
+      toggle.setAttribute("aria-expanded", "false");
+      resetPanelLayout();
+    }
 
     // Hindari double-binding
     if (toggle.__bound) return;
@@ -107,13 +142,28 @@
       var terbuka = panel.classList.contains("terbuka");
       toggle.setAttribute("aria-expanded", terbuka ? "true" : "false");
       panel.setAttribute("aria-hidden", terbuka ? "false" : "true");
-      if (terbuka) { setTimeout(function () { try { input.focus(); } catch (e) {} }, 100); }
+      // HP/layar sentuh: jangan memunculkan keyboard sebelum pengguna melihat panel.
+      if (terbuka && shouldAutoFocus()) {
+        setTimeout(function () { try { input.focus(); } catch (e) {} }, 100);
+      }
+      syncViewportLayout();
     }
     syncState();
     if (window.MutationObserver) {
       var obs = new MutationObserver(syncState);
       obs.observe(panel, { attributes: true, attributeFilter: ["class"] });
     }
+
+    if (window.visualViewport && isMobileLayout()) {
+      window.visualViewport.addEventListener("resize", syncViewportLayout);
+      window.visualViewport.addEventListener("scroll", syncViewportLayout);
+    }
+    window.addEventListener("resize", syncViewportLayout);
+
+    // Jaga fokus input saat tombol Kirim disentuh dengan keyboard terbuka.
+    ["pointerdown", "mousedown"].forEach(function (type) {
+      kirim.addEventListener(type, function (e) { if (e.cancelable) e.preventDefault(); });
+    });
 
     if (tutup) tutup.addEventListener("click", function () { tutupPanel(); });
     document.addEventListener("keydown", function (e) {
@@ -166,7 +216,7 @@
         balon("bot", UI.error);
       } finally {
         kirim.disabled = false;
-        try { input.focus(); } catch (e) {}
+        if (shouldAutoFocus()) { try { input.focus(); } catch (e) {} }
       }
     });
 

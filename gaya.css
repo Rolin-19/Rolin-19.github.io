@@ -1103,7 +1103,7 @@ strong{ font-weight: 600; color: var(--navy); }
 .rolin-chat-kepala{
     padding: 12px 14px; border-bottom: 1px solid var(--garis);
     display: flex; align-items: center; justify-content: space-between;
-    background: var(--biru-muda);
+    background: var(--biru-muda); flex-shrink: 0;
 }
 .rolin-chat-kepala h3{
     font-size: 15px; margin: 0; color: var(--navy); font-weight: 600;
@@ -1114,7 +1114,7 @@ strong{ font-weight: 600; color: var(--navy); }
 }
 .rolin-chat-tutup:hover{ color: var(--navy); }
 .rolin-chat-pesan{
-    flex: 1 1 auto; overflow-y: auto; padding: 12px 14px;
+    flex: 1 1 auto; min-height: 0; overflow-y: auto; padding: 12px 14px;
     display: flex; flex-direction: column; gap: 8px;
     overscroll-behavior: contain;
 }
@@ -1131,12 +1131,12 @@ strong{ font-weight: 600; color: var(--navy); }
 }
 .rolin-chat-form{
     display: flex; gap: 8px; padding: 10px 12px; border-top: 1px solid var(--garis);
-    flex-shrink: 0;
+    flex-shrink: 0; position: relative; z-index: 2;
 }
 .rolin-chat-input{
     flex: 1 1 auto; min-height: 40px; padding: 8px 10px;
     border: 1px solid var(--garis-tegas); border-radius: var(--radius-kecil);
-    font: inherit; font-size: 14px; color: var(--abu-isi);
+    font: inherit; font-size: 16px; color: var(--abu-isi);
 }
 .rolin-chat-input:focus{
     outline: 0; border-color: var(--biru);
@@ -1149,10 +1149,15 @@ strong{ font-weight: 600; color: var(--navy); }
 }
 .rolin-chat-kirim:hover{ background: var(--biru-tua); }
 .rolin-chat-kirim:disabled{ opacity: .6; cursor: not-allowed; }
-@media (max-width: 480px){
-    .rolin-chat{ right: 12px; bottom: 12px; }
+@media (max-width: 640px){
+    .rolin-chat{
+        right: 12px; bottom: 12px; max-width: none; contain: none;
+    }
     .rolin-chat-panel{
-        right: 0; bottom: 64px;
-        width: calc(100vw - 24px); height: min(460px, calc(100dvh - 100px));
+        position: fixed; left: 12px; right: 12px; bottom: 12px;
+        width: auto; max-width: none; box-sizing: border-box;
+        display: flex; flex-direction: column; overflow: hidden;
+        height: min(440px, calc(100dvh - 24px));
+        max-height: calc(100dvh - 24px);
     }
 }
