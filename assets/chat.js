@@ -69,6 +69,20 @@
     input.value = "";
     balon("user", q);
     history.push({ role: "user", content: q });
+
+    var low = q.toLowerCase().trim();
+    var lokal = null;
+    if (/^(halo|hai|hi|hello|pagi|siang|sore|malam|selamat pagi|selamat siang|selamat sore|selamat malam)[!.\s]*$/i.test(low)) {
+      lokal = "Halo! Saya Rolin AI. Silakan tanya tentang portofolio Rolin.";
+    } else if (/^(siapa kamu|siapa anda|kenapa kamu|apa kamu|kamu siapa)[?!\s]*$/i.test(low)) {
+      lokal = "Saya Rolin AI, asisten portofolio resmi Rolin Stallin Sitorus. Silakan tanya tentang Rolin.";
+    }
+    if (lokal) {
+      balon("bot", lokal);
+      history.push({ role: "assistant", content: lokal });
+      return;
+    }
+
     kirim.disabled = true;
     var loading = balon("bot", "...");
     try {
