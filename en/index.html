@@ -529,7 +529,7 @@
 
 <!-- Rolin AI widget (static markup, behavior attached by assets/chat.js) -->
 <div class="rolin-chat" style="position:fixed;right:20px;bottom:20px;z-index:9999;pointer-events:auto;">
-  <button class="rolin-chat-toggle" type="button" aria-label="Buka chat Rolin AI" aria-expanded="false" onclick="var p=this.parentElement.querySelector('.rolin-chat-panel'); if(p){var o=p.classList.toggle('terbuka'); this.setAttribute('aria-expanded', o?'true':'false'); p.setAttribute('aria-hidden', o?'false':'true'); if(o){setTimeout(function(){var i=p.querySelector('.rolin-chat-input'); if(i) try{i.focus();}catch(e){}},100);}}">Rolin AI</button>
+  <button class="rolin-chat-toggle" type="button" aria-label="Buka chat Rolin AI" aria-expanded="false" onclick="var p=this.parentElement.querySelector('.rolin-chat-panel'); if(p){var o=p.classList.toggle('terbuka'); this.setAttribute('aria-expanded', o?'true':'false'); p.setAttribute('aria-hidden', o?'false':'true');}">Rolin AI</button>
   <div class="rolin-chat-panel" role="dialog" aria-label="Rolin AI" aria-hidden="true">
     <div class="rolin-chat-kepala">
       <h3>Rolin AI</h3>

@@ -14,6 +14,20 @@ function upstreamHeaders(request) {
 
 export async function onRequest(context) {
   const request = context.request;
+  const origin = request.headers.get("Origin") || "https://rolin-19.github.io";
+
+  if (request.method === "OPTIONS") {
+    return new Response(null, {
+      status: 204,
+      headers: {
+        "Access-Control-Allow-Origin": origin,
+        "Access-Control-Allow-Methods": "POST, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type",
+        "Vary": "Origin",
+      },
+    });
+  }
+
   const init = {
     method: request.method,
     headers: upstreamHeaders(request),
@@ -26,10 +40,13 @@ export async function onRequest(context) {
 
   try {
     const response = await fetch(UPSTREAM, init);
+    const headers = new Headers(response.headers);
+    headers.set("Access-Control-Allow-Origin", origin);
+    headers.set("Vary", "Origin");
     return new Response(response.body, {
       status: response.status,
       statusText: response.statusText,
-      headers: response.headers,
+      headers: headers,
     });
   } catch (error) {
     return new Response(
@@ -38,7 +55,7 @@ export async function onRequest(context) {
         status: 502,
         headers: {
           "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": request.headers.get("Origin") || "https://rolin-19.github.io",
+          "Access-Control-Allow-Origin": origin,
           "Vary": "Origin",
         },
       },

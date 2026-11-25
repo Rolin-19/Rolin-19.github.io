@@ -105,18 +105,18 @@ export default {
       .slice(-8)
       .map((m) => ({ role: m.role, content: m.content.slice(0, 1000) }));
 
+    if (clean.length === 0 || clean[clean.length - 1].role !== "user") {
+      return new Response(JSON.stringify({ error: "No user message" }), {
+        status: 400,
+        headers: { "Content-Type": "application/json", ...corsHeaders(origin) },
+      });
+    }
+
     const lastUser = clean[clean.length - 1].content.trim().toLowerCase();
     const greetings = ["halo", "hai", "hi", "hello", "selamat pagi", "selamat siang", "selamat sore", "selamat malam", "pagi", "siang", "sore", "malam"];
     if (greetings.some((g) => lastUser === g || lastUser.startsWith(g + " ") || lastUser.startsWith(g + "!"))) {
       return new Response(JSON.stringify({ reply: "Halo! Saya Rolin AI. Silakan tanya tentang portofolio Rolin." }), {
         status: 200,
-        headers: { "Content-Type": "application/json", ...corsHeaders(origin) },
-      });
-    }
-
-    if (clean.length === 0 || clean[clean.length - 1].role !== "user") {
-      return new Response(JSON.stringify({ error: "No user message" }), {
-        status: 400,
         headers: { "Content-Type": "application/json", ...corsHeaders(origin) },
       });
     }

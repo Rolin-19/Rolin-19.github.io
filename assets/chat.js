@@ -73,7 +73,6 @@
       return b;
     }
 
-    function buka() { panel.classList.add("terbuka"); toggle.setAttribute("aria-expanded", "true"); setTimeout(function () { try { input.focus(); } catch (e) {} }, 100); }
     function tutupPanel() { panel.classList.remove("terbuka"); toggle.setAttribute("aria-expanded", "false"); }
 
     // Hindari double-binding
@@ -143,7 +142,6 @@
       }
     });
 
-    try { console.log("Rolin AI widget loaded"); } catch (e) {}
   }
 
   function start() {
