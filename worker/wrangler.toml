@@ -1,4 +1,5 @@
 name = "rolin-ai-v2"
+account_id = "1ff4c697a23391893a933bd2e8e1d847"
 main = "src/index.js"
 compatibility_date = "2026-11-25"
 
