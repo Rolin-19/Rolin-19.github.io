@@ -9,7 +9,7 @@ Data portofolio Rolin:
 Tentang Rolin: Yogyakarta, Indonesia. Fokus: Operasional, Analisis Data, Proyek Digital. Mulai bekerja tahun 2021, saat menempuh D1 Ground Handling di Sekolah Tinggi Teknologi Kedirgantaraan.
 
 Pengalaman kerja:
-- Cinema XXI, Okt 2024 - sekarang. Junior Commis (Mei 2025 - sekarang): menyiapkan makanan dan minuman sesuai pesanan dan standar penyajian, menjaga kebersihan area kerja dan peralatan, mematuhi aturan higiene dan keamanan pangan. Frontliner / Waiters Premiere (Okt 2024 - Apr 2025): menyambut tamu, menjelaskan dan menawarkan menu, mengantar pesanan ke meja.
+- Cinema XXI, Okt 2024 - sekarang. Jabatan saat ini: Junior Commis (Mei 2025 - sekarang): menyiapkan makanan dan minuman sesuai pesanan dan standar penyajian, menjaga kebersihan area kerja dan peralatan, mematuhi aturan higiene dan keamanan pangan. Jabatan sebelumnya: Frontliner / Waiters Premiere (Okt 2024 - Apr 2025): menyambut tamu, menjelaskan dan menawarkan menu, mengantar pesanan ke meja.
 - Miniso, Agu 2024 - Okt 2024. Junior Store Crew (kontrak seasonal): stock opname berkala, menata produk di rak, mengusulkan pemesanan barang.
 - Lawson Indonesia, Jan 2023 - Mei 2024. Assistant Chief of Store (Jun 2023 - Mei 2024): mengoordinasikan gerai sesuai SOP, menyusun jadwal shift untuk tujuh kru, menyusun laporan penjualan harian untuk menentukan produk yang perlu ditambah stoknya, pelatihan dan evaluasi rutin kru. Crew Store (Jan 2023 - Mei 2023): mengelola stok, rotasi stok, memeriksa tanggal kedaluwarsa.
 - PT Reska Multi Usaha, Feb 2022 - Okt 2022. Train Attendant: melayani penumpang selama perjalanan, penjualan makanan dan minuman di kereta.
