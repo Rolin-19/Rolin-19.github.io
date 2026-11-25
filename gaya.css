@@ -1094,7 +1094,7 @@ strong{ font-weight: 600; color: var(--navy); }
 .rolin-chat-panel{
     display: none; position: absolute; right: 0; bottom: 72px;
     width: min(380px, calc(100vw - 40px));
-    height: min(520px, calc(100vh - 120px));
+    height: min(520px, calc(100dvh - 120px));
     background: var(--putih); border: 1px solid var(--garis);
     border-radius: var(--radius); box-shadow: var(--bayang-angkat);
     flex-direction: column; overflow: hidden;
@@ -1152,6 +1152,6 @@ strong{ font-weight: 600; color: var(--navy); }
     .rolin-chat{ right: 12px; bottom: 12px; }
     .rolin-chat-panel{
         right: 0; bottom: 64px;
-        width: calc(100vw - 24px); height: min(460px, calc(100vh - 100px));
+        width: calc(100vw - 24px); height: min(460px, calc(100dvh - 100px));
     }
 }
