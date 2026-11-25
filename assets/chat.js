@@ -1,6 +1,6 @@
 (function () {
   "use strict";
-  var ENDPOINT = (window.ROLIN_AI_ENDPOINT || "https://rolin-ai-v2.stallinrolin.workers.dev/chat");
+  var ENDPOINT = (window.ROLIN_AI_ENDPOINT || "https://rolin-ai-api.pages.dev/chat");
   var history = [];
 
   function el(tag, cls, text) {
@@ -91,6 +91,7 @@
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ messages: history }),
       });
+      if (!res.ok) throw new Error("HTTP " + res.status);
       var data = await res.json();
       loading.remove();
       var reply = (data && data.reply) ? data.reply : "Itu belum ada di portofolio Rolin, bisa tanya langsung ke Rolin lewat kontak di web-nya.";
@@ -98,7 +99,7 @@
       history.push({ role: "assistant", content: reply });
     } catch (err) {
       loading.remove();
-      balon("bot", "Itu belum ada di portofolio Rolin, bisa tanya langsung ke Rolin lewat kontak di web-nya.");
+      balon("bot", "Maaf, koneksi Rolin AI belum tersedia. Silakan coba lagi.");
     } finally {
       kirim.disabled = false;
       input.focus();
