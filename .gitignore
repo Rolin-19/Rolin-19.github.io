@@ -34,3 +34,9 @@ _uji*.html
 Thumbs.db
 desktop.ini
 .DS_Store
+
+# --- Dependensi & konfigurasi lokal Cloudflare ---
+node_modules/
+.dev.vars
+.wrangler/
+
