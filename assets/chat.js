@@ -81,7 +81,11 @@
     toggle.__bound = true;
 
     toggle.addEventListener("click", function () {
-      if (panel.classList.contains("terbuka")) tutupPanel(); else buka();
+      // Class 'terbuka' sudah di-toggle oleh onclick inline (fallback tahan cache).
+      // Di sini hanya sinkronkan aria-expanded dan fokus.
+      var terbuka = panel.classList.contains("terbuka");
+      toggle.setAttribute("aria-expanded", terbuka ? "true" : "false");
+      if (terbuka) { setTimeout(function () { try { input.focus(); } catch (e) {} }, 100); }
     });
     if (tutup) tutup.addEventListener("click", tutupPanel);
     document.addEventListener("keydown", function (e) {
