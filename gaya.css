@@ -1076,9 +1076,10 @@ strong{ font-weight: 600; color: var(--navy); }
    Chatbox Rolin AI
    ============================================================ */
 .rolin-chat{
-    position: fixed; right: 20px; bottom: 20px; z-index: 90;
+    position: fixed; right: 20px; bottom: 20px; z-index: 9999;
     font-family: var(--font); color: var(--abu-isi);
     contain: layout paint; max-width: calc(100vw - 40px);
+    pointer-events: auto;
 }
 .rolin-chat-toggle{
     min-height: 44px; padding: 10px 16px; border-radius: 999px;
