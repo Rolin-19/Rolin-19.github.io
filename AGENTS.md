@@ -24,3 +24,7 @@
 ## Keamanan & Verifikasi Wajib
 - Dilarang menuliskan API key/token (`GROQ_API_KEY`, `CLOUDFLARE_API_TOKEN`) di kode atau commit `.env`.
 - Sebelum dan sesudah `git push`: jalankan `node --check` pada seluruh `.js`, serta uji `curl` ke endpoint live Pages Function (OPTIONS 204, POST `{"messages":[]}` 400, POST pesan valid 200).
+
+## Riwayat Checkpoint
+- `v1.0-floating-chat-stable` (tag anotasi) → commit `88891f7`, aset `?v=34ac67a1`. Checkpoint permanen floating chat Rolin AI stabil di desktop `1366×768`, tablet `768×1024`, dan mobile `390×844`; status lokal/remote terverifikasi (`refs/tags/v1.0-floating-chat-stable`). Jika eksperimen redesign gagal, titik kembali wajib tag ini.
+- `mobile-working-b164a8e` → commit `b164a8e`, titik aman perilaku mobile sebelum perbaikan klik desktop.
