@@ -1078,28 +1078,28 @@ strong{ font-weight: 600; color: var(--navy); }
 .rolin-chat{
     position: fixed; right: 20px; bottom: 20px; z-index: 9999;
     font-family: var(--font); color: var(--abu-isi);
-    contain: layout paint; max-width: calc(100vw - 40px);
+    contain: none; max-width: none;
     pointer-events: auto;
 }
 .rolin-chat-toggle{
     min-height: 44px; padding: 10px 16px; border-radius: 999px;
     background: var(--biru); color: #fff; border: 0; cursor: pointer;
     box-shadow: var(--bayang-angkat); font-weight: 600; font-size: 14px;
-    white-space: nowrap;
+    white-space: nowrap; position: relative; z-index: 10001; pointer-events: auto;
 }
 .rolin-chat-toggle:hover{ background: var(--biru-tua); }
 .rolin-chat-toggle:focus-visible{
     outline: 2px solid var(--biru); outline-offset: 2px;
 }
 .rolin-chat-panel{
-    display: none; position: absolute; right: 0; bottom: 72px;
+    display: none; pointer-events: none; position: absolute; right: 0; bottom: 72px;
     width: min(380px, calc(100vw - 40px));
     height: min(520px, calc(100dvh - 120px));
     background: var(--putih); border: 1px solid var(--garis);
     border-radius: var(--radius); box-shadow: var(--bayang-angkat);
     flex-direction: column; overflow: hidden;
 }
-.rolin-chat-panel.terbuka{ display: flex; }
+.rolin-chat-panel.terbuka{ display: flex; pointer-events: auto; }
 .rolin-chat-kepala{
     padding: 12px 14px; border-bottom: 1px solid var(--garis);
     display: flex; align-items: center; justify-content: space-between;
@@ -1151,7 +1151,7 @@ strong{ font-weight: 600; color: var(--navy); }
 .rolin-chat-kirim:disabled{ opacity: .6; cursor: not-allowed; }
 @media (max-width: 640px){
     .rolin-chat{
-        right: 12px; bottom: 12px; max-width: none; contain: none;
+        right: 12px; bottom: 12px; max-width: none;
     }
     .rolin-chat-panel{
         position: fixed; left: 12px; right: 12px; bottom: 12px;
