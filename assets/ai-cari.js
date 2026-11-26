@@ -71,6 +71,8 @@
 
   var history = [];
   var requestId = 0;
+  var sorotTarget = null;
+  var sorotTimer = null;
 
   function el(tag, text) {
     var e = document.createElement(tag);
@@ -80,6 +82,32 @@
 
   function bersihkan(teks) {
     return String(teks || "").replace(/\*\*/g, "").trim();
+  }
+
+  function kurangiGerak() {
+    return !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  }
+
+  function hapusSorotan() {
+    if (sorotTimer !== null) {
+      clearTimeout(sorotTimer);
+      sorotTimer = null;
+    }
+    if (sorotTarget) {
+      sorotTarget.classList.remove("ai-sorot-sumber");
+      sorotTarget = null;
+    }
+  }
+
+  function sorot(target) {
+    hapusSorotan();
+    sorotTarget = target;
+    target.classList.add("ai-sorot-sumber");
+    sorotTimer = window.setTimeout(function () {
+      if (sorotTarget) sorotTarget.classList.remove("ai-sorot-sumber");
+      sorotTarget = null;
+      sorotTimer = null;
+    }, 2400);
   }
 
   function renderRingkasan(teks) {
@@ -222,6 +250,24 @@
         syncReset();
         ajukan(teks);
       });
+    });
+
+    sumber.addEventListener("click", function (e) {
+      var a = e.target && e.target.closest ? e.target.closest("a") : null;
+      if (!a || !sumber.contains(a)) return;
+      var href = a.getAttribute("href") || "";
+      if (href.charAt(0) !== "#" || href.length <= 1) return;
+      var target = null;
+      try { target = document.querySelector(href); } catch (err) { return; }
+      if (!target) return;
+      e.preventDefault();
+      target.scrollIntoView({
+        behavior: kurangiGerak() ? "auto" : "smooth",
+        block: "start"
+      });
+      sorot(target);
+      target.setAttribute("tabindex", "-1");
+      try { target.focus({ preventScroll: true }); } catch (err) {}
     });
 
     if (tutup) {

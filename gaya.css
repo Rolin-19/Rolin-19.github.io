@@ -1160,6 +1160,22 @@ strong{ font-weight: 600; color: var(--navy); }
     font-size: 12px; font-weight: 500; text-decoration: none;
 }
 .ai-cari-sumber a:hover{ border-color: var(--biru); text-decoration: underline; }
+
+/* Sorotan singkat saat tautan sumber AI Overview mengarah ke seksi inline */
+#tentang, #pengalaman, #proyek, #keahlian, #kontak,
+#about, #experience, #projects, #skills, #contact{
+    scroll-margin-top: calc(var(--tinggi-kepala, 64px) + 20px);
+}
+.ai-sorot-sumber{
+    background-color: var(--biru-muda);
+    box-shadow: 0 0 0 2px var(--biru);
+    border-radius: var(--radius);
+    transition: background-color 0.45s ease, box-shadow 0.45s ease;
+}
+@media (prefers-reduced-motion: reduce){
+    .ai-sorot-sumber{ transition: none !important; }
+}
+
 .ai-cari-status{
     margin: 0; padding: 0 20px 18px;
     font-size: 14px; color: var(--slate);
