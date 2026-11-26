@@ -1073,92 +1073,106 @@ strong{ font-weight: 600; color: var(--navy); }
     a{ color: var(--biru-tua); }
 }
 /* ============================================================
-   Chatbox Rolin AI
+   Portfolio AI Search / AI Overview (inline)
    ============================================================ */
-.rolin-chat{
-    position: fixed; right: 20px; bottom: 20px; z-index: 9999;
-    font-family: var(--font); color: var(--abu-isi);
-    contain: none; max-width: none;
-    pointer-events: auto;
+.ai-cari{ padding-top: 72px; }
+.ai-cari .wadah{ max-width: 780px; }
+.ai-cari-form{
+    display: flex; align-items: stretch; gap: 10px;
+    margin-top: 4px; padding: 8px;
+    background: var(--putih); border: 1px solid var(--garis-tegas);
+    border-radius: 999px; box-shadow: var(--bayang);
 }
-.rolin-chat-toggle{
-    min-height: 44px; padding: 10px 16px; border-radius: 999px;
-    background: var(--biru); color: #fff; border: 0; cursor: pointer;
-    box-shadow: var(--bayang-angkat); font-weight: 600; font-size: 14px;
-    white-space: nowrap; position: relative; z-index: 10001; pointer-events: auto;
+.ai-cari-form:focus-within{
+    border-color: var(--biru);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, .14);
 }
-.rolin-chat-toggle:hover{ background: var(--biru-tua); }
-.rolin-chat-toggle:focus-visible{
-    outline: 2px solid var(--biru); outline-offset: 2px;
+.ai-cari-bidang{
+    position: relative; flex: 1 1 auto; min-width: 0;
+    display: flex; align-items: center;
 }
-.rolin-chat-panel{
-    display: none; pointer-events: none; position: absolute; right: 0; bottom: 72px;
-    width: min(380px, calc(100vw - 40px));
-    height: min(520px, calc(100dvh - 120px));
-    background: var(--putih); border: 1px solid var(--garis);
-    border-radius: var(--radius); box-shadow: var(--bayang-angkat);
-    flex-direction: column; overflow: hidden;
+.ai-cari-input{
+    width: 100%; min-width: 0; min-height: 44px;
+    padding: 6px 42px 6px 18px;
+    border: 0; border-radius: 999px;
+    background: transparent; color: var(--abu-isi);
+    font: inherit; font-size: 16px;
 }
-.rolin-chat-panel.terbuka{ display: flex; pointer-events: auto; z-index: 10002; }
-.rolin-chat-kepala{
-    padding: 12px 14px; border-bottom: 1px solid var(--garis);
-    display: flex; align-items: center; justify-content: space-between;
-    background: var(--biru-muda); flex-shrink: 0;
+.ai-cari-input:focus{ outline: 0; }
+.ai-cari-input::-webkit-search-cancel-button{ -webkit-appearance: none; appearance: none; }
+.ai-cari-reset{
+    position: absolute; right: 10px; top: 50%; transform: translateY(-50%);
+    width: 30px; height: 30px; padding: 0;
+    border: 0; border-radius: 50%;
+    background: var(--dasar); color: var(--slate);
+    font-size: 18px; line-height: 1; cursor: pointer;
 }
-.rolin-chat-kepala h3{
-    font-size: 15px; margin: 0; color: var(--navy); font-weight: 600;
+.ai-cari-reset[hidden]{ display: none; }
+.ai-cari-kirim{
+    min-height: 44px; padding: 8px 22px; border: 0; border-radius: 999px;
+    background: var(--biru); color: #fff;
+    font: inherit; font-size: 15px; font-weight: 600; cursor: pointer;
 }
-.rolin-chat-tutup{
-    background: none; border: 0; cursor: pointer; font-size: 18px;
-    color: var(--slate); line-height: 1; padding: 0 4px;
+.ai-cari-kirim:hover{ background: var(--biru-tua); }
+.ai-cari-kirim:disabled{ opacity: .6; cursor: not-allowed; }
+.ai-cari-chip-baris{ margin-top: 16px; gap: 8px; }
+.ai-cari-chip{
+    margin: 0; padding: 6px 12px;
+    border: 1px solid var(--garis); border-radius: 999px;
+    background: var(--putih); color: var(--abu-isi);
+    font: inherit; font-size: 12px; font-weight: 500; cursor: pointer;
 }
-.rolin-chat-tutup:hover{ color: var(--navy); }
-.rolin-chat-pesan{
-    flex: 1 1 auto; min-height: 0; overflow-y: auto; padding: 12px 14px;
-    display: flex; flex-direction: column; gap: 8px;
-    overscroll-behavior: contain;
+.ai-cari-chip:hover{
+    border-color: var(--biru); color: var(--biru); background: var(--biru-muda);
 }
-.rolin-chat-balon{
-    max-width: 85%; padding: 9px 12px; border-radius: 12px;
-    font-size: 14px; line-height: 1.5; white-space: pre-wrap;
+.ai-cari-kartu{
+    margin-top: 20px; overflow: hidden;
+    background: var(--putih); border: 1px solid var(--garis-tegas);
+    border-radius: var(--radius); box-shadow: var(--bayang);
 }
-.rolin-chat-balon.user{
-    align-self: flex-end; background: var(--biru); color: #fff;
+.ai-cari-kartu[hidden]{ display: none; }
+.ai-cari-kepala{
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    padding: 12px 18px; background: var(--biru-muda);
+    border-bottom: 1px solid var(--garis);
 }
-.rolin-chat-balon.bot{
-    align-self: flex-start; background: var(--dasar); color: var(--abu-isi);
-    border: 1px solid var(--garis);
+.ai-cari-kepala h3{
+    margin: 0; color: var(--navy);
+    font-size: 13px; font-weight: 600; letter-spacing: .10em; text-transform: uppercase;
 }
-.rolin-chat-form{
-    display: flex; gap: 8px; padding: 10px 12px; border-top: 1px solid var(--garis);
-    flex-shrink: 0; position: relative; z-index: 2;
+.ai-cari-tutup{
+    padding: 0 4px; border: 0; background: none;
+    color: var(--slate); font-size: 20px; line-height: 1; cursor: pointer;
 }
-.rolin-chat-input{
-    flex: 1 1 auto; min-height: 40px; padding: 8px 10px;
-    border: 1px solid var(--garis-tegas); border-radius: var(--radius-kecil);
-    font: inherit; font-size: 16px; color: var(--abu-isi);
+.ai-cari-tutup:hover{ color: var(--navy); }
+.ai-cari-ringkasan{ padding: 18px 20px 8px; }
+.ai-cari-ringkasan p{ margin: 0 0 10px; font-size: 15px; color: var(--abu-isi); }
+.ai-cari-ringkasan ul{ margin: 0 0 10px; padding-left: 20px; }
+.ai-cari-ringkasan li{ margin-bottom: 6px; font-size: 15px; line-height: 1.55; }
+.ai-cari-sumber{
+    margin-top: 6px; padding: 12px 20px 20px;
+    border-top: 1px solid var(--garis); gap: 8px;
 }
-.rolin-chat-input:focus{
-    outline: 0; border-color: var(--biru);
-    box-shadow: 0 0 0 2px rgba(37, 99, 235, .18);
+.ai-cari-sumber a{
+    margin: 0; padding: 5px 10px;
+    border: 1px solid var(--garis); border-radius: 999px;
+    background: var(--dasar); color: var(--biru);
+    font-size: 12px; font-weight: 500; text-decoration: none;
 }
-.rolin-chat-kirim{
-    min-height: 40px; padding: 8px 14px; border: 0;
-    border-radius: var(--radius-kecil); background: var(--biru);
-    color: #fff; cursor: pointer; font-weight: 600;
+.ai-cari-sumber a:hover{ border-color: var(--biru); text-decoration: underline; }
+.ai-cari-status{
+    margin: 0; padding: 0 20px 18px;
+    font-size: 14px; color: var(--slate);
 }
-.rolin-chat-kirim:hover{ background: var(--biru-tua); }
-.rolin-chat-kirim:disabled{ opacity: .6; cursor: not-allowed; }
-@media (max-width: 640px){
-    .rolin-chat{
-        right: 12px; bottom: 12px; max-width: none;
-    }
-    .rolin-chat-panel{
-        position: fixed; left: 12px; right: 12px; bottom: 12px;
-        width: auto; max-width: none; box-sizing: border-box;
-        flex-direction: column; overflow: hidden;
-        height: min(440px, calc(100dvh - 24px));
-        max-height: calc(100dvh - 24px);
-    }
-    .rolin-chat-panel.terbuka{ display: flex; }
+.ai-cari-status:empty{ padding: 0; }
+@media (max-width: 760px){
+    .ai-cari{ padding-top: 56px; }
+    .ai-cari-form{ flex-wrap: wrap; border-radius: var(--radius); padding: 10px; }
+    .ai-cari-bidang{ flex-basis: 100%; }
+    .ai-cari-kirim{ width: 100%; }
+    .ai-cari-chip-baris{ gap: 6px; }
+    .ai-cari-chip{ padding: 6px 10px; }
+    .ai-cari-ringkasan{ padding: 16px 16px 6px; }
+    .ai-cari-sumber{ padding: 12px 16px 16px; }
+    .ai-cari-status{ padding: 0 16px 16px; }
 }

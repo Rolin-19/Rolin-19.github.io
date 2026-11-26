@@ -18,7 +18,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../gaya.css?v=34ac67a1">
+<link rel="stylesheet" href="../gaya.css?v=85cd4251">
 <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
 
 <script type="application/ld+json">
@@ -84,6 +84,39 @@
                 </div>
             </div>
         </div>
+    </div>
+</section>
+
+<!-- ===================== AI OVERVIEW ===================== -->
+<section class="seksi ai-cari" aria-labelledby="ai-cari-judul">
+    <div class="wadah">
+        <h2 class="sr-only" id="ai-cari-judul">Rolin AI portfolio search</h2>
+        <p class="label-kecil ai-cari-label">Ask Portfolio &middot; AI Overview</p>
+        <form class="ai-cari-form" role="search">
+            <label class="sr-only" for="ai-cari-input">Search portfolio content</label>
+            <span class="ai-cari-bidang">
+                <input class="ai-cari-input" id="ai-cari-input" type="search" name="q"
+                       placeholder="Search experience, VISOP, data analysis..."
+                       autocomplete="off">
+                <button class="ai-cari-reset" type="button" aria-label="Clear keyword" hidden>&times;</button>
+            </span>
+            <button class="ai-cari-kirim" type="submit">Search</button>
+        </form>
+        <div class="alat ai-cari-chip-baris" role="group" aria-label="Quick questions">
+            <button class="ai-cari-chip" type="button">What is Rolin's work experience?</button>
+            <button class="ai-cari-chip" type="button">Explain the VISOP project</button>
+            <button class="ai-cari-chip" type="button">Python &amp; SQL data projects</button>
+            <button class="ai-cari-chip" type="button">Education &amp; certificates</button>
+        </div>
+        <article class="ai-cari-kartu" aria-labelledby="ai-cari-kartu-judul" hidden>
+            <div class="ai-cari-kepala">
+                <h3 id="ai-cari-kartu-judul">AI Overview &middot; Rolin's Portfolio Sources</h3>
+                <button class="ai-cari-tutup" type="button" aria-label="Close summary">&times;</button>
+            </div>
+            <div class="ai-cari-ringkasan" aria-live="polite"></div>
+            <div class="alat ai-cari-sumber" aria-label="Portfolio sources"></div>
+            <p class="ai-cari-status" role="status" aria-live="polite"></p>
+        </article>
     </div>
 </section>
 
@@ -527,22 +560,6 @@
     </div>
 </footer>
 
-<!-- Rolin AI widget (static markup, behavior attached by assets/chat.js) -->
-<div class="rolin-chat" style="position:fixed;right:20px;bottom:20px;z-index:9999;pointer-events:auto;">
-  <button class="rolin-chat-toggle" type="button" aria-label="Open Rolin AI chat" aria-expanded="false" onclick="var p=this.parentElement.querySelector('.rolin-chat-panel'); if(p){var o=p.classList.toggle('terbuka'); this.setAttribute('aria-expanded', o?'true':'false'); p.setAttribute('aria-hidden', o?'false':'true');}">Rolin AI</button>
-  <div class="rolin-chat-panel" role="dialog" aria-label="Rolin AI" aria-hidden="true">
-    <div class="rolin-chat-kepala">
-      <h3>Rolin AI</h3>
-      <button class="rolin-chat-tutup" type="button" aria-label="Close Rolin AI chat" onclick="var r=this.closest('.rolin-chat'); var p=r.querySelector('.rolin-chat-panel'); var t=r.querySelector('.rolin-chat-toggle'); if(p) p.classList.remove('terbuka'); if(p) p.setAttribute('aria-hidden','true'); if(t) t.setAttribute('aria-expanded','false');">&times;</button>
-    </div>
-    <div class="rolin-chat-pesan" aria-live="polite"></div>
-    <form class="rolin-chat-form">
-      <input class="rolin-chat-input" type="text" placeholder="Ask about Rolin..." aria-label="Question for Rolin AI">
-      <button class="rolin-chat-kirim" type="submit">Send</button>
-    </form>
-  </div>
-</div>
-
 <script>
 (function () {
     var tombol = document.querySelector('.tombol-menu');
@@ -570,7 +587,7 @@
     });
 })();
 </script>
-<script src="../assets/chat.js?v=34ac67a1" defer></script>
+<script src="../assets/ai-cari.js?v=85cd4251" defer></script>
 
 </body>
 </html>
