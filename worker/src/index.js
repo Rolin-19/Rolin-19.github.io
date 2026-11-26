@@ -116,6 +116,10 @@ export default {
       });
     }
 
+    const languageDirective = prefersEnglish(lastUser)
+      ? "FINAL LANGUAGE CHECK: The visitor asked in English. Reply entirely in English. Do not use Indonesian words."
+      : "FINAL LANGUAGE CHECK: Pengguna bertanya dalam bahasa Indonesia. Balas seluruhnya dalam bahasa Indonesia. Jangan gunakan kalimat bahasa Inggris.";
+
     try {
       const groqRes = await fetch("https://api.groq.com/openai/v1/chat/completions", {
         method: "POST",
@@ -125,7 +129,11 @@ export default {
         },
         body: JSON.stringify({
           model: env.MODEL || "llama-3.1-8b-instant",
-          messages: [{ role: "system", content: SYSTEM_PROMPT }, ...clean],
+          messages: [
+            { role: "system", content: SYSTEM_PROMPT },
+            { role: "system", content: languageDirective },
+            ...clean
+          ],
           temperature: 0.2,
           max_tokens: Number(env.MAX_TOKENS) || 300,
         }),
