@@ -29,6 +29,12 @@
 - Dilarang menuliskan API key/token (`GROQ_API_KEY`, `CLOUDFLARE_API_TOKEN`) di kode atau commit `.env`.
 - Sebelum dan sesudah `git push`: jalankan `node --check` pada seluruh `.js`, serta uji `curl` ke endpoint live Pages Function (OPTIONS 204, POST `{"messages":[]}` 400, POST pesan valid 200).
 
+## Komponen Aktif yang Wajib Dijaga
+- Pencarian `.ai-cari` di `index.html`/`en/index.html` beserta `assets/ai-cari.js`: struktur, ID, chips, kartu tersembunyi default, dan rendering aman `document.createElement` + `textContent` tidak boleh diubah tanpa keperluan eksplisit.
+- Worker `worker/src/index.js`: prompt AI Overview bersumber tertutup, direktif bahasa, penolakan 1 kalimat untuk topik luar portofolio, URL CV ID/EN, dan guard `clean.length === 0` di urutan paling awal wajib dipertahankan.
+- `cv.html` dan `en/cv.html`: halaman ATS satu kolom polos, bebas tabel, bebas elemen dekoratif, bebas *AI slop*; `.cv-toolbar` hanya untuk layar dan hilang saat cetak.
+
 ## Riwayat Checkpoint
-- `v1.0-floating-chat-stable` (tag anotasi) → commit `88891f7`, aset `?v=34ac67a1`. Checkpoint permanen floating chat Rolin AI stabil di desktop `1366×768`, tablet `768×1024`, dan mobile `390×844`; status lokal/remote terverifikasi (`refs/tags/v1.0-floating-chat-stable`). Jika eksperimen redesign gagal, titik kembali wajib tag ini.
+- `v2.0-ai-overview-and-ats-cv-stable` (tag anotasi) → commit `1055953`, aset `?v=85cd4251`. Checkpoint permanen portofolio dengan AI Overview gaya Google dan halaman CV ATS anti-slop ID/EN; status lokal/remote terverifikasi (`refs/tags/v2.0-ai-overview-and-ats-cv-stable`). Tag mengunci commit `1055953`; commit dokumentasi `AGENTS.md` setelahnya tidak memindahkan tag.
+- `v1.0-floating-chat-stable` (tag anotasi) → commit `88891f7`, aset `?v=34ac67a1`. Checkpoint permanen floating chat Rolin AI stabil di desktop `1366×768`, tablet `768×1024`, dan mobile `390×844`; status lokal/remote terverifikasi (`refs/tags/v1.0-floating-chat-stable`). Tag cadangan tetap dipertahankan sebagai titik kembali lama.
 - `mobile-working-b164a8e` → commit `b164a8e`, titik aman perilaku mobile sebelum perbaikan klik desktop.
