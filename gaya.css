@@ -1099,7 +1099,7 @@ strong{ font-weight: 600; color: var(--navy); }
     border-radius: var(--radius); box-shadow: var(--bayang-angkat);
     flex-direction: column; overflow: hidden;
 }
-.rolin-chat-panel.terbuka{ display: flex; pointer-events: auto; }
+.rolin-chat-panel.terbuka{ display: flex; pointer-events: auto; z-index: 10002; }
 .rolin-chat-kepala{
     padding: 12px 14px; border-bottom: 1px solid var(--garis);
     display: flex; align-items: center; justify-content: space-between;
