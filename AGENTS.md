@@ -18,6 +18,13 @@
 - `worker/src/index.js` WAJIB berperilaku sebagai mesin pencari/perangkum AI Overview dengan sumber data tertutup, menolak topik di luar portofolio dalam 1 kalimat, mengikuti bahasa pertanyaan, dan tanpa basa-basi obrolan. Guard `clean.length === 0` tetap di urutan paling awal.
 - Setiap kali mengubah `.css`/`.js`, hitung `?v=<short-hash>` dari bytes `gaya.css` + `assets/ai-cari.js` (8 hex SHA-256 pertama) lalu perbarui secara konsisten di `index.html`, `en/index.html`, dan seluruh `proyek/*.html` / `en/*.html`. `assets/chat.js` adalah arsip dari tag `v1.0-floating-chat-stable` dan tidak direferensikan.
 
+## Halaman CV ATS Terpisah
+- `cv.html` (ID) dan `en/cv.html` (EN) adalah dokumen ATS mandiri, bukan halaman web portofolio. Dilarang memakai header navigasi web, footer web, kartu bayangan, multi-kolom, tabel, grafik skill, foto, atau emoji.
+- Keduanya wajib satu kolom, `font-family: Calibri, Arial, sans-serif`, teks hitam di atas putih, dan `@page { size: A4; margin: 14mm 16mm; }`. `.cv-toolbar` hanya untuk layar dan wajib `display: none !important;` di `@media print`; tombolnya memanggil `window.print()`.
+- Isi wajib faktual sesuai `index.html`/`en/index.html`. Dilarang memakai klise AI: *berdedicasi tinggi, visioner, dinamis, inovatif terdepan, sinergi, mengoptimalkan secara holistik, passionate, cutting-edge, dynamic, spearheaded, leveraging, results-driven*.
+- Tautan CV di `.tombol-baris` hero memakai kelas tombol sekunder yang sudah ada (`tombol tombol-garis`) dengan `target="_blank" rel="noopener"`; ditambahkan pula di `.daftar-kontak` seksi `05`/`05`. Struktur, ID, dan penomoran `01`–`05`, serta blok `.ai-cari`, tidak boleh diubah.
+- `worker/src/index.js` wajib mengetahui `https://rolin-19.github.io/cv.html` dan `https://rolin-19.github.io/en/cv.html`; jika ditanya CV/resume, jawaban menyertakan tautan yang cocok bahasanya.
+
 ## Keamanan & Verifikasi Wajib
 - Dilarang menuliskan API key/token (`GROQ_API_KEY`, `CLOUDFLARE_API_TOKEN`) di kode atau commit `.env`.
 - Sebelum dan sesudah `git push`: jalankan `node --check` pada seluruh `.js`, serta uji `curl` ke endpoint live Pages Function (OPTIONS 204, POST `{"messages":[]}` 400, POST pesan valid 200).
